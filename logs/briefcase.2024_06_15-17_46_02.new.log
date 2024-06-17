@@ -1,0 +1,688 @@
+Date/Time:       2024-06-15 17:46:03 
+Command line:    C:\Users\HP\anaconda3\Scripts\briefcase new
+
+OS Release:      Windows 10
+OS Version:      10.0.22000
+Architecture:    AMD64
+Platform:        Windows-10-10.0.22000-SP0
+
+Python exe:      C:\Users\HP\anaconda3\python.exe
+Python version:  3.9.13 (main, Aug 25 2022, 23:51:50) [MSC v.1916 64 bit (AMD64)]
+Virtual env:     False
+Conda env:       True
+
+Briefcase:       0.3.19
+Target platform: all
+Target format:   None
+
+Environment Variables:
+	ALLUSERSPROFILE=C:\ProgramData
+	APPDATA=C:\Users\HP\AppData\Roaming
+	CABAL_DIR=C:\cabal
+	CHOCOLATEYINSTALL=C:\ProgramData\chocolatey
+	CHOCOLATEYLASTPATHUPDATE=132486809631634375
+	COMMONPROGRAMFILES=C:\Program Files\Common Files
+	COMMONPROGRAMFILES(X86)=C:\Program Files (x86)\Common Files
+	COMMONPROGRAMW6432=C:\Program Files\Common Files
+	COMPUTERNAME=VYSHNAV
+	COMSPEC=C:\WINDOWS\system32\cmd.exe
+	DRIVERDATA=C:\Windows\System32\Drivers\DriverData
+	GHCUP_INSTALL_BASE_PREFIX=C:\
+	GHCUP_MSYS2_ENV=MINGW64
+	HOMEDRIVE=C:
+	HOMEPATH=\Users\HP
+	INTEL_DEV_REDIST=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\
+	LOCALAPPDATA=C:\Users\HP\AppData\Local
+	LOGONSERVER=\\VYSHNAV
+	MIC_LD_LIBRARY_PATH=C:\Program Files (x86)\Common Files\Intel\Shared Libraries\compiler\lib\mic
+	NUMBER_OF_PROCESSORS=8
+	ONEDRIVE=C:\Users\HP\OneDrive
+	ONLINESERVICES=Online Services
+	OPENSLPCONFIG=C:\ProgramData\slp\slp.conf
+	OS=Windows_NT
+	PATH=C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\system32\Wbem;C:\Python311\Scripts\;C:\Python311\;C:\Program Files\Common Files\Oracle\Java\javapath;C:\Program Files (x86)\Common Files\Intel\Shared Libraries\redist\intel64\compiler;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files (x86)\Skype\Phone\;C:\ProgramData\chocolatey\bin;C:\Program Files\Git\cmd;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Java\jdk-18.0.1.1\bin;C:\xampp\php;C:\Users\HP\anaconda3;C:\Users\HP\anaconda3\Scripts\;C:\Program Files\GTK3-Runtime Win64\bin;C:\Users\HP\anaconda3\Library\plugins;C:\Program Files\nodejs\;‪C:\Users\HP\AppData\Roaming\local\bin;C:\Program Files\MySQL\MySQL Shell 8.0\bin\;C:\Users\HP\AppData\Local\Programs\Microsoft VS Code\bin;C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.2\bin;;C:\Users\HP\AppData\Roaming\npm;C:\Program Files\Azure Data Studio\bin;C:\msys64\ucrt64\bin;C:\Users\HP\AppData\Local\GitHubDesktop\bin;C:\ghcup\bin
+	PATHEXT=.COM;.EXE;.BAT;.CMD;.VBS;.VBE;.JS;.JSE;.WSF;.WSH;.MSC;.PY;.PYW;.CPL
+	PLATFORMCODE=KV
+	PROCESSOR_ARCHITECTURE=AMD64
+	PROCESSOR_IDENTIFIER=AMD64 Family 23 Model 24 Stepping 1, AuthenticAMD
+	PROCESSOR_LEVEL=23
+	PROCESSOR_REVISION=1801
+	PROGRAMDATA=C:\ProgramData
+	PROGRAMFILES=C:\Program Files
+	PROGRAMFILES(X86)=C:\Program Files (x86)
+	PROGRAMW6432=C:\Program Files
+	PSMODULEPATH=C:\Users\HP\Documents\WindowsPowerShell\Modules;C:\Program Files\WindowsPowerShell\Modules;C:\WINDOWS\system32\WindowsPowerShell\v1.0\Modules
+	PUBLIC=C:\Users\Public
+	PYCHARM COMMUNITY EDITION=C:\Program Files\JetBrains\PyCharm Community Edition 2022.3.2\bin;
+	REGIONCODE=APJ
+	SESSIONNAME=Console
+	SYSTEMDRIVE=C:
+	SYSTEMROOT=C:\WINDOWS
+	TEMP=C:\Users\HP\AppData\Local\Temp
+	TMP=C:\Users\HP\AppData\Local\Temp
+	USERDOMAIN=VYSHNAV
+	USERDOMAIN_ROAMINGPROFILE=VYSHNAV
+	USERNAME=HP
+	USERPROFILE=C:\Users\HP
+	VS160COMCOMNTOOLS=C:\Program Files (x86)\Microsoft Visual Studio\2019\Community\Common7\Tools\
+	WINDIR=C:\WINDOWS
+	WORKON_HOME=C:\Users\YourUsername\Envs
+	WSLENV=WT_SESSION:WT_PROFILE_ID:
+	WT_PROFILE_ID={61c54bbd-c2c6-5271-96e7-009a87ff44bf}
+	WT_SESSION=85c1d2cb-9025-45dd-9ee7-15fd6c463908
+
+pyproject.toml:
+[Errno 2] No such file or directory: 'F:\\QT\\pyproject.toml'
+
+Briefcase Log:
+[17:43:32]                                                                                                                                                                new.py:705
+           Let's build a new Briefcase app!                                                                                                                               new.py:706
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Formal Name ---------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           First, we need a formal name for your application.                                                                                                             new.py:327
+                                                                                                                                                                                    
+           This is the name that will be displayed to humans whenever the name of the                                                                                               
+           application is displayed. It can have spaces and punctuation if you like, and                                                                                            
+           any capitalization will be used as you type it.                                                                                                                          
+                                                                                                                                                                          new.py:328
+[17:43:38] Formal Name [Hello World]:                                                                                                                                     new.py:472
+           User input: lab                                                                                                                                                new.py:472
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- App Name ------------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           Next, we need a name that can serve as a machine-readable Python package name                                                                                  new.py:327
+           for your application.                                                                                                                                                    
+                                                                                                                                                                                    
+           This name must be PEP508-compliant - that means the name may only contain                                                                                                
+           letters, numbers, hyphens and underscores; it can't contain spaces or                                                                                                    
+           punctuation, and it can't start with a hyphen or underscore.                                                                                                             
+                                                                                                                                                                                    
+           Based on your formal name, we suggest an app name of 'lab', but you can use                                                                                              
+           another name if you want.                                                                                                                                                
+                                                                                                                                                                          new.py:328
+[17:43:40] App Name [lab]:                                                                                                                                                new.py:490
+           User input: lab                                                                                                                                                new.py:490
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Bundle Identifier ---------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           Now we need a bundle identifier for your application.                                                                                                          new.py:327
+                                                                                                                                                                                    
+           App stores need to protect against having multiple applications with the same                                                                                            
+           name; the bundle identifier is the namespace they use to identify applications                                                                                           
+           that come from you. The bundle identifier is usually the domain name of your                                                                                             
+           company or project, in reverse order.                                                                                                                                    
+                                                                                                                                                                                    
+           For example, if you are writing an application for Example Corp, whose website                                                                                           
+           is example.com, your bundle would be 'com.example'. The bundle will be                                                                                                   
+           combined with your application's machine readable name to form a complete                                                                                                
+           application identifier (e.g., com.example.lab).                                                                                                                          
+                                                                                                                                                                          new.py:328
+[17:43:45] Bundle Identifier [com.example]:                                                                                                                               new.py:514
+           User input: com.vy                                                                                                                                             new.py:514
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Project Name --------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           Briefcase can manage projects that contain multiple applications, so we need a                                                                                 new.py:327
+           Project name.                                                                                                                                                            
+                                                                                                                                                                                    
+           If you're only planning to have one application in this project, you can use                                                                                             
+           the formal name as the project name.                                                                                                                                     
+                                                                                                                                                                          new.py:328
+[17:43:47] Project Name [lab]:                                                                                                                                            new.py:427
+           User input: lab                                                                                                                                                new.py:427
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Description ---------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           Now, we need a one line description for your application.                                                                                                      new.py:327
+                                                                                                                                                                          new.py:328
+[17:43:50] Description [My first application]:                                                                                                                            new.py:539
+           User input: lab app                                                                                                                                            new.py:539
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Author --------------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           Who do you want to be credited as the author of this application?                                                                                              new.py:327
+                                                                                                                                                                                    
+           This could be your own name, or the name of your company you work for.                                                                                                   
+                                                                                                                                                                          new.py:328
+[17:43:53] Author [Jane Developer]:                                                                                                                                       new.py:546
+           User input: Vyshnav                                                                                                                                            new.py:546
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Author's Email ------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           What email address should people use to contact the developers of this                                                                                         new.py:327
+           application?                                                                                                                                                             
+                                                                                                                                                                                    
+           This might be your own email address, or a generic contact address you set up                                                                                            
+           specifically for this application.                                                                                                                                       
+                                                                                                                                                                          new.py:328
+[17:44:00] Author's Email [vyshnav@vy.com]:                                                                                                                               new.py:557
+           User input: vyshnavmohan20@gmail.com                                                                                                                           new.py:557
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Application URL -----------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           What is the website URL for this application?                                                                                                                  new.py:327
+                                                                                                                                                                                    
+           If you don't have a website set up yet, you can put in a dummy URL.                                                                                                      
+                                                                                                                                                                          new.py:328
+[17:44:06] Application URL [https://vy.com/lab]:                                                                                                                          new.py:571
+           User input: https://vy.com/lab                                                                                                                                 new.py:571
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- Project License -----------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           What license do you want to use for this project's code?                                                                                                       new.py:327
+                                                                                                                                                                          new.py:328
+             1) BSD license                                                                                                                                           console.py:816
+             2) MIT license                                                                                                                                           console.py:816
+             3) Apache Software License                                                                                                                               console.py:816
+             4) GNU General Public License v2 (GPLv2)                                                                                                                 console.py:816
+             5) GNU General Public License v2 or later (GPLv2+)                                                                                                       console.py:816
+             6) GNU General Public License v3 (GPLv3)                                                                                                                 console.py:816
+[17:44:07]   7) GNU General Public License v3 or later (GPLv3+)                                                                                                       console.py:816
+             8) Proprietary                                                                                                                                           console.py:816
+             9) Other                                                                                                                                                 console.py:816
+                                                                                                                                                                      console.py:818
+[17:44:08] Project License [1]:                                                                                                                                       console.py:821
+           User input: 2                                                                                                                                              console.py:821
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           -- GUI Framework -------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:326
+           What GUI toolkit do you want to use for this project?                                                                                                          new.py:327
+                                                                                                                                                                                    
+           Additional GUI bootstraps are available; visit                                                                                                                           
+           https://beeware.org/bee/briefcase-bootstraps for a full list of known GUI                                                                                                
+           bootstraps.                                                                                                                                                              
+                                                                                                                                                                          new.py:328
+             1) Toga                                                                                                                                                  console.py:816
+             2) PySide6 (does not support iOS/Android/Web deployment)                                                                                                 console.py:816
+             3) Pygame  (does not support iOS/Android/Web deployment)                                                                                                 console.py:816
+             4) Console (does not support iOS/Android/Web deployment)                                                                                                 console.py:816
+             5) None                                                                                                                                                  console.py:816
+                                                                                                                                                                      console.py:818
+[17:45:59] GUI Framework [1]:                                                                                                                                         console.py:821
+           User input: 5                                                                                                                                              console.py:821
+                                                                                                                                                                          new.py:320
+                                                                                                                                                                          new.py:321
+           ------------------------------------------------------------------------------                                                                                 new.py:322
+                                                                                                                                                                          new.py:713
+           [lab] Generating a new application 'lab'                                                                                                                       new.py:713
+           Using app template: https://github.com/beeware/briefcase-template, branch v0.3.19                                                                            base.py:1090
+[17:46:01] Using existing template (sha dd700b1c6b576bca8783bea8494ef1452c3863fd, updated Mon Jun 10 06:31:16 2024)                                                      base.py:996
+[17:46:02] Saving log... started                                                                                                                                      console.py:390
+
+Main thread traceback:
+╭─────────────────────────────────────────────────────────────────────── Traceback (most recent call last) ────────────────────────────────────────────────────────────────────────╮
+│ C:\Users\HP\anaconda3\lib\site-packages\briefcase\__main__.py:29 in main                                                                                                         │
+│                                                                                                                                                                                  │
+│   26 │   │   │   Path.cwd() / "pyproject.toml",                                                                                                                                  │
+│   27 │   │   │   overrides=overrides,                                                                                                                                            │
+│   28 │   │   )                                                                                                                                                                   │
+│ ❱ 29 │   │   command(**options)                                                                                                                                                  │
+│   30 │   except HelpText as e:                                                                                                                                                   │
+│   31 │   │   logger.info()                                                                                                                                                       │
+│   32 │   │   logger.info(str(e))                                                                                                                                                 │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────── locals ────────────────────────────────────────╮                                                                                       │
+│ │       command = <briefcase.commands.new.NewCommand object at 0x000001832B37B430>       │                                                                                       │
+│ │       Command = <class 'briefcase.commands.new.NewCommand'>                            │                                                                                       │
+│ │       console = <briefcase.console.Console object at 0x000001832B355EE0>               │                                                                                       │
+│ │ extra_cmdline = []                                                                     │                                                                                       │
+│ │        logger = <briefcase.console.Log object at 0x000001832B355E50>                   │                                                                                       │
+│ │       options = {'template': None, 'template_branch': None, 'project_overrides': None} │                                                                                       │
+│ │     overrides = {}                                                                     │                                                                                       │
+│ │       printer = <briefcase.console.Printer object at 0x00000183281C7040>               │                                                                                       │
+│ │        result = 0                                                                      │                                                                                       │
+│ ╰────────────────────────────────────────────────────────────────────────────────────────╯                                                                                       │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\briefcase\commands\new.py:769 in __call__                                                                                                │
+│                                                                                                                                                                                  │
+│   766 │   │   # There are no apps, so finalize() will be a no op on app configurations.                                                                                          │
+│   767 │   │   self.finalize()                                                                                                                                                    │
+│   768 │   │                                                                                                                                                                      │
+│ ❱ 769 │   │   return self.new_app(                                                                                                                                               │
+│   770 │   │   │   template=template,                                                                                                                                             │
+│   771 │   │   │   template_branch=template_branch,                                                                                                                               │
+│   772 │   │   │   project_overrides=parse_project_overrides(project_overrides),                                                                                                  │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────── locals ───────────────────────────────────────╮                                                                                         │
+│ │           options = {}                                                               │                                                                                         │
+│ │ project_overrides = None                                                             │                                                                                         │
+│ │              self = <briefcase.commands.new.NewCommand object at 0x000001832B37B430> │                                                                                         │
+│ │          template = None                                                             │                                                                                         │
+│ │   template_branch = None                                                             │                                                                                         │
+│ ╰──────────────────────────────────────────────────────────────────────────────────────╯                                                                                         │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\briefcase\commands\new.py:725 in new_app                                                                                                 │
+│                                                                                                                                                                                  │
+│   722 │   │   │   )                                                                                                                                                              │
+│   723 │   │                                                                                                                                                                      │
+│   724 │   │   # Create the project files                                                                                                                                         │
+│ ❱ 725 │   │   self.generate_template(                                                                                                                                            │
+│   726 │   │   │   template=(                                                                                                                                                     │
+│   727 │   │   │   │   template                                                                                                                                                   │
+│   728 │   │   │   │   if template                                                                                                                                                │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────── locals ───────────────────────────────────────╮                                                                                         │
+│ │           context = {                                                                │                                                                                         │
+│ │                     │   'formal_name': 'lab',                                        │                                                                                         │
+│ │                     │   'app_name': 'lab',                                           │                                                                                         │
+│ │                     │   'class_name': 'lab',                                         │                                                                                         │
+│ │                     │   'module_name': 'lab',                                        │                                                                                         │
+│ │                     │   'source_dir': 'src/lab',                                     │                                                                                         │
+│ │                     │   'test_source_dir': 'tests',                                  │                                                                                         │
+│ │                     │   'project_name': 'lab',                                       │                                                                                         │
+│ │                     │   'description': 'lab app',                                    │                                                                                         │
+│ │                     │   'author': 'Vyshnav',                                         │                                                                                         │
+│ │                     │   'author_email': 'vyshnavmohan20@gmail.com',                  │                                                                                         │
+│ │                     │   ... +3                                                       │                                                                                         │
+│ │                     }                                                                │                                                                                         │
+│ │           options = {}                                                               │                                                                                         │
+│ │ project_overrides = {}                                                               │                                                                                         │
+│ │              self = <briefcase.commands.new.NewCommand object at 0x000001832B37B430> │                                                                                         │
+│ │          template = None                                                             │                                                                                         │
+│ │   template_branch = None                                                             │                                                                                         │
+│ ╰──────────────────────────────────────────────────────────────────────────────────────╯                                                                                         │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\briefcase\commands\base.py:1094 in generate_template                                                                                     │
+│                                                                                                                                                                                  │
+│   1091 │   │   │   │   f"Using app template: {template}, branch {template_branch}"                                                                                               │
+│   1092 │   │   │   )                                                                                                                                                             │
+│   1093 │   │   │   # Unroll the new app template                                                                                                                                 │
+│ ❱ 1094 │   │   │   self._generate_template(                                                                                                                                      │
+│   1095 │   │   │   │   template=template,                                                                                                                                        │
+│   1096 │   │   │   │   branch=template_branch,                                                                                                                                   │
+│   1097 │   │   │   │   output_path=output_path,                                                                                                                                  │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────── locals ──────────────────────────────────────╮                                                                                           │
+│ │          branch = None                                                             │                                                                                           │
+│ │   extra_context = {                                                                │                                                                                           │
+│ │                   │   'formal_name': 'lab',                                        │                                                                                           │
+│ │                   │   'app_name': 'lab',                                           │                                                                                           │
+│ │                   │   'class_name': 'lab',                                         │                                                                                           │
+│ │                   │   'module_name': 'lab',                                        │                                                                                           │
+│ │                   │   'source_dir': 'src/lab',                                     │                                                                                           │
+│ │                   │   'test_source_dir': 'tests',                                  │                                                                                           │
+│ │                   │   'project_name': 'lab',                                       │                                                                                           │
+│ │                   │   'description': 'lab app',                                    │                                                                                           │
+│ │                   │   'author': 'Vyshnav',                                         │                                                                                           │
+│ │                   │   'author_email': 'vyshnavmohan20@gmail.com',                  │                                                                                           │
+│ │                   │   ... +6                                                       │                                                                                           │
+│ │                   }                                                                │                                                                                           │
+│ │     output_path = WindowsPath('F:/QT')                                             │                                                                                           │
+│ │            self = <briefcase.commands.new.NewCommand object at 0x000001832B37B430> │                                                                                           │
+│ │        template = 'https://github.com/beeware/briefcase-template'                  │                                                                                           │
+│ │ template_branch = 'v0.3.19'                                                        │                                                                                           │
+│ │         version = <Version('0.3.19')>                                              │                                                                                           │
+│ ╰────────────────────────────────────────────────────────────────────────────────────╯                                                                                           │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\briefcase\commands\base.py:1041 in _generate_template                                                                                    │
+│                                                                                                                                                                                  │
+│   1038 │   │                                                                                                                                                                     │
+│   1039 │   │   try:                                                                                                                                                              │
+│   1040 │   │   │   # Unroll the template.                                                                                                                                        │
+│ ❱ 1041 │   │   │   self.tools.cookiecutter(                                                                                                                                      │
+│   1042 │   │   │   │   str(cached_template),                                                                                                                                     │
+│   1043 │   │   │   │   no_input=True,                                                                                                                                            │
+│   1044 │   │   │   │   output_dir=str(output_path),                                                                                                                              │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────────────────── locals ─────────────────────────────────────────────────────╮                                                              │
+│ │          branch = 'v0.3.19'                                                                                     │                                                              │
+│ │ cached_template = WindowsPath('C:/Users/HP/AppData/Local/BeeWare/briefcase/Cache/templates/briefcase-template') │                                                              │
+│ │   extra_context = {                                                                                             │                                                              │
+│ │                   │   'formal_name': 'lab',                                                                     │                                                              │
+│ │                   │   'app_name': 'lab',                                                                        │                                                              │
+│ │                   │   'class_name': 'lab',                                                                      │                                                              │
+│ │                   │   'module_name': 'lab',                                                                     │                                                              │
+│ │                   │   'source_dir': 'src/lab',                                                                  │                                                              │
+│ │                   │   'test_source_dir': 'tests',                                                               │                                                              │
+│ │                   │   'project_name': 'lab',                                                                    │                                                              │
+│ │                   │   'description': 'lab app',                                                                 │                                                              │
+│ │                   │   'author': 'Vyshnav',                                                                      │                                                              │
+│ │                   │   'author_email': 'vyshnavmohan20@gmail.com',                                               │                                                              │
+│ │                   │   ... +6                                                                                    │                                                              │
+│ │                   }                                                                                             │                                                              │
+│ │     output_path = WindowsPath('F:/QT')                                                                          │                                                              │
+│ │            self = <briefcase.commands.new.NewCommand object at 0x000001832B37B430>                              │                                                              │
+│ │        template = 'https://github.com/beeware/briefcase-template'                                               │                                                              │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                                              │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\cookiecutter\main.py:182 in cookiecutter                                                                                                 │
+│                                                                                                                                                                                  │
+│   179 │                                                                                                                                                                          │
+│   180 │   # Create project from local context and project template.                                                                                                              │
+│   181 │   with import_patch:                                                                                                                                                     │
+│ ❱ 182 │   │   result = generate_files(                                                                                                                                           │
+│   183 │   │   │   repo_dir=repo_dir,                                                                                                                                             │
+│   184 │   │   │   context=context,                                                                                                                                               │
+│   185 │   │   │   overwrite_if_exists=overwrite_if_exists,                                                                                                                       │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────────────────╮ │
+│ │            accept_hooks = True                                                                                                                                               │ │
+│ │           base_repo_dir = 'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'                                                          │ │
+│ │                checkout = 'v0.3.19'                                                                                                                                          │ │
+│ │                 cleanup = False                                                                                                                                              │ │
+│ │   cleanup_base_repo_dir = False                                                                                                                                              │ │
+│ │             config_dict = {                                                                                                                                                  │ │
+│ │                           │   'cookiecutters_dir': 'C:\\Users\\HP/.cookiecutters/',                                                                                          │ │
+│ │                           │   'replay_dir': 'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\.replay',                                                  │ │
+│ │                           │   'default_context': OrderedDict(),                                                                                                              │ │
+│ │                           │   'abbreviations': {'gh': 'https://github.com/{0}.git', 'gl': 'https://gitlab.com/{0}.git', 'bb': 'https://bitbucket.org/{0}'}                   │ │
+│ │                           }                                                                                                                                                  │ │
+│ │             config_file = None                                                                                                                                               │ │
+│ │                 context = OrderedDict([('cookiecutter', OrderedDict([('formal_name', 'lab'), ('app_name', 'lab'), ('class_name', 'lab'), ('module_name', 'lab'),             │ │
+│ │                           ('source_dir', 'src/lab'), ('test_source_dir', 'tests'), ('project_name', 'lab'), ('description', 'lab app'), ('author', 'Vyshnav'),               │ │
+│ │                           ('author_email', 'vyshnavmohan20@gmail.com'), ('bundle', 'com.vy'), ('url', 'https://vy.com/lab'), ('license', 'MIT license'), ('test_framework',  │ │
+│ │                           'pytest'), ('app_source', ''), ('app_start_source', ''), ('pyproject_table_briefcase_extra_content', ''),                                          │ │
+│ │                           ('pyproject_table_briefcase_app_extra_content', ''), ('pyproject_table_macOS', ''), ('pyproject_table_linux', ''),                                 │ │
+│ │                           ('pyproject_table_linux_system_debian', ''), ('pyproject_table_linux_system_rhel', ''), ('pyproject_table_linux_system_suse', ''),                 │ │
+│ │                           ('pyproject_table_linux_system_arch', ''), ('pyproject_table_linux_appimage', ''), ('pyproject_table_linux_flatpak', ''),                          │ │
+│ │                           ('pyproject_table_windows', ''), ('pyproject_table_iOS', ''), ('pyproject_table_android', ''), ('pyproject_table_web', ''),                        │ │
+│ │                           ('pyproject_extra_content', ''), ('briefcase_version', '0.3.19'), ('template_source', 'https://github.com/beeware/briefcase-template'),            │ │
+│ │                           ('template_branch', 'v0.3.19'), ('_extensions', ['briefcase.integrations.cookiecutter.TOMLEscape']), ('_jinja2_env_vars',                          │ │
+│ │                           OrderedDict([('lstrip_blocks', True), ('trim_blocks', True)])), ('_template',                                                                      │ │
+│ │                           'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_output_dir', 'F:\\QT'), ('_repo_dir',               │ │
+│ │                           'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_checkout', 'v0.3.19')])), ('_cookiecutter',         │ │
+│ │                           {'formal_name': 'lab', 'app_name': 'lab', 'class_name': 'lab', 'module_name': 'lab', 'source_dir': 'src/lab', 'test_source_dir': 'tests',          │ │
+│ │                           'project_name': 'lab', 'description': 'lab app', 'author': 'Vyshnav', 'author_email': 'vyshnavmohan20@gmail.com', 'bundle': 'com.vy', 'url':       │ │
+│ │                           'https://vy.com/lab', 'license': ['MIT license', 'BSD license', 'Apache Software License', 'GNU General Public License v2 (GPLv2)', 'GNU General   │ │
+│ │                           Public License v2 or later (GPLv2+)', 'GNU General Public License v3 (GPLv3)', 'GNU General Public License v3 or later (GPLv3+)', 'Proprietary',   │ │
+│ │                           'Other'], 'test_framework': ['pytest', 'unittest'], 'app_source': '', 'app_start_source': '', 'pyproject_table_briefcase_extra_content': '',       │ │
+│ │                           'pyproject_table_briefcase_app_extra_content': '', 'pyproject_table_macOS': '', 'pyproject_table_linux': '',                                       │ │
+│ │                           'pyproject_table_linux_system_debian': '', 'pyproject_table_linux_system_rhel': '', 'pyproject_table_linux_system_suse': '',                       │ │
+│ │                           'pyproject_table_linux_system_arch': '', 'pyproject_table_linux_appimage': '', 'pyproject_table_linux_flatpak': '', 'pyproject_table_windows': '', │ │
+│ │                           'pyproject_table_iOS': '', 'pyproject_table_android': '', 'pyproject_table_web': '', 'pyproject_extra_content': '', 'briefcase_version': '0.3.19', │ │
+│ │                           'template_source': 'https://github.com/beeware/briefcase-template', 'template_branch': 'v0.3.19'})])                                               │ │
+│ │            context_file = 'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template\\c'+16                                                    │ │
+│ │   context_for_prompting = OrderedDict([('cookiecutter', OrderedDict([('formal_name', 'lab'), ('app_name', 'lab'), ('class_name', 'lab'), ('module_name', 'lab'),             │ │
+│ │                           ('source_dir', 'src/lab'), ('test_source_dir', 'tests'), ('project_name', 'lab'), ('description', 'lab app'), ('author', 'Vyshnav'),               │ │
+│ │                           ('author_email', 'vyshnavmohan20@gmail.com'), ('bundle', 'com.vy'), ('url', 'https://vy.com/lab'), ('license', 'MIT license'), ('test_framework',  │ │
+│ │                           'pytest'), ('app_source', ''), ('app_start_source', ''), ('pyproject_table_briefcase_extra_content', ''),                                          │ │
+│ │                           ('pyproject_table_briefcase_app_extra_content', ''), ('pyproject_table_macOS', ''), ('pyproject_table_linux', ''),                                 │ │
+│ │                           ('pyproject_table_linux_system_debian', ''), ('pyproject_table_linux_system_rhel', ''), ('pyproject_table_linux_system_suse', ''),                 │ │
+│ │                           ('pyproject_table_linux_system_arch', ''), ('pyproject_table_linux_appimage', ''), ('pyproject_table_linux_flatpak', ''),                          │ │
+│ │                           ('pyproject_table_windows', ''), ('pyproject_table_iOS', ''), ('pyproject_table_android', ''), ('pyproject_table_web', ''),                        │ │
+│ │                           ('pyproject_extra_content', ''), ('briefcase_version', '0.3.19'), ('template_source', 'https://github.com/beeware/briefcase-template'),            │ │
+│ │                           ('template_branch', 'v0.3.19'), ('_extensions', ['briefcase.integrations.cookiecutter.TOMLEscape']), ('_jinja2_env_vars',                          │ │
+│ │                           OrderedDict([('lstrip_blocks', True), ('trim_blocks', True)])), ('_template',                                                                      │ │
+│ │                           'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_output_dir', 'F:\\QT'), ('_repo_dir',               │ │
+│ │                           'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_checkout', 'v0.3.19')])), ('_cookiecutter',         │ │
+│ │                           {'formal_name': 'lab', 'app_name': 'lab', 'class_name': 'lab', 'module_name': 'lab', 'source_dir': 'src/lab', 'test_source_dir': 'tests',          │ │
+│ │                           'project_name': 'lab', 'description': 'lab app', 'author': 'Vyshnav', 'author_email': 'vyshnavmohan20@gmail.com', 'bundle': 'com.vy', 'url':       │ │
+│ │                           'https://vy.com/lab', 'license': ['MIT license', 'BSD license', 'Apache Software License', 'GNU General Public License v2 (GPLv2)', 'GNU General   │ │
+│ │                           Public License v2 or later (GPLv2+)', 'GNU General Public License v3 (GPLv3)', 'GNU General Public License v3 or later (GPLv3+)', 'Proprietary',   │ │
+│ │                           'Other'], 'test_framework': ['pytest', 'unittest'], 'app_source': '', 'app_start_source': '', 'pyproject_table_briefcase_extra_content': '',       │ │
+│ │                           'pyproject_table_briefcase_app_extra_content': '', 'pyproject_table_macOS': '', 'pyproject_table_linux': '',                                       │ │
+│ │                           'pyproject_table_linux_system_debian': '', 'pyproject_table_linux_system_rhel': '', 'pyproject_table_linux_system_suse': '',                       │ │
+│ │                           'pyproject_table_linux_system_arch': '', 'pyproject_table_linux_appimage': '', 'pyproject_table_linux_flatpak': '', 'pyproject_table_windows': '', │ │
+│ │                           'pyproject_table_iOS': '', 'pyproject_table_android': '', 'pyproject_table_web': '', 'pyproject_extra_content': '', 'briefcase_version': '0.3.19', │ │
+│ │                           'template_source': 'https://github.com/beeware/briefcase-template', 'template_branch': 'v0.3.19'})])                                               │ │
+│ │          default_config = {'replay_dir': 'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\.replay'}                                                     │ │
+│ │               directory = None                                                                                                                                               │ │
+│ │           extra_context = {                                                                                                                                                  │ │
+│ │                           │   'formal_name': 'lab',                                                                                                                          │ │
+│ │                           │   'app_name': 'lab',                                                                                                                             │ │
+│ │                           │   'class_name': 'lab',                                                                                                                           │ │
+│ │                           │   'module_name': 'lab',                                                                                                                          │ │
+│ │                           │   'source_dir': 'src/lab',                                                                                                                       │ │
+│ │                           │   'test_source_dir': 'tests',                                                                                                                    │ │
+│ │                           │   'project_name': 'lab',                                                                                                                         │ │
+│ │                           │   'description': 'lab app',                                                                                                                      │ │
+│ │                           │   'author': 'Vyshnav',                                                                                                                           │ │
+│ │                           │   'author_email': 'vyshnavmohan20@gmail.com',                                                                                                    │ │
+│ │                           │   ... +6                                                                                                                                         │ │
+│ │                           }                                                                                                                                                  │ │
+│ │            import_patch = <cookiecutter.main._patch_import_path_for_repo object at 0x000001832B5D0070>                                                                       │ │
+│ │ keep_project_on_failure = False                                                                                                                                              │ │
+│ │                no_input = True                                                                                                                                               │ │
+│ │              output_dir = 'F:\\QT'                                                                                                                                           │ │
+│ │     overwrite_if_exists = False                                                                                                                                              │ │
+│ │                password = None                                                                                                                                               │ │
+│ │                  replay = None                                                                                                                                               │ │
+│ │                repo_dir = 'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'                                                          │ │
+│ │     skip_if_file_exists = False                                                                                                                                              │ │
+│ │                template = 'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'                                                          │ │
+│ │           template_name = 'briefcase-template'                                                                                                                               │ │
+│ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\cookiecutter\generate.py:409 in generate_files                                                                                           │
+│                                                                                                                                                                                  │
+│   406 │   │   │   │   │   shutil.copymode(infile, outfile)                                                                                                                       │
+│   407 │   │   │   │   │   continue                                                                                                                                               │
+│   408 │   │   │   │   try:                                                                                                                                                       │
+│ ❱ 409 │   │   │   │   │   generate_file(                                                                                                                                         │
+│   410 │   │   │   │   │   │   project_dir, infile, context, env, skip_if_file_exists                                                                                             │
+│   411 │   │   │   │   │   )                                                                                                                                                      │
+│   412 │   │   │   │   except UndefinedError as err:                                                                                                                              │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────────────────╮ │
+│ │              accept_hooks = True                                                                                                                                             │ │
+│ │                   context = OrderedDict([('cookiecutter', OrderedDict([('formal_name', 'lab'), ('app_name', 'lab'), ('class_name', 'lab'), ('module_name', 'lab'),           │ │
+│ │                             ('source_dir', 'src/lab'), ('test_source_dir', 'tests'), ('project_name', 'lab'), ('description', 'lab app'), ('author', 'Vyshnav'),             │ │
+│ │                             ('author_email', 'vyshnavmohan20@gmail.com'), ('bundle', 'com.vy'), ('url', 'https://vy.com/lab'), ('license', 'MIT license'),                   │ │
+│ │                             ('test_framework', 'pytest'), ('app_source', ''), ('app_start_source', ''), ('pyproject_table_briefcase_extra_content', ''),                     │ │
+│ │                             ('pyproject_table_briefcase_app_extra_content', ''), ('pyproject_table_macOS', ''), ('pyproject_table_linux', ''),                               │ │
+│ │                             ('pyproject_table_linux_system_debian', ''), ('pyproject_table_linux_system_rhel', ''), ('pyproject_table_linux_system_suse', ''),               │ │
+│ │                             ('pyproject_table_linux_system_arch', ''), ('pyproject_table_linux_appimage', ''), ('pyproject_table_linux_flatpak', ''),                        │ │
+│ │                             ('pyproject_table_windows', ''), ('pyproject_table_iOS', ''), ('pyproject_table_android', ''), ('pyproject_table_web', ''),                      │ │
+│ │                             ('pyproject_extra_content', ''), ('briefcase_version', '0.3.19'), ('template_source', 'https://github.com/beeware/briefcase-template'),          │ │
+│ │                             ('template_branch', 'v0.3.19'), ('_extensions', ['briefcase.integrations.cookiecutter.TOMLEscape']), ('_jinja2_env_vars',                        │ │
+│ │                             OrderedDict([('lstrip_blocks', True), ('trim_blocks', True)])), ('_template',                                                                    │ │
+│ │                             'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_output_dir', 'F:\\QT'), ('_repo_dir',             │ │
+│ │                             'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_checkout', 'v0.3.19')])), ('_cookiecutter',       │ │
+│ │                             {'formal_name': 'lab', 'app_name': 'lab', 'class_name': 'lab', 'module_name': 'lab', 'source_dir': 'src/lab', 'test_source_dir': 'tests',        │ │
+│ │                             'project_name': 'lab', 'description': 'lab app', 'author': 'Vyshnav', 'author_email': 'vyshnavmohan20@gmail.com', 'bundle': 'com.vy', 'url':     │ │
+│ │                             'https://vy.com/lab', 'license': ['MIT license', 'BSD license', 'Apache Software License', 'GNU General Public License v2 (GPLv2)', 'GNU General │ │
+│ │                             Public License v2 or later (GPLv2+)', 'GNU General Public License v3 (GPLv3)', 'GNU General Public License v3 or later (GPLv3+)', 'Proprietary', │ │
+│ │                             'Other'], 'test_framework': ['pytest', 'unittest'], 'app_source': '', 'app_start_source': '', 'pyproject_table_briefcase_extra_content': '',     │ │
+│ │                             'pyproject_table_briefcase_app_extra_content': '', 'pyproject_table_macOS': '', 'pyproject_table_linux': '',                                     │ │
+│ │                             'pyproject_table_linux_system_debian': '', 'pyproject_table_linux_system_rhel': '', 'pyproject_table_linux_system_suse': '',                     │ │
+│ │                             'pyproject_table_linux_system_arch': '', 'pyproject_table_linux_appimage': '', 'pyproject_table_linux_flatpak': '', 'pyproject_table_windows':   │ │
+│ │                             '', 'pyproject_table_iOS': '', 'pyproject_table_android': '', 'pyproject_table_web': '', 'pyproject_extra_content': '', 'briefcase_version':     │ │
+│ │                             '0.3.19', 'template_source': 'https://github.com/beeware/briefcase-template', 'template_branch': 'v0.3.19'})])                                   │ │
+│ │                 copy_dirs = []                                                                                                                                               │ │
+│ │                         d = 'resources'                                                                                                                                      │ │
+│ │                        d_ = 'src\\{{ cookiecutter.module_name }}\\resources'                                                                                                 │ │
+│ │ delete_project_on_failure = True                                                                                                                                             │ │
+│ │                      dirs = []                                                                                                                                               │ │
+│ │                       env = <cookiecutter.environment.StrictEnvironment object at 0x000001832B6A0400>                                                                        │ │
+│ │                         f = '{{ cookiecutter.module_name }}.py'                                                                                                              │ │
+│ │                     files = ['test_app.py', '__init__.py', '{{ cookiecutter.module_name }}.py']                                                                              │ │
+│ │                    infile = '{{ cookiecutter.test_source_dir }}\\{{ cookiecutter.module_name }}.py'                                                                          │ │
+│ │   keep_project_on_failure = False                                                                                                                                            │ │
+│ │                output_dir = 'F:\\QT'                                                                                                                                         │ │
+│ │  output_directory_created = True                                                                                                                                             │ │
+│ │       overwrite_if_exists = False                                                                                                                                            │ │
+│ │               project_dir = 'F:\\QT\\lab'                                                                                                                                    │ │
+│ │               render_dirs = []                                                                                                                                               │ │
+│ │                  repo_dir = 'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'                                                        │ │
+│ │                      root = '.\\{{ cookiecutter.test_source_dir }}'                                                                                                          │ │
+│ │       skip_if_file_exists = False                                                                                                                                            │ │
+│ │              template_dir = WindowsPath('C:/Users/HP/AppData/Local/BeeWare/briefcase/Cache/templates/briefcase-template/{{ cookiecutter.app_name }}')                        │ │
+│ │            unrendered_dir = 'F:\\QT\\lab\\.\\src\\{{ cookiecutter.module_name }}\\resources'                                                                                 │ │
+│ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\cookiecutter\generate.py:203 in generate_file                                                                                            │
+│                                                                                                                                                                                  │
+│   200 │                                                                                                                                                                          │
+│   201 │   # Render the file                                                                                                                                                      │
+│   202 │   try:                                                                                                                                                                   │
+│ ❱ 203 │   │   tmpl = env.get_template(infile_fwd_slashes)                                                                                                                        │
+│   204 │   except TemplateSyntaxError as exception:                                                                                                                               │
+│   205 │   │   # Disable translated so that printed exception contains verbose                                                                                                    │
+│   206 │   │   # information about syntax error location                                                                                                                          │
+│                                                                                                                                                                                  │
+│ ╭─────────────────────────────────────────────────────────────────────────────────── locals ───────────────────────────────────────────────────────────────────────────────────╮ │
+│ │             context = OrderedDict([('cookiecutter', OrderedDict([('formal_name', 'lab'), ('app_name', 'lab'), ('class_name', 'lab'), ('module_name', 'lab'), ('source_dir',  │ │
+│ │                       'src/lab'), ('test_source_dir', 'tests'), ('project_name', 'lab'), ('description', 'lab app'), ('author', 'Vyshnav'), ('author_email',                 │ │
+│ │                       'vyshnavmohan20@gmail.com'), ('bundle', 'com.vy'), ('url', 'https://vy.com/lab'), ('license', 'MIT license'), ('test_framework', 'pytest'),            │ │
+│ │                       ('app_source', ''), ('app_start_source', ''), ('pyproject_table_briefcase_extra_content', ''), ('pyproject_table_briefcase_app_extra_content', ''),    │ │
+│ │                       ('pyproject_table_macOS', ''), ('pyproject_table_linux', ''), ('pyproject_table_linux_system_debian', ''), ('pyproject_table_linux_system_rhel', ''),  │ │
+│ │                       ('pyproject_table_linux_system_suse', ''), ('pyproject_table_linux_system_arch', ''), ('pyproject_table_linux_appimage', ''),                          │ │
+│ │                       ('pyproject_table_linux_flatpak', ''), ('pyproject_table_windows', ''), ('pyproject_table_iOS', ''), ('pyproject_table_android', ''),                  │ │
+│ │                       ('pyproject_table_web', ''), ('pyproject_extra_content', ''), ('briefcase_version', '0.3.19'), ('template_source',                                     │ │
+│ │                       'https://github.com/beeware/briefcase-template'), ('template_branch', 'v0.3.19'), ('_extensions', ['briefcase.integrations.cookiecutter.TOMLEscape']), │ │
+│ │                       ('_jinja2_env_vars', OrderedDict([('lstrip_blocks', True), ('trim_blocks', True)])), ('_template',                                                     │ │
+│ │                       'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_output_dir', 'F:\\QT'), ('_repo_dir',                   │ │
+│ │                       'C:\\Users\\HP\\AppData\\Local\\BeeWare\\briefcase\\Cache\\templates\\briefcase-template'), ('_checkout', 'v0.3.19')])), ('_cookiecutter',             │ │
+│ │                       {'formal_name': 'lab', 'app_name': 'lab', 'class_name': 'lab', 'module_name': 'lab', 'source_dir': 'src/lab', 'test_source_dir': 'tests',              │ │
+│ │                       'project_name': 'lab', 'description': 'lab app', 'author': 'Vyshnav', 'author_email': 'vyshnavmohan20@gmail.com', 'bundle': 'com.vy', 'url':           │ │
+│ │                       'https://vy.com/lab', 'license': ['MIT license', 'BSD license', 'Apache Software License', 'GNU General Public License v2 (GPLv2)', 'GNU General       │ │
+│ │                       Public License v2 or later (GPLv2+)', 'GNU General Public License v3 (GPLv3)', 'GNU General Public License v3 or later (GPLv3+)', 'Proprietary',       │ │
+│ │                       'Other'], 'test_framework': ['pytest', 'unittest'], 'app_source': '', 'app_start_source': '', 'pyproject_table_briefcase_extra_content': '',           │ │
+│ │                       'pyproject_table_briefcase_app_extra_content': '', 'pyproject_table_macOS': '', 'pyproject_table_linux': '', 'pyproject_table_linux_system_debian':    │ │
+│ │                       '', 'pyproject_table_linux_system_rhel': '', 'pyproject_table_linux_system_suse': '', 'pyproject_table_linux_system_arch': '',                         │ │
+│ │                       'pyproject_table_linux_appimage': '', 'pyproject_table_linux_flatpak': '', 'pyproject_table_windows': '', 'pyproject_table_iOS': '',                   │ │
+│ │                       'pyproject_table_android': '', 'pyproject_table_web': '', 'pyproject_extra_content': '', 'briefcase_version': '0.3.19', 'template_source':             │ │
+│ │                       'https://github.com/beeware/briefcase-template', 'template_branch': 'v0.3.19'})])                                                                      │ │
+│ │                 env = <cookiecutter.environment.StrictEnvironment object at 0x000001832B6A0400>                                                                              │ │
+│ │  file_name_is_empty = False                                                                                                                                                  │ │
+│ │              infile = '{{ cookiecutter.test_source_dir }}\\{{ cookiecutter.module_name }}.py'                                                                                │ │
+│ │  infile_fwd_slashes = '{{ cookiecutter.test_source_dir }}/{{ cookiecutter.module_name }}.py'                                                                                 │ │
+│ │             outfile = 'F:\\QT\\lab\\tests\\lab.py'                                                                                                                           │ │
+│ │        outfile_tmpl = <Template memory:1832b6a01f0>                                                                                                                          │ │
+│ │         project_dir = 'F:\\QT\\lab'                                                                                                                                          │ │
+│ │ skip_if_file_exists = False                                                                                                                                                  │ │
+│ ╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯ │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\jinja2\environment.py:883 in get_template                                                                                                │
+│                                                                                                                                                                                  │
+│    880 │   │   │   return name                                                                                                                                                   │
+│    881 │   │   if parent is not None:                                                                                                                                            │
+│    882 │   │   │   name = self.join_path(name, parent)                                                                                                                           │
+│ ❱  883 │   │   return self._load_template(name, self.make_globals(globals))                                                                                                      │
+│    884 │                                                                                                                                                                         │
+│    885 │   @internalcode                                                                                                                                                         │
+│    886 │   def select_template(self, names, parent=None, globals=None):                                                                                                          │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────── locals ───────────────────────────────────────╮                                                                                          │
+│ │ globals = None                                                                      │                                                                                          │
+│ │    name = '{{ cookiecutter.test_source_dir }}/{{ cookiecutter.module_name }}.py'    │                                                                                          │
+│ │  parent = None                                                                      │                                                                                          │
+│ │    self = <cookiecutter.environment.StrictEnvironment object at 0x000001832B6A0400> │                                                                                          │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────╯                                                                                          │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\jinja2\environment.py:857 in _load_template                                                                                              │
+│                                                                                                                                                                                  │
+│    854 │   │   │   │   not self.auto_reload or template.is_up_to_date                                                                                                            │
+│    855 │   │   │   ):                                                                                                                                                            │
+│    856 │   │   │   │   return template                                                                                                                                           │
+│ ❱  857 │   │   template = self.loader.load(self, name, globals)                                                                                                                  │
+│    858 │   │   if self.cache is not None:                                                                                                                                        │
+│    859 │   │   │   self.cache[cache_key] = template                                                                                                                              │
+│    860 │   │   return template                                                                                                                                                   │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────────────────────────────────────────────── locals ──────────────────────────────────────────────────────────────────────────────╮           │
+│ │ cache_key = (<weakref at 0x000001832BFCADB0; to 'FileSystemLoader' at 0x000001832B6A09A0>, '{{ cookiecutter.test_source_dir }}/{{ cookiecutter.module_name }}.py') │           │
+│ │   globals = {                                                                                                                                                      │           │
+│ │             │   'range': <class 'range'>,                                                                                                                          │           │
+│ │             │   'dict': <class 'dict'>,                                                                                                                            │           │
+│ │             │   'lipsum': <function generate_lorem_ipsum at 0x000001832A016670>,                                                                                   │           │
+│ │             │   'cycler': <class 'jinja2.utils.Cycler'>,                                                                                                           │           │
+│ │             │   'joiner': <class 'jinja2.utils.Joiner'>,                                                                                                           │           │
+│ │             │   'namespace': <class 'jinja2.utils.Namespace'>,                                                                                                     │           │
+│ │             │   'random_ascii_string': <function RandomStringExtension.__init__.<locals>.random_ascii_string at 0x000001832C3B2CA0>,                               │           │
+│ │             │   'uuid4': <function UUIDExtension.__init__.<locals>.uuid4 at 0x000001832C3B2DC0>                                                                    │           │
+│ │             }                                                                                                                                                      │           │
+│ │      name = '{{ cookiecutter.test_source_dir }}/{{ cookiecutter.module_name }}.py'                                                                                 │           │
+│ │      self = <cookiecutter.environment.StrictEnvironment object at 0x000001832B6A0400>                                                                              │           │
+│ │  template = None                                                                                                                                                   │           │
+│ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯           │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\jinja2\loaders.py:127 in load                                                                                                            │
+│                                                                                                                                                                                  │
+│   124 │   │   # if we don't have code so far (not cached, no longer up to                                                                                                        │
+│   125 │   │   # date) etc. we compile the template                                                                                                                               │
+│   126 │   │   if code is None:                                                                                                                                                   │
+│ ❱ 127 │   │   │   code = environment.compile(source, name, filename)                                                                                                             │
+│   128 │   │                                                                                                                                                                      │
+│   129 │   │   # if the bytecode cache is available and the bucket doesn't                                                                                                        │
+│   130 │   │   # have a code so far, we give the bucket the new code and put                                                                                                      │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────────────────────────────── locals ────────────────────────────────────────────────────────────────╮                                       │
+│ │         bcc = None                                                                                                                     │                                       │
+│ │        code = None                                                                                                                     │                                       │
+│ │ environment = <cookiecutter.environment.StrictEnvironment object at 0x000001832B6A0400>                                                │                                       │
+│ │    filename = '.\\{{ cookiecutter.test_source_dir }}\\{{ cookiecutter.module_name }}.py'                                               │                                       │
+│ │     globals = {                                                                                                                        │                                       │
+│ │               │   'range': <class 'range'>,                                                                                            │                                       │
+│ │               │   'dict': <class 'dict'>,                                                                                              │                                       │
+│ │               │   'lipsum': <function generate_lorem_ipsum at 0x000001832A016670>,                                                     │                                       │
+│ │               │   'cycler': <class 'jinja2.utils.Cycler'>,                                                                             │                                       │
+│ │               │   'joiner': <class 'jinja2.utils.Joiner'>,                                                                             │                                       │
+│ │               │   'namespace': <class 'jinja2.utils.Namespace'>,                                                                       │                                       │
+│ │               │   'random_ascii_string': <function RandomStringExtension.__init__.<locals>.random_ascii_string at 0x000001832C3B2CA0>, │                                       │
+│ │               │   'uuid4': <function UUIDExtension.__init__.<locals>.uuid4 at 0x000001832C3B2DC0>                                      │                                       │
+│ │               }                                                                                                                        │                                       │
+│ │        name = '{{ cookiecutter.test_source_dir }}/{{ cookiecutter.module_name }}.py'                                                   │                                       │
+│ │        self = <jinja2.loaders.FileSystemLoader object at 0x000001832B6A09A0>                                                           │                                       │
+│ │      source = "{%- if cookiecutter.test_framework == 'pytest' -%}\r\nimport os\r\nimport sys\r\nimpor"+1226                            │                                       │
+│ │    uptodate = <function FileSystemLoader.get_source.<locals>.uptodate at 0x000001832C38A430>                                           │                                       │
+│ ╰────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                       │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\jinja2\environment.py:638 in compile                                                                                                     │
+│                                                                                                                                                                                  │
+│    635 │   │   │   │   filename = encode_filename(filename)                                                                                                                      │
+│    636 │   │   │   return self._compile(source, filename)                                                                                                                        │
+│    637 │   │   except TemplateSyntaxError:                                                                                                                                       │
+│ ❱  638 │   │   │   self.handle_exception(source=source_hint)                                                                                                                     │
+│    639 │                                                                                                                                                                         │
+│    640 │   def compile_expression(self, source, undefined_to_none=True):                                                                                                         │
+│    641 │   │   """A handy helper method that returns a callable that accepts keyword                                                                                             │
+│                                                                                                                                                                                  │
+│ ╭────────────────────────────────────────────────── locals ───────────────────────────────────────────────────╮                                                                  │
+│ │  defer_init = False                                                                                         │                                                                  │
+│ │    filename = '.\\{{ cookiecutter.test_source_dir }}\\{{ cookiecutter.module_name }}.py'                    │                                                                  │
+│ │        name = '{{ cookiecutter.test_source_dir }}/{{ cookiecutter.module_name }}.py'                        │                                                                  │
+│ │         raw = False                                                                                         │                                                                  │
+│ │        self = <cookiecutter.environment.StrictEnvironment object at 0x000001832B6A0400>                     │                                                                  │
+│ │      source = "{%- if cookiecutter.test_framework == 'pytest' -%}\r\nimport os\r\nimport sys\r\nimpor"+1226 │                                                                  │
+│ │ source_hint = "{%- if cookiecutter.test_framework == 'pytest' -%}\r\nimport os\r\nimport sys\r\nimpor"+1226 │                                                                  │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                                                  │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\jinja2\environment.py:832 in handle_exception                                                                                            │
+│                                                                                                                                                                                  │
+│    829 │   │   """                                                                                                                                                               │
+│    830 │   │   from .debug import rewrite_traceback_stack                                                                                                                        │
+│    831 │   │                                                                                                                                                                     │
+│ ❱  832 │   │   reraise(*rewrite_traceback_stack(source=source))                                                                                                                  │
+│    833 │                                                                                                                                                                         │
+│    834 │   def join_path(self, template, parent):                                                                                                                                │
+│    835 │   │   """Join a template with the parent.  By default all the lookups are                                                                                               │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────────────────────────── locals ─────────────────────────────────────────────────────────╮                                                      │
+│ │ rewrite_traceback_stack = <function rewrite_traceback_stack at 0x000001832BFC7F70>                                      │                                                      │
+│ │                    self = <cookiecutter.environment.StrictEnvironment object at 0x000001832B6A0400>                     │                                                      │
+│ │                  source = "{%- if cookiecutter.test_framework == 'pytest' -%}\r\nimport os\r\nimport sys\r\nimpor"+1226 │                                                      │
+│ ╰─────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯                                                      │
+│                                                                                                                                                                                  │
+│ C:\Users\HP\anaconda3\lib\site-packages\jinja2\_compat.py:28 in reraise                                                                                                          │
+│                                                                                                                                                                                  │
+│    25 │                                                                                                                                                                          │
+│    26 │   def reraise(tp, value, tb=None):                                                                                                                                       │
+│    27 │   │   if value.__traceback__ is not tb:                                                                                                                                  │
+│ ❱  28 │   │   │   raise value.with_traceback(tb)                                                                                                                                 │
+│    29 │   │   raise value                                                                                                                                                        │
+│    30 │                                                                                                                                                                          │
+│    31 │   ifilter = filter                                                                                                                                                       │
+│                                                                                                                                                                                  │
+│ ╭──────────────────────────────────── locals ─────────────────────────────────────╮                                                                                              │
+│ │    tb = <traceback object at 0x000001832C393540>                                │                                                                                              │
+│ │    tp = <class 'jinja2.exceptions.TemplateSyntaxError'>                         │                                                                                              │
+│ │ value = TemplateSyntaxError("expected token 'end of statement block', got '+'") │                                                                                              │
+│ ╰─────────────────────────────────────────────────────────────────────────────────╯                                                                                              │
+│                                                                                                                                                                                  │
+│ in template:45                                                                                                                                                                   │
+╰──────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────╯
+TemplateSyntaxError: expected token 'end of statement block', got '+'
+  File ".\{{ cookiecutter.test_source_dir }}\{{ cookiecutter.module_name }}.py", line 45
+    {%- endif +%}

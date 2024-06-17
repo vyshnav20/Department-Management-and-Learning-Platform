@@ -1,0 +1,30 @@
+[tool.briefcase]
+project_name = "lab"
+bundle = "com.vy"
+version = "0.0.1"
+url = "https://vy.com/lab"
+license.file = "LICENSE"
+author = "Vyshnav"
+author_email = "vyshnavmohan20@gmail.com"
+requires=[
+    "pyqt5",
+    "mysql-connector-python",  # Add this line
+]
+
+[tool.briefcase.app.lab]
+formal_name = "lab"
+description = "lab app"
+long_description = """More details about the app should go here.
+"""
+sources = [
+    "src/lab",
+    "src/lab/icon_rc.py",
+    "src/lab/fns.py",
+    "src/lab/dialogbox.ui",
+    "C:/Users/HP/anaconda3/Lib/site-packages/mysql",
+    "C:/Users/HP/anaconda3/Lib/os.py"
+]
+test_sources = [
+    "tests",
+]
+gui_framework = "qt"  # Corrected typo here
