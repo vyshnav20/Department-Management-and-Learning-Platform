@@ -75,3 +75,51 @@ def admin():
         l.append(i)
     return(l)
 
+def delete_qn(q):
+    mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
+    mycursor = mydb.cursor()
+    sql = "delete from qns where q_id=%s and qn_title=%s"
+    mycursor.execute(sql, (q[0],q[1],))
+    mydb.commit()
+
+def add_qn(q):
+    mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
+    mycursor = mydb.cursor()
+    sql = "insert into qns values(%s,%s,%s,%s)"
+    mycursor.execute(sql, (q[0],q[1],q[2],q[3],))
+    mydb.commit()
+
+def subjects():
+    l=[]
+    mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
+    mycursor = mydb.cursor()
+    sql = "SELECT sub_id FROM subjects"
+    mycursor.execute(sql,)
+    result = mycursor.fetchall()
+    for i in result:
+
+        for j in i:
+            l.append(j)
+    #print(l)
+    return l
+
+def viewq(q):
+    l=[]
+    mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
+    mycursor = mydb.cursor()
+    sql = "SELECT * FROM qns where q_id=%s and qn_title=%s"
+    mycursor.execute(sql, (q[0],q[1],))
+    result = mycursor.fetchall()
+    for i in result:
+        for j in i:
+            l.append(j)
+    #print(l)
+    return l
+
+
+def updt_qn(q):
+    mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
+    mycursor = mydb.cursor()
+    sql = "update qns set qn= %s, qn_title=%s where q_id=%s and sub_id=%s"
+    mycursor.execute(sql, (q[2],q[3],q[0],q[1],))
+    mydb.commit()

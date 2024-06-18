@@ -20,6 +20,10 @@ sources = [
     "src/lab",
     "src/lab/icon_rc.py",
     "src/lab/fns.py",
+    "src/lab/newqns.ui",
+    "src/lab/deldialog.ui",
+    "src/lab/updatedialog.ui",
+    "src/lab/viewqn.ui",
     "src/lab/dialogbox.ui",
     "C:/Users/HP/anaconda3/Lib/site-packages/mysql",
     "C:/Users/HP/anaconda3/Lib/os.py"

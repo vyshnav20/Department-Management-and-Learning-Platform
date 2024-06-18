@@ -1,111 +1,20 @@
-from lab.app import main
-from PyQt5 import QtCore, QtGui, QtWidgets,uic
-from PyQt5.QtCore import *
-from PyQt5.QtWidgets import *
-from PyQt5.QtGui import *
+# -*- coding: utf-8 -*-
+
+################################################################################
+## Form generated from reading UI file 'labeqQwPt.ui'
+##
+## Created by: Qt User Interface Compiler version 5.15.2
+##
+## WARNING! All changes made in this file will be lost when recompiling UI file!
+################################################################################
+
+from PySide2.QtCore import *
+from PySide2.QtGui import *
+from PySide2.QtWidgets import *
+
 import icon_rc
 
-from fns import *
-import os
-
-class viewqns(QtWidgets.QDialog):
-    def __init__(self):
-        super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/viewqn.ui")
-        uic.loadUi(ui_path,self)
-        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
-
-        # Check if the button box is found
-        if self.buttonBox is None:
-            print("Error: ButtonBox not found. Please check the object name in the UI file.")
-        else:
-            # Connect the button box signals to the appropriate slots
-            self.buttonBox.accepted.connect(self.accept)
-            self.buttonBox.rejected.connect(self.reject)
-
-
-    def update(self):
-        self.popup=updtdialogbox()
-        if self.popup.exec_() == QtWidgets.QDialog.Accepted:
-            q=[]
-            q.append(self.lineEdit_2.text())
-            q.append(self.lineEdit_3.text())
-            q.append(self.plainTextEdit.toPlainText())
-            q.append(self.lineEdit.text())
-            updt_qn(q)
-            self.close()
-
-class newqns(QtWidgets.QDialog):
-    def __init__(self):
-        super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/newqns.ui")
-        uic.loadUi(ui_path,self)
-        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
-
-        # Check if the button box is found
-        if self.buttonBox is None:
-            print("Error: ButtonBox not found. Please check the object name in the UI file.")
-        else:
-            # Connect the button box signals to the appropriate slots
-            self.buttonBox.accepted.connect(self.accept)
-            self.buttonBox.rejected.connect(self.reject)
-
-    def newq(self):
-        q=[]
-        q.append(self.comboBox_2.currentText())
-        q.append(self.comboBox_3.currentText())
-        q.append(self.plainTextEdit.toPlainText())
-        q.append(self.lineEdit.text())
-        add_qn(q)
-        self.close()
-
-class updtdialogbox(QtWidgets.QDialog):
-    def __init__(self):
-        super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/updatedialog.ui")
-        uic.loadUi(ui_path,self)
-        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
-
-        # Check if the button box is found
-        if self.buttonBox is None:
-            print("Error: ButtonBox not found. Please check the object name in the UI file.")
-        else:
-            # Connect the button box signals to the appropriate slots
-            self.buttonBox.accepted.connect(self.accept)
-            self.buttonBox.rejected.connect(self.reject)
-
-class deldialogbox(QtWidgets.QDialog):
-    def __init__(self):
-        super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/deldialog.ui")
-        uic.loadUi(ui_path,self)
-        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
-
-        # Check if the button box is found
-        if self.buttonBox is None:
-            print("Error: ButtonBox not found. Please check the object name in the UI file.")
-        else:
-            # Connect the button box signals to the appropriate slots
-            self.buttonBox.accepted.connect(self.accept)
-            self.buttonBox.rejected.connect(self.reject)
-
-class dialogbox(QtWidgets.QDialog):
-    def __init__(self):
-        super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/dialogbox.ui")
-        uic.loadUi(ui_path,self)
-        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
-
-        # Check if the button box is found
-        if self.buttonBox is None:
-            print("Error: ButtonBox not found. Please check the object name in the UI file.")
-        else:
-            # Connect the button box signals to the appropriate slots
-            self.buttonBox.accepted.connect(self.accept)
-            self.buttonBox.rejected.connect(self.reject)
-
-
-class labs(object):
+class Ui_MainWindow(object):
     def setupUi(self, MainWindow):
         if not MainWindow.objectName():
             MainWindow.setObjectName(u"MainWindow")
@@ -115,7 +24,7 @@ class labs(object):
 "    background-color: #333333; /* Dark background */\n"
 "}\n"
 "\n"
-"#Sub1, #menu, #q1_header, #q2_header ,#new_2{\n"
+"#Sub1, #menu, #q1_header, #q2_header,#new_2 {\n"
 "    border-radius: 15px;\n"
 "    background-color: qlineargradient(\n"
 "        x1: 0, y1: 0, x2: 1, y2: 1,\n"
@@ -151,8 +60,8 @@ class labs(object):
 "    color: #1e1e1e;\n"
 "}\n"
 "\n"
-"QPus"
-                        "hButton:pressed {\n"
+""
+                        "QPushButton:pressed {\n"
 "    background-color: #206a67;\n"
 "    color: #FFFFFF;\n"
 "}\n"
@@ -735,27 +644,57 @@ class labs(object):
         self.Box_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_16 = QVBoxLayout(self.Box_2)
         self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.qn_list = QWidget(self.Box_2)
+        self.qn_list.setObjectName(u"qn_list")
+        self.qn_list.setMaximumSize(QSize(16777215, 75))
+        self.verticalLayout_7 = QVBoxLayout(self.qn_list)
+        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.Sub1_2 = QWidget(self.qn_list)
+        self.Sub1_2.setObjectName(u"Sub1_2")
+        sizePolicy.setHeightForWidth(self.Sub1_2.sizePolicy().hasHeightForWidth())
+        self.Sub1_2.setSizePolicy(sizePolicy)
+        self.Sub1_2.setMinimumSize(QSize(0, 0))
+        self.Sub1_2.setMaximumSize(QSize(16777215, 85))
+        self.Sub1_2.setStyleSheet(u"")
+        self.horizontalLayout_8 = QHBoxLayout(self.Sub1_2)
+        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.Question = QLabel(self.Sub1_2)
+        self.Question.setObjectName(u"Question")
+        font16 = QFont()
+        font16.setFamily(u"Agency FB")
+        font16.setPointSize(25)
+        self.Question.setFont(font16)
 
-        css = """
-#qn_list {
-    border-radius: 15px;
-    background-color: qlineargradient(
-        x1: 0, y1: 0, x2: 1, y2: 1,
-        stop: 0 #292929, stop: 1 #1a1a1a
-    );
-    color: #FFFFFF;
-    border: 1px solid #555555;
-}
-"""
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        self.horizontalLayout_8.addWidget(self.Question)
 
-        # Now, call the function to generate qn_lists
-        self.generate_qn_lists(css, sizePolicy)
+        self.pushButton_2 = QPushButton(self.Sub1_2)
+        self.pushButton_2.setObjectName(u"pushButton_2")
+        self.pushButton_2.setMinimumSize(QSize(0, 35))
+        self.pushButton_2.setMaximumSize(QSize(68, 16777215))
+        self.pushButton_2.setFont(font14)
+        icon = QIcon()
+        icon.addFile(u":/icons/del.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton_2.setIcon(icon)
+        self.pushButton_2.setIconSize(QSize(45, 35))
+
+        self.horizontalLayout_8.addWidget(self.pushButton_2)
+
+        self.pushButton = QPushButton(self.Sub1_2)
+        self.pushButton.setObjectName(u"pushButton")
+        self.pushButton.setMinimumSize(QSize(0, 35))
+        self.pushButton.setMaximumSize(QSize(115, 16777215))
+        self.pushButton.setFont(font14)
+
+        self.horizontalLayout_8.addWidget(self.pushButton)
 
 
-            
+        self.verticalLayout_7.addWidget(self.Sub1_2)
 
-        self.horizontalLayout_10.addWidget(self.Box_2, 0, Qt.AlignTop)
+
+        self.verticalLayout_16.addWidget(self.qn_list, 0, Qt.AlignTop)
+
+
+        self.horizontalLayout_10.addWidget(self.Box_2)
 
 
         self.verticalLayout_8.addWidget(self.widget_3)
@@ -766,15 +705,15 @@ class labs(object):
         self.horizontalLayout_7 = QHBoxLayout(self.new_2)
         self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
         self.horizontalLayout_7.setContentsMargins(500, -1, 500, -1)
-        self.newqns = QPushButton(self.new_2)
-        self.newqns.setObjectName(u"newqns")
-        self.newqns.setMaximumSize(QSize(75, 16777215))
+        self.pushButton_3 = QPushButton(self.new_2)
+        self.pushButton_3.setObjectName(u"pushButton_3")
+        self.pushButton_3.setMaximumSize(QSize(75, 16777215))
         icon1 = QIcon()
         icon1.addFile(u":/icons/add.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.newqns.setIcon(icon1)
-        self.newqns.setIconSize(QSize(44, 31))
+        self.pushButton_3.setIcon(icon1)
+        self.pushButton_3.setIconSize(QSize(44, 31))
 
-        self.horizontalLayout_7.addWidget(self.newqns)
+        self.horizontalLayout_7.addWidget(self.pushButton_3)
 
 
         self.verticalLayout_8.addWidget(self.new_2)
@@ -793,259 +732,59 @@ class labs(object):
         self.verticalLayout.addWidget(self.container1)
 
         MainWindow.setCentralWidget(self.centralwidget)
-
-
-
-
-        self.menu.hide()
-        self.Sub1.hide()
-        self.incp.hide()
-        self.q1.clicked.connect(self.showq1)
-        self.q2.clicked.connect(self.showq2)
-        self.newqns.clicked.connect(self.addqns)
-        self.login.clicked.connect(self.logins)
-        self.logout.clicked.connect(self.logouts)
-        
-        
+        QWidget.setTabOrder(self.q1, self.q2)
+        QWidget.setTabOrder(self.q2, self.logout)
+        QWidget.setTabOrder(self.logout, self.plainTextEdit_2)
+        QWidget.setTabOrder(self.plainTextEdit_2, self.comboBox_4)
+        QWidget.setTabOrder(self.comboBox_4, self.plainTextEdit_4)
+        QWidget.setTabOrder(self.plainTextEdit_4, self.plainTextEdit)
+        QWidget.setTabOrder(self.plainTextEdit, self.comboBox)
+        QWidget.setTabOrder(self.comboBox, self.plainTextEdit_3)
+        QWidget.setTabOrder(self.plainTextEdit_3, self.username_edit)
+        QWidget.setTabOrder(self.username_edit, self.password_edit)
+        QWidget.setTabOrder(self.password_edit, self.fp)
+        QWidget.setTabOrder(self.fp, self.login)
+        QWidget.setTabOrder(self.login, self.submit)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(2)
-        QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+        self.stackedWidget.setCurrentIndex(3)
 
 
-    def create_qn_list(self, index, css, sizePolicy,val):
-        s="Sem "+str(val[1])+" - "+val[2]+" - "+val[0]+"- ( "+str(val[3])+" )"
-        qn_list = QWidget(self.Box_2)
-        qn_list.setObjectName(u"qn_list_{}".format(index))
-        qn_list.setMaximumSize(QSize(16777215, 75))
-        qn_list.setStyleSheet(css.replace("#qn_list", "#qn_list_{}".format(index)))
-        verticalLayout_7 = QVBoxLayout(qn_list)
-        verticalLayout_7.setObjectName(u"verticalLayout_7_{}".format(index))
+        QMetaObject.connectSlotsByName(MainWindow)
+    # setupUi
 
-        Sub1_2 = QWidget(qn_list)
-        Sub1_2.setObjectName(u"Sub1_2_{}".format(index))
-        sizePolicy.setHeightForWidth(Sub1_2.sizePolicy().hasHeightForWidth())
-        Sub1_2.setSizePolicy(sizePolicy)
-        Sub1_2.setMinimumSize(QSize(0, 0))
-        Sub1_2.setMaximumSize(QSize(16777215, 85))
-        horizontalLayout_8 = QHBoxLayout(Sub1_2)
-        horizontalLayout_8.setObjectName(u"horizontalLayout_8_{}".format(index))
-        
-        Question = QLabel(Sub1_2)
-        Question.setObjectName(u"Question_{}".format(index))
-        font16 = QFont()
-        font16.setFamily(u"Agency FB")
-        font16.setPointSize(25)
-        Question.setFont(font16)
-        Question.setText(s)
-        
-        horizontalLayout_8.addWidget(Question)
-        
-        font14 = QFont()
-        font14.setFamily(u"Orbitron")
-        
-        pushButton_2 = QPushButton(Sub1_2)
-        pushButton_2.setObjectName(u"pushButton_2")
-        pushButton_2.setMinimumSize(QSize(0, 35))
-        pushButton_2.setMaximumSize(QSize(68, 16777215))
-        pushButton_2.setFont(font14)
-        icon = QIcon()
-        icon.addFile(u":/icons/del.png", QSize(), QIcon.Normal, QIcon.Off)
-        pushButton_2.setIcon(icon)
-        pushButton_2.setIconSize(QSize(45, 35))
-
-        horizontalLayout_8.addWidget(pushButton_2)
-        pushButton_2.clicked.connect(lambda _, idx=index: self.handle_delete(idx, [val[3],val[0]]))
-
-        pushButton = QPushButton(Sub1_2)
-        pushButton.setObjectName(u"pushButton_{}".format(index))
-        pushButton.setMinimumSize(QSize(0, 35))
-        pushButton.setMaximumSize(QSize(115, 16777215))
-        
-        pushButton.setFont(font14)
-        pushButton.setText("View")
-        
-        horizontalLayout_8.addWidget(pushButton)
-        pushButton.clicked.connect(lambda _, idx=index: self.handle_view(idx, [val[3],val[0]]))
-
-        verticalLayout_7.addWidget(Sub1_2)
-        return qn_list
-
-    def generate_qn_lists(self, css, sizePolicy):
-        for i in reversed(range(self.verticalLayout_16.count())):
-            widget_to_remove = self.verticalLayout_16.itemAt(i).widget()
-            if widget_to_remove is not None:
-                widget_to_remove.setParent(None)
-
-        self.qn_lists = []
-        quns=admin()
-        for i in range(len(quns)):
-            qn_list = self.create_qn_list(i, css, sizePolicy,quns[i])
-            self.qn_lists.append(qn_list)
-            self.verticalLayout_16.addWidget(qn_list, 0, Qt.AlignTop)
-        
-
-
-    def handle_delete(self, index, val):
-        self.popup=deldialogbox()
-        if self.popup.exec_() == QtWidgets.QDialog.Accepted:
-            delete_qn(val)
-            css = """
-    #qn_list {
-        border-radius: 15px;
-        background-color: qlineargradient(
-            x1: 0, y1: 0, x2: 1, y2: 1,
-            stop: 0 #292929, stop: 1 #1a1a1a
-        );
-        color: #FFFFFF;
-        border: 1px solid #555555;
-    }
-    """
-            sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-            self.generate_qn_lists(css, sizePolicy)
-
-    def handle_view(self, index, val):
-        l=viewq(val)
-        self.viewques=viewqns()
-        self.viewques.lineEdit_2.setText(str(l[0]))
-        self.viewques.lineEdit_3.setText(l[1])
-        self.viewques.plainTextEdit.setPlainText(l[2])
-        self.viewques.lineEdit.setText(l[3])
-        self.viewques.Update.clicked.connect(self.viewques.update)
-        self.viewques.exec_()
-        css = """
-#qn_list {
-    border-radius: 15px;
-    background-color: qlineargradient(
-        x1: 0, y1: 0, x2: 1, y2: 1,
-        stop: 0 #292929, stop: 1 #1a1a1a
-    );
-    color: #FFFFFF;
-    border: 1px solid #555555;
-}
-"""
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_qn_lists(css, sizePolicy)
-
-    def addqns(self):
-        self.newques=newqns()
-        s=subjects()
-        self.newques.comboBox_2.addItems(["1","2","3","4 "])
-        self.newques.comboBox_3.addItems(s)
-        self.newques.Addqns.clicked.connect(self.newques.newq)
-        self.newques.exec_()
-        css = """
-#qn_list {
-    border-radius: 15px;
-    background-color: qlineargradient(
-        x1: 0, y1: 0, x2: 1, y2: 1,
-        stop: 0 #292929, stop: 1 #1a1a1a
-    );
-    color: #FFFFFF;
-    border: 1px solid #555555;
-}
-"""
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_qn_lists(css, sizePolicy)
-       
-
-        
-
-    def logouts(self):
-        self.popup=dialogbox()
-        if self.popup.exec_() == QtWidgets.QDialog.Accepted:
-            self.menu.hide()
-            self.Sub1.hide()
-            self.incp.hide()
-            self.username_edit.setText("")
-            self.password_edit.setText("")
-            self.stackedWidget.setCurrentIndex(2)
-
-    def logins(self):
-        user=self.username_edit.text()
-        passw=login_user(user)
-        if (user=="admin" and passw=="admin"):
-            self.Sub1.show()
-            self.menu.show()
-            self.q1.hide()
-            self.q2.hide()
-            self.submit.hide()
-            self.roll.hide()
-            self.sem.hide()
-            self.sub.setText("LAB Questions")
-            self.sub.setAlignment(Qt.AlignCenter)
-            self.roll_label.setText("Welcome\n"+user)
-            self.stackedWidget.setCurrentIndex(3)
-        elif(passw and self.password_edit.text()==passw):
-            self.menu.show()
-            self.Sub1.show()
-            self.q1.show()
-            self.q2.show()
-            self.submit.show()
-            self.sem.show()
-            self.sub.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-            self.roll_label.setText("Roll NO:")
-            self.stackedWidget.setCurrentIndex(0)
-            self.roll.setText(user[-2:])
-            self.displayqns()
-        else:
-            self.incp.show()
-            self.username_edit.setText("")
-            self.password_edit.setText("")
-
-
-    def showq1(self):
-        self.stackedWidget.setCurrentIndex(0)
-
-    def showq2(self):
-        self.stackedWidget.setCurrentIndex(1)
-
-    def displayqns(self):
-        sub = "MCA20101"
-        l=qnss(sub)
-        self.sub.setText(l[0])
-        self.sem.setText("Semester:"+str(l[1]))
-        self.plainTextEdit_2.setPlainText(l[2])
-        self.plainTextEdit.setPlainText(l[3])
-        self.q2_title_2.setText(l[4])
-        self.q2_title.setText(l[5])
-        self.comboBox_4.addItems(langs(sub))
-        self.comboBox.addItems(langs(sub))
-        
-
-
-        
     def retranslateUi(self, MainWindow):
-        _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MCA LAB"))
-        self.roll_label.setText(_translate("MainWindow", "Roll No:"))
-        self.q1.setText(_translate("MainWindow", "Question 1"))
-        self.q2.setText(_translate("MainWindow", "Question 2"))
-        self.submit.setText(_translate("MainWindow", "Submit"))
-        self.logout.setText(_translate("MainWindow", "Logout"))
-        self.label_3.setText(_translate("MainWindow", "YOUR ANSWER:"))
-        self.label_8.setText(_translate("MainWindow", "Choose Option"))
-        self.plainTextEdit_4.setPlaceholderText(_translate("MainWindow", "Enter code here"))
-        self.label.setText(_translate("MainWindow", "YOUR ANSWER:"))
-        self.label_2.setText(_translate("MainWindow", "Choose Option"))
-        self.plainTextEdit_3.setPlaceholderText(_translate("MainWindow", "Enter code here"))
-        self.label_4.setText(_translate("MainWindow", "LOGIN"))
-        self.username.setText(_translate("MainWindow", "Username:"))
-        self.username_edit.setPlaceholderText(_translate("MainWindow", "Enter username"))
-        self.password.setText(_translate("MainWindow", "Password:"))
-        self.password_edit.setPlaceholderText(_translate("MainWindow", "Enter Password"))
-        self.fp.setText(_translate("MainWindow", "Forgot Password?"))
-        self.login.setText(_translate("MainWindow", "Login"))
-        self.incp.setText(_translate("MainWindow", "Incorrect Username or Password!!!"))
+        MainWindow.setWindowTitle(QCoreApplication.translate("MainWindow", u"MCA LAB", None))
+        self.sem.setText(QCoreApplication.translate("MainWindow", u"Semester", None))
+        self.sub.setText(QCoreApplication.translate("MainWindow", u"Subject", None))
+        self.roll_label.setText(QCoreApplication.translate("MainWindow", u"Roll No:", None))
+        self.roll.setText(QCoreApplication.translate("MainWindow", u"00", None))
+        self.q1.setText(QCoreApplication.translate("MainWindow", u"Question 1", None))
+        self.q2.setText(QCoreApplication.translate("MainWindow", u"Question 2", None))
+        self.submit.setText(QCoreApplication.translate("MainWindow", u"Submit", None))
+        self.logout.setText(QCoreApplication.translate("MainWindow", u"Logout", None))
+        self.q2_title_2.setText(QCoreApplication.translate("MainWindow", u"Question 1 Title", None))
+        self.plainTextEdit_2.setPlainText(QCoreApplication.translate("MainWindow", u"Question", None))
+        self.label_3.setText(QCoreApplication.translate("MainWindow", u"Your Answer", None))
+        self.label_8.setText(QCoreApplication.translate("MainWindow", u"Choose Option", None))
+        self.plainTextEdit_4.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter code here", None))
+        self.q2_title.setText(QCoreApplication.translate("MainWindow", u"Question 2 Title", None))
+        self.plainTextEdit.setPlainText(QCoreApplication.translate("MainWindow", u"Question", None))
+        self.label.setText(QCoreApplication.translate("MainWindow", u"Your Answer", None))
+        self.label_2.setText(QCoreApplication.translate("MainWindow", u"Choose Option", None))
+        self.plainTextEdit_3.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter code here", None))
+        self.label_4.setText(QCoreApplication.translate("MainWindow", u"LOGIN", None))
+        self.username.setText(QCoreApplication.translate("MainWindow", u"Username", None))
+        self.username_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter username", None))
+        self.password.setText(QCoreApplication.translate("MainWindow", u"Password", None))
+        self.password_edit.setPlaceholderText(QCoreApplication.translate("MainWindow", u"Enter Password", None))
+        self.fp.setText(QCoreApplication.translate("MainWindow", u"Forgot Password?", None))
+        self.login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
+        self.incp.setText(QCoreApplication.translate("MainWindow", u"Incorrect Username or Password!!!", None))
+        self.Question.setText(QCoreApplication.translate("MainWindow", u"Question", None))
+        self.pushButton_2.setText("")
+        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"View", None))
+        self.pushButton_3.setText("")
+    # retranslateUi
 
-def main():
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    MainWindow = QtWidgets.QMainWindow()
-    ui = labs()
-    ui.setupUi(MainWindow)
-    MainWindow.showMaximized()
-    sys.exit(app.exec_())
-
-if __name__ == "__main__":
-    main()

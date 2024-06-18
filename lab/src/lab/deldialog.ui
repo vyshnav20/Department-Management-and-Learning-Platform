@@ -6,12 +6,15 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>356</width>
+    <width>484</width>
     <height>161</height>
    </rect>
   </property>
+  <property name="acceptDrops">
+   <bool>false</bool>
+  </property>
   <property name="windowTitle">
-   <string>LOGOUT</string>
+   <string>DELETE</string>
   </property>
   <property name="styleSheet">
    <string notr="true">#LOGOUT {
@@ -59,7 +62,7 @@ QLabel {color: white;}</string>
          </font>
         </property>
         <property name="text">
-         <string>Are you sure to LOGOUT!!!</string>
+         <string>Are you sure to delete Question!!!</string>
         </property>
        </widget>
       </item>
