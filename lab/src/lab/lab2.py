@@ -1,4 +1,3 @@
-from lab.app import main
 from PyQt5 import QtCore, QtGui, QtWidgets,uic
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -111,96 +110,99 @@ class labs(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1941, 985)
         MainWindow.setMinimumSize(QSize(0, 400))
-        MainWindow.setStyleSheet(u"#centralwidget {background-color: #333333;}\n"
-"#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4{\n"
-"border-radius: 15px;\n"
-"background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #292929, stop: 1 #1a1a1a);\n"
-"color: #FFFFFF;\n"
-"border: 1px solid #555555;}\n"
-"#qn_1, #qn_2 {\n"
-"border-radius: 15px;\n"
-"background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #444444, stop: 1 #333333);\n"
-"color: #CCCCCC;\n"
-"border: 1px solid #555555;\n"
+        MainWindow.setStyleSheet(u"#centralwidget {\n"
+"    background-color: #333333; /* Dark background */\n"
 "}\n"
-"QPushButton {\n"
-"border: 2px solid transparent; \n"
-"border-radius: 10px;\n"
-"background-color: rgba(0, 0, 0, 0.5);\n"
-"padding: 10px 20px;\n"
-"font-size: 16px;\n"
-"font-weight: bold;\n"
-"color: white;\n"
-"border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
-"}\n"
-"QPushButton:hover {\n"
-"background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
-"color: black;\n"
-"border: 2px solid transparent; \n"
-"bord"
-                        "er-color: black; \n"
-"}\n"
-"QLabel {\n"
-"color: #CCCCCC;}\n"
-"QPlainTextEdit {\n"
-"background-color: #333333;\n"
-"color: #CCCCCC;\n"
-"border: 1px solid #555555;\n"
-"border-radius: 10px;\n"
-"padding: 5px;\n"
-"}\n"
-"QComboBox {\n"
-"background-color: #333333;\n"
-"color: #CCCCCC;\n"
-"border: 1px solid #555555;\n"
-"border-radius: 10px;\n"
-"padding: 5px;\n"
-"}\n"
-"QComboBox QAbstractItemView {\n"
-"background-color: #333333; \n"
-"color: #FFFFFF; \n"
-"border: 1px solid #29a19c;\n"
-"selection-background-color: #29a19c;\n"
-"selection-color: #1e1e1e;\n"
-"}\n"
-"QTabWidget::pane {\n"
-"border-radius: 15px;\n"
-"background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
-"border: 1px solid #555555;\n"
-"}\n"
-"QTabBar::tab {\n"
-"border: 2px solid transparent; \n"
-"border-radius: 10px;\n"
-"background-color: rgba(0, 0, 0, 0.5);\n"
-"padding: 10px 20px;\n"
-"font-size: 16px;\n"
-"font-weight: bold;\n"
-"color: white;\n"
-"border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1"
-                        ", stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
-"}\n"
-"QTabBar::tab:hover {\n"
-"background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
-"color: black;\n"
-"border: 2px solid transparent; \n"
-"border-color: red;\n"
-" }\n"
-"QTabBar::tab:selected {\n"
-"background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
-"color: black;\n"
-"border: 2px solid transparent; \n"
-"border-color: black;\n"
-" }\n"
-"QTableView {\n"
-"alternate-background-color: #e0e0e0;\n"
-"selection-background-color: #b8d6f2;\n"
-"selection-color: black; \n"
-"border-radius: 15px;\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
+"\n"
+"#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3{\n"
+"    border-radius: 15px;\n"
+"    background-color: qlineargradient(\n"
+"        x1: 0, y1: 0, x2: 1, y2: 1,\n"
+"        stop: 0 #292929, stop: 1 #1a1a1a\n"
+"    );\n"
 "    color: #FFFFFF;\n"
 "    border: 1px solid #555555;\n"
-"    padding: 20px;\n"
-"}")
+"}\n"
+"\n"
+"#qn_1, #qn_2 {\n"
+"    border-radius: 15px;\n"
+"    background-color: qlineargradient(\n"
+"        x1: 0, y1: 0, x2: 1, y2: 1,\n"
+"        stop: 0 #444444, stop: 1 #333333\n"
+"    );\n"
+"    color: #CCCCCC; /* Light gray text */\n"
+"    border: 1px solid #555555;\n"
+"}\n"
+"\n"
+"QPushButton {\n"
+"    border: 1px solid #29a19c;\n"
+"    border-radius: 15px;\n"
+"    background-color: qlineargradient(\n"
+"        x1: 0, y1: 0, x2: 1, y2: 1,\n"
+"        stop: 0 #3e3e3e, stop: 1 #2e2e2e\n"
+"    );\n"
+"    color: #FFFFFF;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: #29a19c;\n"
+"    color: #1"
+                        "e1e1e;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #206a67;\n"
+"    color: #FFFFFF;\n"
+"}\n"
+"\n"
+"QLabel {\n"
+"    color: #CCCCCC; /* Light gray text */\n"
+"}\n"
+"\n"
+"QPlainTextEdit {\n"
+"    background-color: #333333; /* Dark background */\n"
+"    color: #CCCCCC; /* Light gray text */\n"
+"    border: 1px solid #555555;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QComboBox {\n"
+"    background-color: #333333; /* Dark background */\n"
+"    color: #CCCCCC; /* Light gray text */\n"
+"    border: 1px solid #555555;\n"
+"    border-radius: 10px;\n"
+"    padding: 5px;\n"
+"}\n"
+"\n"
+"QComboBox QAbstractItemView {\n"
+"    background-color: #333333; /* Dark background */\n"
+"    color: #FFFFFF; /* White text */\n"
+"    border: 1px solid #29a19c;\n"
+"    selection-background-color: #29a19c;\n"
+"    selection-color: #1e1e1e;\n"
+"}\n"
+"\n"
+"QTabWidget::pane {\n"
+"                border-radius: 15px;\n"
+"                 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, "
+                        "stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
+"                border: 1px solid #555555;\n"
+"            }\n"
+"            QTabBar::tab {\n"
+"                border: none;\n"
+"                border-radius: 10px;\n"
+"                background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffa502, stop: 0.3 #ff7f50, stop: 1 #ff6348);\n"
+"                color: #FFFFFF;\n"
+"                padding: 10px 20px;\n"
+"                font-size: 18px;\n"
+"				margin-right:5px;\n"
+"            }\n"
+"            QTabBar::tab:selected {\n"
+"                background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #48C9B0, stop: 0.3 #5DADE2, stop: 1 #85C1E9);\n"
+"            }\n"
+"")
         MainWindow.setTabShape(QTabWidget.Rounded)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -528,6 +530,22 @@ class labs(object):
 "    padding: 20px;\n"
 "}\n"
 "\n"
+"QPushButton {\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffa502, stop: 0.3 #ff7f50, stop: 1 #ff6348);\n"
+"    color: #FFFFFF;\n"
+"    padding: 10px 20px;\n"
+"    font-size: 16px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #48C9B0, stop: 0.3 #5DADE2, stop: 1 #85C1E9);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #ff6348;\n"
+"}\n"
 "\n"
 "QLabel {\n"
 "    color: white;\n"
@@ -542,7 +560,8 @@ class labs(object):
 "}\n"
 "\n"
 "QLineEdit:focus {\n"
-"    background-color: #1C1C1C; /* Light Grey */\n"
+"    backgrou"
+                        "nd-color: #1C1C1C; /* Light Grey */\n"
 "}\n"
 "")
         self.verticalLayout_6 = QVBoxLayout(self.login_page)
@@ -665,11 +684,28 @@ class labs(object):
         self.verticalLayout_6.addWidget(self.container)
 
         self.stackedWidget.addWidget(self.login_page)
-
-        
         self.page = QWidget()
         self.page.setObjectName(u"page")
-        self.page.setStyleSheet(u"QLabel {\n"
+        self.page.setStyleSheet(u"\n"
+"\n"
+"QPushButton {\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffa502, stop: 0.3 #ff7f50, stop: 1 #ff6348);\n"
+"    color: #FFFFFF;\n"
+"    padding: 10px 20px;\n"
+"    font-size: 16px;\n"
+"}\n"
+"\n"
+"QPushButton:hover {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #48C9B0, stop: 0.3 #5DADE2, stop: 1 #85C1E9);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: #ff6348;\n"
+"}\n"
+"\n"
+"QLabel {\n"
 "    color: white;\n"
 "}\n"
 "\n"
@@ -685,7 +721,10 @@ class labs(object):
 "    background-color: #1C1C1C; /* Light Grey */\n"
 "}\n"
 "\n"
-"\n"
+"QTabWidget\n"
+"{\n"
+"	background-color: rgb(170, 0, 255);\n"
+"}\n"
 "")
         self.verticalLayout_20 = QVBoxLayout(self.page)
         self.verticalLayout_20.setObjectName(u"verticalLayout_20")
@@ -733,22 +772,24 @@ class labs(object):
         self.Box_2.setFrameShadow(QFrame.Raised)
         self.verticalLayout_22 = QVBoxLayout(self.Box_2)
         self.verticalLayout_22.setObjectName(u"verticalLayout_22")
+        
         css = """
-    #qn_list {
-        border-radius: 15px;
-        background-color: qlineargradient(
-            x1: 0, y1: 0, x2: 1, y2: 1,
-            stop: 0 #292929, stop: 1 #1a1a1a
-        );
-        color: #FFFFFF;
-        border: 1px solid #555555;
-    }
-    """
+#qn_list {
+    border-radius: 15px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #292929, stop: 1 #1a1a1a
+    );
+    color: #FFFFFF;
+    border: 1px solid #555555;
+}
+"""
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_qn_lists(css, sizePolicy)    
 
+        # Now, call the function to generate qn_lists
+        self.generate_qn_lists(css, sizePolicy)
 
-        self.horizontalLayout_13.addWidget(self.Box_2, 0, Qt.AlignTop)
+        self.horizontalLayout_13.addWidget(self.Box_2)
 
 
         self.verticalLayout_21.addWidget(self.widget_3)
@@ -776,72 +817,9 @@ class labs(object):
         self.verticalLayout.addWidget(self.container_2)
 
         self.tabWidget.addTab(self.tr_page, "")
-        self.subj = QWidget()
-        self.subj.setObjectName(u"subj")
-        self.verticalLayout_8 = QVBoxLayout(self.subj)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.container_4 = QWidget(self.subj)
-        self.container_4.setObjectName(u"container_4")
-        self.verticalLayout_9 = QVBoxLayout(self.container_4)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.widget_8 = QWidget(self.container_4)
-        self.widget_8.setObjectName(u"widget_8")
-        self.widget_8.setMinimumSize(QSize(0, 800))
-        self.horizontalLayout_23 = QHBoxLayout(self.widget_8)
-        self.horizontalLayout_23.setSpacing(0)
-        self.horizontalLayout_23.setObjectName(u"horizontalLayout_23")
-        self.horizontalLayout_23.setContentsMargins(0, 0, 0, 0)
-        self.Box_4 = QFrame(self.widget_8)
-        self.Box_4.setObjectName(u"Box_4")
-        sizePolicy.setHeightForWidth(self.Box_4.sizePolicy().hasHeightForWidth())
-        self.Box_4.setSizePolicy(sizePolicy)
-        self.Box_4.setFrameShape(QFrame.StyledPanel)
-        self.Box_4.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_27 = QVBoxLayout(self.Box_4)
-        self.verticalLayout_27.setObjectName(u"verticalLayout_27")
-        css = """
-    #qn_list {
-        border-radius: 15px;
-        background-color: qlineargradient(
-            x1: 0, y1: 0, x2: 1, y2: 1,
-            stop: 0 #292929, stop: 1 #1a1a1a
-        );
-        color: #FFFFFF;
-        border: 1px solid #555555;
-    }
-    """
-        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_sub_lists(css, sizePolicy)        
-
-
-        self.horizontalLayout_23.addWidget(self.Box_4, 0, Qt.AlignTop)
-
-
-        self.verticalLayout_9.addWidget(self.widget_8)
-
-        self.new_4 = QWidget(self.container_4)
-        self.new_4.setObjectName(u"new_4")
-        self.new_4.setMinimumSize(QSize(0, 0))
-        self.horizontalLayout_25 = QHBoxLayout(self.new_4)
-        self.horizontalLayout_25.setObjectName(u"horizontalLayout_25")
-        self.horizontalLayout_25.setContentsMargins(500, -1, 500, -1)
-        self.new_sub = QPushButton(self.new_4)
-        self.new_sub.setObjectName(u"new_sub")
-        self.new_sub.setMaximumSize(QSize(75, 16777215))
-        icon1 = QIcon()
-        icon1.addFile(u":/icons/add.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.new_sub.setIcon(icon1)
-        self.new_sub.setIconSize(QSize(44, 31))
-
-        self.horizontalLayout_25.addWidget(self.new_sub)
-
-
-        self.verticalLayout_9.addWidget(self.new_4)
-
-
-        self.verticalLayout_8.addWidget(self.container_4)
-
-        self.tabWidget.addTab(self.subj, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.tabWidget.addTab(self.tab_2, "")
 
         self.verticalLayout_17.addWidget(self.tabWidget)
 
@@ -878,91 +856,6 @@ class labs(object):
         self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
-    def elcss(self):
-        css = """
-    #qn_list {
-        border-radius: 15px;
-        background-color: qlineargradient(
-            x1: 0, y1: 0, x2: 1, y2: 1,
-            stop: 0 #292929, stop: 1 #1a1a1a
-        );
-        color: #FFFFFF;
-        border: 1px solid #555555;
-    }
-    """
-        return css
-
-
-    def create_sub_list(self, index, css, sizePolicy,val):
-        s="Sem "+str(val[1])+" - "+val[2]+" - "+val[0]+"- ( "+str(val[3])+" )"
-        sub_list = QWidget(self.Box_4)
-        sub_list.setObjectName(u"qn_list_{}".format(index))
-        sub_list.setMaximumSize(QSize(16777215, 75))
-        sub_list.setStyleSheet(css.replace("#sub_list", "#sub_list{}".format(index)))
-        verticalLayout_7 = QVBoxLayout(sub_list)
-        verticalLayout_7.setObjectName(u"verticalLayout_7_{}".format(index))
-
-        Sub1_2 = QWidget(sub_list)
-        Sub1_2.setObjectName(u"Sub1_2_{}".format(index))
-        sizePolicy.setHeightForWidth(Sub1_2.sizePolicy().hasHeightForWidth())
-        Sub1_2.setSizePolicy(sizePolicy)
-        Sub1_2.setMinimumSize(QSize(0, 0))
-        Sub1_2.setMaximumSize(QSize(16777215, 85))
-        horizontalLayout_8 = QHBoxLayout(Sub1_2)
-        horizontalLayout_8.setObjectName(u"horizontalLayout_8_{}".format(index))
-        
-        Question = QLabel(Sub1_2)
-        Question.setObjectName(u"Question_{}".format(index))
-        font16 = QFont()
-        font16.setFamily(u"Agency FB")
-        font16.setPointSize(25)
-        Question.setFont(font16)
-        Question.setText(s)
-        
-        horizontalLayout_8.addWidget(Question)
-        
-        font14 = QFont()
-        font14.setFamily(u"Orbitron")
-        
-        pushButton_2 = QPushButton(Sub1_2)
-        pushButton_2.setObjectName(u"pushButton_2")
-        pushButton_2.setMinimumSize(QSize(0, 35))
-        pushButton_2.setMaximumSize(QSize(68, 16777215))
-        pushButton_2.setFont(font14)
-        icon = QIcon()
-        icon.addFile(u":/icons/del.png", QSize(), QIcon.Normal, QIcon.Off)
-        pushButton_2.setIcon(icon)
-        pushButton_2.setIconSize(QSize(45, 35))
-
-        horizontalLayout_8.addWidget(pushButton_2)
-        pushButton_2.clicked.connect(lambda _, idx=index: self.handle_delete(idx, [val[3],val[0]]))
-
-        pushButton = QPushButton(Sub1_2)
-        pushButton.setObjectName(u"pushButton_{}".format(index))
-        pushButton.setMinimumSize(QSize(0, 35))
-        pushButton.setMaximumSize(QSize(115, 16777215))
-        
-        pushButton.setFont(font14)
-        pushButton.setText("View")
-        
-        horizontalLayout_8.addWidget(pushButton)
-        pushButton.clicked.connect(lambda _, idx=index: self.handle_view(idx, [val[3],val[0]]))
-
-        verticalLayout_7.addWidget(Sub1_2)
-        return qn_list
-
-    def generate_sub_lists(self, css, sizePolicy):
-        for i in reversed(range(self.verticalLayout_27.count())):
-            widget_to_remove = self.verticalLayout_27.itemAt(i).widget()
-            if widget_to_remove is not None:
-                widget_to_remove.setParent(None)
-
-        self.sub_lists = []
-        subs=admin()
-        for i in range(len(subs)):
-            sub_list = self.create_sub_list(i, css, sizePolicy,subs[i])
-            self.qn_lists.append(sub_lists)
-            self.verticalLayout_27.addWidget(sub_lists, 0, Qt.AlignTop)    
 
     def create_qn_list(self, index, css, sizePolicy,val):
         s="Sem "+str(val[1])+" - "+val[2]+" - "+val[0]+"- ( "+str(val[3])+" )"
@@ -1041,9 +934,19 @@ class labs(object):
         self.popup=deldialogbox()
         if self.popup.exec_() == QtWidgets.QDialog.Accepted:
             delete_qn(val)
-            
+            css = """
+    #qn_list {
+        border-radius: 15px;
+        background-color: qlineargradient(
+            x1: 0, y1: 0, x2: 1, y2: 1,
+            stop: 0 #292929, stop: 1 #1a1a1a
+        );
+        color: #FFFFFF;
+        border: 1px solid #555555;
+    }
+    """
             sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-            self.generate_qn_lists(self.elcss(), sizePolicy)
+            self.generate_qn_lists(css, sizePolicy)
 
     def handle_view(self, index, val):
         l=viewq(val)
@@ -1054,8 +957,19 @@ class labs(object):
         self.viewques.lineEdit.setText(l[3])
         self.viewques.Update.clicked.connect(self.viewques.update)
         self.viewques.exec_()
+        css = """
+#qn_list {
+    border-radius: 15px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #292929, stop: 1 #1a1a1a
+    );
+    color: #FFFFFF;
+    border: 1px solid #555555;
+}
+"""
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_qn_lists(self.elcss(), sizePolicy)
+        self.generate_qn_lists(css, sizePolicy)
 
     def addqns(self):
         self.newques=newqns()
@@ -1064,8 +978,19 @@ class labs(object):
         self.newques.comboBox_3.addItems(s)
         self.newques.Addqns.clicked.connect(self.newques.newq)
         self.newques.exec_()
+        css = """
+#qn_list {
+    border-radius: 15px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #292929, stop: 1 #1a1a1a
+    );
+    color: #FFFFFF;
+    border: 1px solid #555555;
+}
+"""
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_qn_lists(self.elcss(), sizePolicy)
+        self.generate_qn_lists(css, sizePolicy)
        
 
         
@@ -1091,11 +1016,10 @@ class labs(object):
             self.submit.hide()
             self.roll.hide()
             self.sem.hide()
-            self.sub.setText("College of Engineering Trivandrum\t\t\t\t\t\t\\t\t\t\t Department of Computer Applications")
+            self.sub.setText("LAB Questions")
             self.sub.setAlignment(Qt.AlignCenter)
             self.roll_label.setText("Welcome\n"+user)
             self.stackedWidget.setCurrentIndex(3)
-
         elif(passw and self.password_edit.text()==passw):
             self.menu.show()
             self.Sub1.show()
@@ -1161,9 +1085,12 @@ class labs(object):
         self.fp.setText(_translate("MainWindow", "Forgot Password?"))
         self.login.setText(_translate("MainWindow", "Login"))
         self.incp.setText(_translate("MainWindow", "Incorrect Username or Password!!!"))
+        self.Question.setText(_translate("MainWindow", "Question"))
+        self.pushButton.setText("")
+        self.pushButton_6.setText(_translate("MainWindow","View"))
         self.newqns.setText("")
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tr_page), _translate("MainWindow", u"Questions"))
-        self.tabWidget.setTabText(self.tabWidget.indexOf(self.subj), _translate("MainWindow", u"Subjects"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tr_page), _translate("MainWindow","Questions"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), _translate("MainWindow", u"Subjects"))
 
 def main():
     import sys

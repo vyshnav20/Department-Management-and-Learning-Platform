@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 ################################################################################
-## Form generated from reading UI file 'labeqQwPt.ui'
+## Form generated from reading UI file 'labLHruWA.ui'
 ##
 ## Created by: Qt User Interface Compiler version 5.15.2
 ##
@@ -24,7 +24,7 @@ class Ui_MainWindow(object):
 "    background-color: #333333; /* Dark background */\n"
 "}\n"
 "\n"
-"#Sub1, #menu, #q1_header, #q2_header,#new_2 {\n"
+"#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3{\n"
 "    border-radius: 15px;\n"
 "    background-color: qlineargradient(\n"
 "        x1: 0, y1: 0, x2: 1, y2: 1,\n"
@@ -43,28 +43,29 @@ class Ui_MainWindow(object):
 "    color: #CCCCCC; /* Light gray text */\n"
 "    border: 1px solid #555555;\n"
 "}\n"
-"\n"
 "QPushButton {\n"
-"    border: 1px solid #29a19c;\n"
-"    border-radius: 15px;\n"
-"    background-color: qlineargradient(\n"
-"        x1: 0, y1: 0, x2: 1, y2: 1,\n"
-"        stop: 0 #3e3e3e, stop: 1 #2e2e2e\n"
-"    );\n"
-"    color: #FFFFFF;\n"
-"    padding: 5px;\n"
+"    border: none;\n"
+"    border-radius: 10px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #3498db, stop: 1 #f39c12);\n"
+"   	color: black;\n"
+"    padding: 10px 20px;\n"
+"    font-size: 16px;\n"
+"	font-weight: bold;\n"
 "}\n"
+"\n"
 "\n"
 "QPushButton:hover {\n"
-"    background-color: #29a19c;\n"
-"    color: #1e1e1e;\n"
+"    background-color: qlineargradient(x1: "
+                        "0, y1: 0, x2: 1, y2: 1, stop: 0 #c0392b, stop: 0.3 #e74c3c, stop: 1 #f39c12);\n"
+"color: white;\n"
 "}\n"
 "\n"
-""
-                        "QPushButton:pressed {\n"
-"    background-color: #206a67;\n"
-"    color: #FFFFFF;\n"
+"QPushButton:pressed {\n"
+"    background-color: #f39c12;\n"
 "}\n"
+"\n"
+"\n"
+"\n"
 "\n"
 "QLabel {\n"
 "    color: #CCCCCC; /* Light gray text */\n"
@@ -93,12 +94,32 @@ class Ui_MainWindow(object):
 "    selection-background-color: #29a19c;\n"
 "    selection-color: #1e1e1e;\n"
 "}\n"
+"\n"
+"QTabWidget::pane {\n"
+"                border-radius: 15px;\n"
+""
+                        "                 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
+"                border: 1px solid #555555;\n"
+"            }\n"
+"            QTabBar::tab {\n"
+"                border: none;\n"
+"                border-radius: 10px;\n"
+"              background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #3498db, stop: 1 #f39c12);\n"
+"   	color: black;\n"
+"                padding: 10px 20px;\n"
+"                font-size: 18px;\n"
+"				margin-right:5px;\n"
+"            }\n"
+"            QTabBar::tab:selected {\n"
+"                background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #c0392b, stop: 0.3 #e74c3c, stop: 1 #f39c12);\n"
+"color: white;\n"
+"            }\n"
 "")
         MainWindow.setTabShape(QTabWidget.Rounded)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
-        self.verticalLayout = QVBoxLayout(self.centralwidget)
-        self.verticalLayout.setObjectName(u"verticalLayout")
+        self.verticalLayout_24 = QVBoxLayout(self.centralwidget)
+        self.verticalLayout_24.setObjectName(u"verticalLayout_24")
         self.Sub1 = QWidget(self.centralwidget)
         self.Sub1.setObjectName(u"Sub1")
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
@@ -132,7 +153,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout.addWidget(self.sub)
 
 
-        self.verticalLayout.addWidget(self.Sub1)
+        self.verticalLayout_24.addWidget(self.Sub1)
 
         self.container1 = QWidget(self.centralwidget)
         self.container1.setObjectName(u"container1")
@@ -175,10 +196,9 @@ class Ui_MainWindow(object):
         self.q1.setObjectName(u"q1")
         font4 = QFont()
         font4.setFamily(u"Orbitron")
-        font4.setPointSize(14)
-        font4.setBold(False)
+        font4.setBold(True)
         font4.setItalic(False)
-        font4.setWeight(50)
+        font4.setWeight(75)
         self.q1.setFont(font4)
 
         self.verticalLayout_2.addWidget(self.q1)
@@ -257,6 +277,7 @@ class Ui_MainWindow(object):
         font6.setBold(True)
         font6.setWeight(75)
         self.plainTextEdit_2.setFont(font6)
+        self.plainTextEdit_2.setReadOnly(True)
 
         self.verticalLayout_14.addWidget(self.plainTextEdit_2)
 
@@ -420,22 +441,6 @@ class Ui_MainWindow(object):
 "    padding: 20px;\n"
 "}\n"
 "\n"
-"QPushButton {\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffa502, stop: 0.3 #ff7f50, stop: 1 #ff6348);\n"
-"    color: #FFFFFF;\n"
-"    padding: 10px 20px;\n"
-"    font-size: 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #48C9B0, stop: 0.3 #5DADE2, stop: 1 #85C1E9);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #ff6348;\n"
-"}\n"
 "\n"
 "QLabel {\n"
 "    color: white;\n"
@@ -450,8 +455,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QLineEdit:focus {\n"
-"    backgrou"
-                        "nd-color: #1C1C1C; /* Light Grey */\n"
+"    background-color: #1C1C1C; /* Light Grey */\n"
 "}\n"
 "")
         self.verticalLayout_6 = QVBoxLayout(self.login_page)
@@ -541,6 +545,8 @@ class Ui_MainWindow(object):
         self.fp.setObjectName(u"fp")
         font14 = QFont()
         font14.setFamily(u"Orbitron")
+        font14.setBold(True)
+        font14.setWeight(75)
         self.fp.setFont(font14)
         self.fp.setLayoutDirection(Qt.LeftToRight)
 
@@ -574,35 +580,9 @@ class Ui_MainWindow(object):
         self.verticalLayout_6.addWidget(self.container)
 
         self.stackedWidget.addWidget(self.login_page)
-        self.tr_page = QWidget()
-        self.tr_page.setObjectName(u"tr_page")
-        self.tr_page.setStyleSheet(u"\n"
-"#widget_3 {\n"
-"    border-radius: 15px;\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
-"    color: #FFFFFF;\n"
-"    border: 1px solid #555555;\n"
-"    padding: 20px;\n"
-"}\n"
-"\n"
-"QPushButton {\n"
-"    border: none;\n"
-"    border-radius: 10px;\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #ffa502, stop: 0.3 #ff7f50, stop: 1 #ff6348);\n"
-"    color: #FFFFFF;\n"
-"    padding: 10px 20px;\n"
-"    font-size: 16px;\n"
-"}\n"
-"\n"
-"QPushButton:hover {\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #48C9B0, stop: 0.3 #5DADE2, stop: 1 #85C1E9);\n"
-"}\n"
-"\n"
-"QPushButton:pressed {\n"
-"    background-color: #ff6348;\n"
-"}\n"
-"\n"
-"QLabel {\n"
+        self.page = QWidget()
+        self.page.setObjectName(u"page")
+        self.page.setStyleSheet(u"QLabel {\n"
 "    color: white;\n"
 "}\n"
 "\n"
@@ -615,40 +595,62 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "QLineEdit:focus {\n"
-"  "
-                        "  background-color: #1C1C1C; /* Light Grey */\n"
+"    background-color: #1C1C1C; /* Light Grey */\n"
 "}\n"
+"\n"
+"\n"
 "")
-        self.verticalLayout_9 = QVBoxLayout(self.tr_page)
-        self.verticalLayout_9.setObjectName(u"verticalLayout_9")
-        self.verticalLayout_9.setContentsMargins(-1, -1, -1, 0)
+        self.verticalLayout_20 = QVBoxLayout(self.page)
+        self.verticalLayout_20.setObjectName(u"verticalLayout_20")
+        self.container_3 = QFrame(self.page)
+        self.container_3.setObjectName(u"container_3")
+        self.container_3.setFrameShape(QFrame.StyledPanel)
+        self.container_3.setFrameShadow(QFrame.Raised)
+        self.verticalLayout_17 = QVBoxLayout(self.container_3)
+        self.verticalLayout_17.setObjectName(u"verticalLayout_17")
+        self.verticalLayout_17.setContentsMargins(-1, -1, -1, 0)
+        self.tabWidget = QTabWidget(self.container_3)
+        self.tabWidget.setObjectName(u"tabWidget")
+        font16 = QFont()
+        font16.setFamily(u"Dungeon")
+        font16.setPointSize(15)
+        self.tabWidget.setFont(font16)
+        self.tabWidget.setTabPosition(QTabWidget.North)
+        self.tabWidget.setTabShape(QTabWidget.Rounded)
+        self.tabWidget.setIconSize(QSize(16, 16))
+        self.tabWidget.setTabsClosable(False)
+        self.tabWidget.setMovable(True)
+        self.tr_page = QWidget()
+        self.tr_page.setObjectName(u"tr_page")
+        self.verticalLayout = QVBoxLayout(self.tr_page)
+        self.verticalLayout.setObjectName(u"verticalLayout")
         self.container_2 = QFrame(self.tr_page)
         self.container_2.setObjectName(u"container_2")
         self.container_2.setFrameShape(QFrame.StyledPanel)
         self.container_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_8 = QVBoxLayout(self.container_2)
-        self.verticalLayout_8.setObjectName(u"verticalLayout_8")
-        self.verticalLayout_8.setContentsMargins(-1, -1, -1, 0)
+        self.verticalLayout_21 = QVBoxLayout(self.container_2)
+        self.verticalLayout_21.setObjectName(u"verticalLayout_21")
+        self.verticalLayout_21.setContentsMargins(-1, -1, -1, 0)
         self.widget_3 = QWidget(self.container_2)
         self.widget_3.setObjectName(u"widget_3")
         self.widget_3.setMinimumSize(QSize(0, 800))
-        self.horizontalLayout_10 = QHBoxLayout(self.widget_3)
-        self.horizontalLayout_10.setSpacing(0)
-        self.horizontalLayout_10.setObjectName(u"horizontalLayout_10")
-        self.horizontalLayout_10.setContentsMargins(0, 0, 0, 0)
+        self.horizontalLayout_13 = QHBoxLayout(self.widget_3)
+        self.horizontalLayout_13.setSpacing(0)
+        self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
+        self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
         self.Box_2 = QFrame(self.widget_3)
         self.Box_2.setObjectName(u"Box_2")
         sizePolicy.setHeightForWidth(self.Box_2.sizePolicy().hasHeightForWidth())
         self.Box_2.setSizePolicy(sizePolicy)
         self.Box_2.setFrameShape(QFrame.StyledPanel)
         self.Box_2.setFrameShadow(QFrame.Raised)
-        self.verticalLayout_16 = QVBoxLayout(self.Box_2)
-        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.verticalLayout_22 = QVBoxLayout(self.Box_2)
+        self.verticalLayout_22.setObjectName(u"verticalLayout_22")
         self.qn_list = QWidget(self.Box_2)
         self.qn_list.setObjectName(u"qn_list")
         self.qn_list.setMaximumSize(QSize(16777215, 75))
-        self.verticalLayout_7 = QVBoxLayout(self.qn_list)
-        self.verticalLayout_7.setObjectName(u"verticalLayout_7")
+        self.verticalLayout_23 = QVBoxLayout(self.qn_list)
+        self.verticalLayout_23.setObjectName(u"verticalLayout_23")
         self.Sub1_2 = QWidget(self.qn_list)
         self.Sub1_2.setObjectName(u"Sub1_2")
         sizePolicy.setHeightForWidth(self.Sub1_2.sizePolicy().hasHeightForWidth())
@@ -656,72 +658,82 @@ class Ui_MainWindow(object):
         self.Sub1_2.setMinimumSize(QSize(0, 0))
         self.Sub1_2.setMaximumSize(QSize(16777215, 85))
         self.Sub1_2.setStyleSheet(u"")
-        self.horizontalLayout_8 = QHBoxLayout(self.Sub1_2)
-        self.horizontalLayout_8.setObjectName(u"horizontalLayout_8")
+        self.horizontalLayout_18 = QHBoxLayout(self.Sub1_2)
+        self.horizontalLayout_18.setObjectName(u"horizontalLayout_18")
         self.Question = QLabel(self.Sub1_2)
         self.Question.setObjectName(u"Question")
-        font16 = QFont()
-        font16.setFamily(u"Agency FB")
-        font16.setPointSize(25)
-        self.Question.setFont(font16)
+        font17 = QFont()
+        font17.setFamily(u"Agency FB")
+        font17.setPointSize(25)
+        self.Question.setFont(font17)
 
-        self.horizontalLayout_8.addWidget(self.Question)
-
-        self.pushButton_2 = QPushButton(self.Sub1_2)
-        self.pushButton_2.setObjectName(u"pushButton_2")
-        self.pushButton_2.setMinimumSize(QSize(0, 35))
-        self.pushButton_2.setMaximumSize(QSize(68, 16777215))
-        self.pushButton_2.setFont(font14)
-        icon = QIcon()
-        icon.addFile(u":/icons/del.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_2.setIcon(icon)
-        self.pushButton_2.setIconSize(QSize(45, 35))
-
-        self.horizontalLayout_8.addWidget(self.pushButton_2)
+        self.horizontalLayout_18.addWidget(self.Question)
 
         self.pushButton = QPushButton(self.Sub1_2)
         self.pushButton.setObjectName(u"pushButton")
         self.pushButton.setMinimumSize(QSize(0, 35))
-        self.pushButton.setMaximumSize(QSize(115, 16777215))
+        self.pushButton.setMaximumSize(QSize(68, 16777215))
         self.pushButton.setFont(font14)
+        icon = QIcon()
+        icon.addFile(u":/icons/del.png", QSize(), QIcon.Normal, QIcon.Off)
+        self.pushButton.setIcon(icon)
+        self.pushButton.setIconSize(QSize(45, 35))
 
-        self.horizontalLayout_8.addWidget(self.pushButton)
+        self.horizontalLayout_18.addWidget(self.pushButton)
+
+        self.pushButton_6 = QPushButton(self.Sub1_2)
+        self.pushButton_6.setObjectName(u"pushButton_6")
+        self.pushButton_6.setMinimumSize(QSize(0, 35))
+        self.pushButton_6.setMaximumSize(QSize(115, 16777215))
+        self.pushButton_6.setFont(font14)
+
+        self.horizontalLayout_18.addWidget(self.pushButton_6)
 
 
-        self.verticalLayout_7.addWidget(self.Sub1_2)
+        self.verticalLayout_23.addWidget(self.Sub1_2)
 
 
-        self.verticalLayout_16.addWidget(self.qn_list, 0, Qt.AlignTop)
+        self.verticalLayout_22.addWidget(self.qn_list, 0, Qt.AlignTop)
 
 
-        self.horizontalLayout_10.addWidget(self.Box_2)
+        self.horizontalLayout_13.addWidget(self.Box_2)
 
 
-        self.verticalLayout_8.addWidget(self.widget_3)
+        self.verticalLayout_21.addWidget(self.widget_3)
 
         self.new_2 = QWidget(self.container_2)
         self.new_2.setObjectName(u"new_2")
         self.new_2.setMinimumSize(QSize(0, 0))
-        self.horizontalLayout_7 = QHBoxLayout(self.new_2)
-        self.horizontalLayout_7.setObjectName(u"horizontalLayout_7")
-        self.horizontalLayout_7.setContentsMargins(500, -1, 500, -1)
-        self.pushButton_3 = QPushButton(self.new_2)
-        self.pushButton_3.setObjectName(u"pushButton_3")
-        self.pushButton_3.setMaximumSize(QSize(75, 16777215))
+        self.horizontalLayout_19 = QHBoxLayout(self.new_2)
+        self.horizontalLayout_19.setObjectName(u"horizontalLayout_19")
+        self.horizontalLayout_19.setContentsMargins(500, -1, 500, -1)
+        self.newqns = QPushButton(self.new_2)
+        self.newqns.setObjectName(u"newqns")
+        self.newqns.setMaximumSize(QSize(75, 16777215))
         icon1 = QIcon()
         icon1.addFile(u":/icons/add.png", QSize(), QIcon.Normal, QIcon.Off)
-        self.pushButton_3.setIcon(icon1)
-        self.pushButton_3.setIconSize(QSize(44, 31))
+        self.newqns.setIcon(icon1)
+        self.newqns.setIconSize(QSize(44, 31))
 
-        self.horizontalLayout_7.addWidget(self.pushButton_3)
-
-
-        self.verticalLayout_8.addWidget(self.new_2)
+        self.horizontalLayout_19.addWidget(self.newqns)
 
 
-        self.verticalLayout_9.addWidget(self.container_2)
+        self.verticalLayout_21.addWidget(self.new_2)
 
-        self.stackedWidget.addWidget(self.tr_page)
+
+        self.verticalLayout.addWidget(self.container_2)
+
+        self.tabWidget.addTab(self.tr_page, "")
+        self.tab_2 = QWidget()
+        self.tab_2.setObjectName(u"tab_2")
+        self.tabWidget.addTab(self.tab_2, "")
+
+        self.verticalLayout_17.addWidget(self.tabWidget)
+
+
+        self.verticalLayout_20.addWidget(self.container_3)
+
+        self.stackedWidget.addWidget(self.page)
 
         self.horizontalLayout_4.addWidget(self.stackedWidget)
 
@@ -729,7 +741,7 @@ class Ui_MainWindow(object):
         self.horizontalLayout_2.addWidget(self.Qns)
 
 
-        self.verticalLayout.addWidget(self.container1)
+        self.verticalLayout_24.addWidget(self.container1)
 
         MainWindow.setCentralWidget(self.centralwidget)
         QWidget.setTabOrder(self.q1, self.q2)
@@ -749,6 +761,7 @@ class Ui_MainWindow(object):
         self.retranslateUi(MainWindow)
 
         self.stackedWidget.setCurrentIndex(3)
+        self.tabWidget.setCurrentIndex(0)
 
 
         QMetaObject.connectSlotsByName(MainWindow)
@@ -783,8 +796,10 @@ class Ui_MainWindow(object):
         self.login.setText(QCoreApplication.translate("MainWindow", u"Login", None))
         self.incp.setText(QCoreApplication.translate("MainWindow", u"Incorrect Username or Password!!!", None))
         self.Question.setText(QCoreApplication.translate("MainWindow", u"Question", None))
-        self.pushButton_2.setText("")
-        self.pushButton.setText(QCoreApplication.translate("MainWindow", u"View", None))
-        self.pushButton_3.setText("")
+        self.pushButton.setText("")
+        self.pushButton_6.setText(QCoreApplication.translate("MainWindow", u"View", None))
+        self.newqns.setText("")
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tr_page), QCoreApplication.translate("MainWindow", u"Questions", None))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tab_2), QCoreApplication.translate("MainWindow", u"Subjects", None))
     # retranslateUi
 
