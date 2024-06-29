@@ -13,6 +13,13 @@
   <property name="windowTitle">
    <string>New Question</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icons/mainicon.png</normaloff>:/icons/mainicon.png</iconset>
+  </property>
+  <property name="whatsThis">
+   <string>Add a question for a particular Subject</string>
+  </property>
   <property name="styleSheet">
    <string notr="true">#Newqns { background-color: #333333;}
 
@@ -306,6 +313,8 @@ QComboBox QAbstractItemView {
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections/>
 </ui>

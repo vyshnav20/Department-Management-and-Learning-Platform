@@ -3,10 +3,68 @@ from PyQt5 import QtCore, QtGui, QtWidgets,uic
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from rounded_image_widget import RoundedImageWidget
 import icon_rc
 
 from fns import *
 import os
+import random
+
+
+class forgotpass(QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__()
+        ui_path = os.path.abspath("F:/QT/lab/src/lab/fp.ui")
+        uic.loadUi(ui_path,self)
+
+
+class submit_test(QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__()
+        ui_path = os.path.abspath("F:/QT/lab/src/lab/sub_test.ui")
+        uic.loadUi(ui_path,self)
+        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
+
+        # Check if the button box is found
+        if self.buttonBox is None:
+            print("Error: ButtonBox not found. Please check the object name in the UI file.")
+        else:
+            # Connect the button box signals to the appropriate slots
+            self.buttonBox.accepted.connect(self.accept)
+            self.buttonBox.rejected.connect(self.reject)
+
+class edit_sub(QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__()
+        ui_path = os.path.abspath("F:/QT/lab/src/lab/editsub.ui")
+        uic.loadUi(ui_path,self)
+        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
+
+        # Check if the button box is found
+        if self.buttonBox is None:
+            print("Error: ButtonBox not found. Please check the object name in the UI file.")
+        else:
+            # Connect the button box signals to the appropriate slots
+            self.buttonBox.accepted.connect(self.accept)
+            self.buttonBox.rejected.connect(self.reject)
+
+
+class addexam(QtWidgets.QDialog):
+    def __init__(self):
+        super().__init__()
+        ui_path = os.path.abspath("F:/QT/lab/src/lab/newsub.ui")
+        uic.loadUi(ui_path,self)
+        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
+
+        # Check if the button box is found
+        if self.buttonBox is None:
+            print("Error: ButtonBox not found. Please check the object name in the UI file.")
+        else:
+            # Connect the button box signals to the appropriate slots
+            self.buttonBox.accepted.connect(self.accept)
+            self.buttonBox.rejected.connect(self.reject)
+
+
 
 class viewqns(QtWidgets.QDialog):
     def __init__(self):
@@ -111,8 +169,11 @@ class labs(object):
             MainWindow.setObjectName(u"MainWindow")
         MainWindow.resize(1941, 985)
         MainWindow.setMinimumSize(QSize(0, 400))
+        icon = QIcon()
+        icon.addFile(u":/icons/mainicon.png", QSize(), QIcon.Normal, QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setStyleSheet(u"#centralwidget {background-color: #333333;}\n"
-"#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4{\n"
+"#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#name_widget{\n"
 "border-radius: 15px;\n"
 "background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #292929, stop: 1 #1a1a1a);\n"
 "color: #FFFFFF;\n"
@@ -123,10 +184,24 @@ class labs(object):
 "color: #CCCCCC;\n"
 "border: 1px solid #555555;\n"
 "}\n"
+"#container_4\n"
+"{\n"
+"background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
+"border-radius: 15px;\n"
+"}\n"
+"QScrollArea {\n"
+"border-radius: 20px;\n"
+"border: 1px solid #555555;\n"
+" }\n"
+"QScrollArea > QWidget > QWidget {\n"
+"background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
+"border-radius: 15px;\n"
+"}\n"
 "QPushButton {\n"
 "border: 2px solid transparent; \n"
 "border-radius: 10px;\n"
-"background-color: rgba(0, 0, 0, 0.5);\n"
+""
+                        "background-color: rgba(0, 0, 0, 0.5);\n"
 "padding: 10px 20px;\n"
 "font-size: 16px;\n"
 "font-weight: bold;\n"
@@ -137,8 +212,7 @@ class labs(object):
 "background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
 "color: black;\n"
 "border: 2px solid transparent; \n"
-"bord"
-                        "er-color: black; \n"
+"border-color: black; \n"
 "}\n"
 "QLabel {\n"
 "color: #CCCCCC;}\n"
@@ -163,9 +237,9 @@ class labs(object):
 "selection-background-color: #29a19c;\n"
 "selection-color: #1e1e1e;\n"
 "}\n"
-"QTabWidget::pane {\n"
+"QTabWidget::pane {"
+                        "\n"
 "border-radius: 15px;\n"
-"background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
 "border: 1px solid #555555;\n"
 "}\n"
 "QTabBar::tab {\n"
@@ -176,8 +250,7 @@ class labs(object):
 "font-size: 16px;\n"
 "font-weight: bold;\n"
 "color: white;\n"
-"border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1"
-                        ", stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
+"border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
 "}\n"
 "QTabBar::tab:hover {\n"
 "background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);\n"
@@ -191,16 +264,15 @@ class labs(object):
 "border: 2px solid transparent; \n"
 "border-color: black;\n"
 " }\n"
-"QTableView {\n"
-"alternate-background-color: #e0e0e0;\n"
-"selection-background-color: #b8d6f2;\n"
-"selection-color: black; \n"
+"\n"
+"#stud_home,#stud_profile\n"
+"{\n"
 "border-radius: 15px;\n"
-"    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);\n"
-"    color: #FFFFFF;\n"
-"    border: 1px solid #555555;\n"
-"    padding: 20px;\n"
-"}")
+"background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop:"
+                        " 1 #2e3f50);\n"
+"color: #FFFFFF;\n"
+"border: 1px solid #555555;\n"
+"padding: 20px;}")
         MainWindow.setTabShape(QTabWidget.Rounded)
         self.centralwidget = QWidget(MainWindow)
         self.centralwidget.setObjectName(u"centralwidget")
@@ -226,7 +298,27 @@ class labs(object):
         self.sem.setFont(font)
 
         self.horizontalLayout.addWidget(self.sem)
+        self.sub_2 = QLabel(self.Sub1)
+        self.sub_2.setObjectName(u"sub_2")
+        self.sub_2.setMaximumSize(QSize(550, 16777215))
+        font1 = QFont()
+        font1.setFamily(u"Orbitron")
+        font1.setPointSize(14)
+        font1.setBold(True)
+        font1.setWeight(75)
+        font1.setStyleStrategy(QFont.PreferAntialias)
+        self.sub_2.setFont(font1)
+        self.sub_2.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
 
+        self.horizontalLayout.addWidget(self.sub_2)
+
+        self.sub_3 = QLabel(self.Sub1)
+        self.sub_3.setObjectName(u"sub_3")
+        self.sub_3.setMaximumSize(QSize(550, 16777215))
+        self.sub_3.setFont(font1)
+        self.sub_3.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+
+        self.horizontalLayout.addWidget(self.sub_3)
         self.sub = QLabel(self.Sub1)
         self.sub.setObjectName(u"sub")
         font1 = QFont()
@@ -295,6 +387,11 @@ class labs(object):
         self.q2.setFont(font4)
 
         self.verticalLayout_2.addWidget(self.q2)
+        self.q2_3 = QPushButton(self.menu)
+        self.q2_3.setObjectName(u"q2_3")
+        self.q2_3.setFont(font4)
+
+        self.verticalLayout_2.addWidget(self.q2_3)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -720,12 +817,21 @@ class labs(object):
         self.verticalLayout_21.setContentsMargins(-1, -1, -1, 0)
         self.widget_3 = QWidget(self.container_2)
         self.widget_3.setObjectName(u"widget_3")
-        self.widget_3.setMinimumSize(QSize(0, 800))
+        self.widget_3.setMinimumSize(QSize(0, 680))
         self.horizontalLayout_13 = QHBoxLayout(self.widget_3)
         self.horizontalLayout_13.setSpacing(0)
         self.horizontalLayout_13.setObjectName(u"horizontalLayout_13")
         self.horizontalLayout_13.setContentsMargins(0, 0, 0, 0)
-        self.Box_2 = QFrame(self.widget_3)
+        self.scrollArea = QScrollArea(self.widget_3)
+        self.scrollArea.setObjectName(u"scrollArea")
+        self.scrollArea.setWidgetResizable(True)
+        self.scrollarea = QWidget()
+        self.scrollarea.setObjectName(u"scrollarea")
+        self.scrollarea.setGeometry(QRect(0, 0, 1661, 661))
+        self.scrollarea.setStyleSheet(u"")
+        self.horizontalLayout_67 = QHBoxLayout(self.scrollarea)
+        self.horizontalLayout_67.setObjectName(u"horizontalLayout_67")
+        self.Box_2 = QFrame(self.scrollarea)
         self.Box_2.setObjectName(u"Box_2")
         sizePolicy.setHeightForWidth(self.Box_2.sizePolicy().hasHeightForWidth())
         self.Box_2.setSizePolicy(sizePolicy)
@@ -748,8 +854,10 @@ class labs(object):
         self.generate_qn_lists(css, sizePolicy)    
 
 
-        self.horizontalLayout_13.addWidget(self.Box_2, 0, Qt.AlignTop)
+        self.horizontalLayout_67.addWidget(self.Box_2, 0, Qt.AlignTop)
+        self.scrollArea.setWidget(self.scrollarea)
 
+        self.horizontalLayout_13.addWidget(self.scrollArea)
 
         self.verticalLayout_21.addWidget(self.widget_3)
 
@@ -849,6 +957,91 @@ class labs(object):
         self.verticalLayout_20.addWidget(self.container_3)
 
         self.stackedWidget.addWidget(self.page)
+        self.stud_home = QWidget()
+        self.stud_home.setObjectName(u"stud_home")
+        self.verticalLayout_19 = QVBoxLayout(self.stud_home)
+        self.verticalLayout_19.setObjectName(u"verticalLayout_19")
+        self.name_widget = QWidget(self.stud_home)
+        self.name_widget.setObjectName(u"name_widget")
+        self.name_widget.setMinimumSize(QSize(0, 50))
+        self.name_widget.setMaximumSize(QSize(16777215, 75))
+        self.horizontalLayout_20 = QHBoxLayout(self.name_widget)
+        self.horizontalLayout_20.setObjectName(u"horizontalLayout_20")
+        self.name = QLabel(self.name_widget)
+        self.name.setObjectName(u"name")
+        self.name.setFont(font6)
+        self.name.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_20.addWidget(self.name)
+
+
+        self.verticalLayout_19.addWidget(self.name_widget)
+
+        self.qn_3 = QWidget(self.stud_home)
+        self.qn_3.setObjectName(u"qn_3")
+        self.verticalLayout_16 = QVBoxLayout(self.qn_3)
+        self.verticalLayout_16.setObjectName(u"verticalLayout_16")
+        self.widget_16 = QWidget(self.qn_3)
+        self.widget_16.setObjectName(u"widget_16")
+        self.gridLayout = QGridLayout(self.widget_16)
+        self.gridLayout.setObjectName(u"gridLayout")
+        self.gridLayout.setHorizontalSpacing(35)
+        self.gridLayout.setVerticalSpacing(70)
+        self.buttons = []
+        icon_paths = [f":/icons/icons/{i + 1}.png" for i in range(16)]
+        for i in range(4):
+            for j in range(4):
+                button = QPushButton(self.centralwidget)
+                button.setObjectName(f"b{4*i + j + 1}")
+                button.setMinimumSize(QSize(0, 100))
+                pixmap = QPixmap(icon_paths[4 * i + j])
+                button.setIcon(QIcon(pixmap))
+                button.setIconSize(QSize(64, 64))
+                self.gridLayout.addWidget(button, i, j, 1, 1)
+                self.buttons.append(button)
+
+
+        self.verticalLayout_16.addWidget(self.widget_16, 0, Qt.AlignTop)
+
+
+        self.verticalLayout_19.addWidget(self.qn_3)
+
+        self.stackedWidget.addWidget(self.stud_home)
+        self.stud_profile = QWidget()
+        self.stud_profile.setObjectName(u"stud_profile")
+        self.stud_profile.setStyleSheet(u"")
+        self.img = RoundedImageWidget(self.stud_profile)
+        self.img.setObjectName(u"img")
+        self.img.setGeometry(QRect(20, 20, 241, 191))
+        self.name_3 = QLabel(self.stud_profile)
+        self.name_3.setObjectName(u"name_3")
+        self.name_3.setGeometry(QRect(20, 210, 241, 57))
+        self.name_3.setFont(font6)
+        self.name_3.setAlignment(Qt.AlignCenter)
+        self.stackedWidget.addWidget(self.stud_profile)
+        self.unavilable = QWidget()
+        self.unavilable.setObjectName(u"unavilable")
+        self.verticalLayout_18 = QVBoxLayout(self.unavilable)
+        self.verticalLayout_18.setObjectName(u"verticalLayout_18")
+        self.name_widget_2 = QWidget(self.unavilable)
+        self.name_widget_2.setObjectName(u"name_widget_2")
+        self.name_widget_2.setMinimumSize(QSize(0, 50))
+        self.name_widget_2.setMaximumSize(QSize(16777215, 75))
+        self.horizontalLayout_21 = QHBoxLayout(self.name_widget_2)
+        self.horizontalLayout_21.setObjectName(u"horizontalLayout_21")
+        self.name_2 = QLabel(self.name_widget_2)
+        self.name_2.setObjectName(u"name_2")
+        self.name_2.setFont(font6)
+        self.name_2.setAlignment(Qt.AlignCenter)
+
+        self.horizontalLayout_21.addWidget(self.name_2)
+
+
+        self.verticalLayout_18.addWidget(self.name_widget_2)
+
+        self.stackedWidget.addWidget(self.unavilable)
+
+        self.horizontalLayout_4.addWidget(self.stackedWidget)
 
         self.horizontalLayout_4.addWidget(self.stackedWidget)
 
@@ -869,14 +1062,126 @@ class labs(object):
         self.q1.clicked.connect(self.showq1)
         self.q2.clicked.connect(self.showq2)
         self.newqns.clicked.connect(self.addqns)
+        self.new_sub.clicked.connect(self.newexam)
         self.login.clicked.connect(self.logins)
         self.logout.clicked.connect(self.logouts)
+        self.fp.clicked.connect(self.forgotpasswd)
+        self.submit.clicked.connect(self.compile)
+        self.q2_3.clicked.connect(self.show_home)
+        self.buttons[9].clicked.connect(self.lab_Exam)
+        self.buttons[0].clicked.connect(self.prf)
+        self.buttons[1].clicked.connect(self.un)
+        self.buttons[2].clicked.connect(self.un)
+        self.buttons[3].clicked.connect(self.un)
+        self.buttons[4].clicked.connect(self.un)
+        self.buttons[5].clicked.connect(self.un)
+        self.buttons[6].clicked.connect(self.un)
+        self.buttons[7].clicked.connect(self.un)
+        self.buttons[8].clicked.connect(self.un)
+        self.buttons[10].clicked.connect(self.un)
+        self.buttons[11].clicked.connect(self.un)
+        self.buttons[12].clicked.connect(self.un)
+        self.buttons[13].clicked.connect(self.un)
+        self.buttons[14].clicked.connect(self.un)
+        self.buttons[15].clicked.connect(self.un)
+        self.img.setImage("F:/QT/lab/src/lab/icons/vy.jpg")
         
         
 
         self.retranslateUi(MainWindow)
         self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
+
+    
+    def prf(self):
+        self.stackedWidget.setCurrentIndex(5)
+    def un(self):
+        self.stackedWidget.setCurrentIndex(6)
+
+    def compile(self):
+        self.subtest=submit_test()
+        q=0
+        rollno=self.roll.text()
+        if int(rollno) % 2 == 0:
+            l=qnss(1)
+            q+=2
+        else:
+            l=qnss(0)
+        sub_id=l[-1]
+        if (self.stackedWidget.currentIndex()==0):
+            q+=1
+            code=self.plainTextEdit_4.toPlainText()
+            r=run_code(code,[q,sub_id])    
+        else:
+            q+=2   
+            code=self.plainTextEdit_3.toPlainText()
+            r=run_code(code,[q,sub_id])    
+        self.subtest.inp.setText(r[-1][0])
+        self.subtest.exp_op.setText(r[-1][1])
+        self.subtest.op.setPlainText(str(r[0][0]))
+        if(r[0][1]==0 or r[-1][1] !=str(r[0][0])):
+            pixmap = QPixmap(":/icons/rej.png")
+            self.subtest.label.setPixmap(pixmap)
+        self.subtest.inp_2.setText(r[-1][2])
+        self.subtest.exp_op_2.setText(r[-1][3])
+        self.subtest.op_2.setPlainText(str(r[1][0]))
+        if(r[1][1]==0 or r[-1][3] !=str(r[1][0])):
+            pixmap = QPixmap(":/icons/rej.png")
+            self.subtest.label_10.setPixmap(pixmap)
+        self.subtest.exec_()
+            
+
+
+
+    def forgotpasswd(self):
+        self.frgpass=forgotpass()
+        self.frgpass.Box_2.hide()
+        self.frgpass.label_9.hide()
+        self.frgpass.label_10.hide()
+        self.frgpass.label_15.hide()
+        self.frgpass.label_14.hide()
+        self.frgpass.otp.clicked.connect(self.sendotp)
+        self.frgpass.submit.clicked.connect(self.uppass)
+        self.frgpass.uppass.clicked.connect(self.passup)
+        self.frgpass.exec_()
+
+    def passup(self):
+        passd=self.frgpass.passwd.text()
+        if(passd != self.frgpass.repass.text()):
+            self.frgpass.label_14.show()
+        else:
+            update_pass(self.user,passd)
+            self.frgpass.close()
+
+    def uppass(self):
+        if(str(self.otp) == self.frgpass.otp2.text()):
+            self.frgpass.stackedWidget.setCurrentIndex(1)
+        else:
+            self.frgpass.label_15.show()
+
+    def sendotp(self):
+        self.frgpass.label_10.show()
+        self.user=self.frgpass.username.text()
+        self.otp=1000
+        self.otp = random.randint(1000, 9999)
+        awa_msg(otp,user)
+        self.frgpass.Box_2.show()
+        self.frgpass.label_9.show()        
+        self.frgpass.label_10.hide()
+
+    def subcss(self):
+        css = """
+    #sub_list{
+        border-radius: 15px;
+        background-color: qlineargradient(
+            x1: 0, y1: 0, x2: 1, y2: 1,
+            stop: 0 #292929, stop: 1 #1a1a1a
+        );
+        color: #FFFFFF;
+        border: 1px solid #555555;
+    }
+    """
+        return css
 
     def elcss(self):
         css = """
@@ -935,7 +1240,7 @@ class labs(object):
         pushButton_2.setIconSize(QSize(45, 35))
 
         horizontalLayout_8.addWidget(pushButton_2)
-        pushButton_2.clicked.connect(lambda _, idx=index: self.handle_sub_delete(idx, [val[3],val[0]]))
+        pushButton_2.clicked.connect(lambda _, idx=index: self.handle_sub_delete([val[1],]))
 
         pushButton = QPushButton(Sub1_2)
         pushButton.setObjectName(u"pushButton_{}".format(index))
@@ -946,7 +1251,7 @@ class labs(object):
         pushButton.setText("Edit")
         
         horizontalLayout_8.addWidget(pushButton)
-        pushButton.clicked.connect(lambda _, idx=index: self.handle_edit(idx, [val[3],val[0]]))
+        pushButton.clicked.connect(lambda _, idx=index: self.handle_edit([val[1],]))
 
         verticalLayout_7.addWidget(Sub1_2)
         return sub_list
@@ -963,6 +1268,35 @@ class labs(object):
             sub_list = self.create_sub_list(i, css, sizePolicy,subs[i])
             self.qn_lists.append(sub_list)
             self.verticalLayout_27.addWidget(sub_list, 0, Qt.AlignTop)    
+
+    def handle_sub_delete(self, val):
+        self.popup=deldialogbox()
+        if self.popup.exec_() == QtWidgets.QDialog.Accepted:
+            delete_sub(val)            
+            sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+            self.generate_qn_lists(self.elcss(), sizePolicy)
+            self.generate_sub_lists(self.subcss(), sizePolicy)
+
+    def handle_edit(self, val):
+        l=editsubj(val)
+        self.editsubje=edit_sub()
+        self.editsubje.lineEdit_2.setText(str(l[0]))
+        self.editsubje.lineEdit_3.setText(l[1])
+        date = QDate(l[2].year, l[2].month, l[2].day)
+        self.editsubje.dateEdit.setDate(date)
+        self.editsubje.Update.clicked.connect(self.update_sub)
+        self.editsubje.exec_()
+
+    def update_sub(self):
+        q=[]
+        q.append(self.editsubje.lineEdit_3.text())
+        dates=self.editsubje.dateEdit.date()
+        date =dates.toString('yyyy-MM-dd')
+        q.append(date)
+        update_exm(q)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        self.generate_sub_lists(self.subcss(), sizePolicy)
+        self.editsubje.close()
 
     def create_qn_list(self, index, css, sizePolicy,val):
         s="Sem "+str(val[1])+" - "+val[2]+" - "+val[0]+"- ( "+str(val[3])+" )"
@@ -1060,15 +1394,45 @@ class labs(object):
     def addqns(self):
         self.newques=newqns()
         s=subjects()
-        self.newques.comboBox_2.addItems(["1","2","3","4 "])
         self.newques.comboBox_3.addItems(s)
+        qid =qids(self.newques.comboBox_3.currentText())
+        self.newques.comboBox_2.addItems(qid)
+        self.newques.comboBox_3.currentIndexChanged.connect(self.update_q_id)
         self.newques.Addqns.clicked.connect(self.newques.newq)
         self.newques.exec_()
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         self.generate_qn_lists(self.elcss(), sizePolicy)
        
+    def update_q_id(self):
+        val= self.newques.comboBox_3.currentText()
+        self.newques.comboBox_2.clear()
+        qid =qids(val)
+        self.newques.comboBox_2.addItems(qid)
 
+    def newexam(self):
+        self.nexm=addexam()
+        self.nexm.comboBox_2.addItems(["1","2","3","4 "])
+        sub=subname(1)
+        self.nexm.comboBox_3.addItems(sub)
+        self.nexm.comboBox_2.currentIndexChanged.connect(self.update_subname)
+        self.nexm.Addqns.clicked.connect(self.insert_exam)
+        self.nexm.exec_()
         
+    def update_subname(self):
+        val= self.nexm.comboBox_2.currentText()
+        self.nexm.comboBox_3.clear()
+        sub =subname(val)
+        self.nexm.comboBox_3.addItems(sub)
+
+    def insert_exam(self):
+        sub=self.nexm.comboBox_3.currentText()
+        dates=self.nexm.dateEdit.date()
+        date =dates.toString('yyyy-MM-dd')
+        in_ex(sub,date)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        self.generate_sub_lists(self.subcss(), sizePolicy)
+        self.nexm.close()
+
 
     def logouts(self):
         self.popup=dialogbox()
@@ -1091,28 +1455,65 @@ class labs(object):
             self.submit.hide()
             self.roll.hide()
             self.sem.hide()
-            self.sub.setText("College of Engineering Trivandrum\t\t\t\t\t\t\\t\t\t\t Department of Computer Applications")
+            self.sub_2.hide()
+            self.sub_3.hide()
+            self.q2_3.hide()
+            self.sub.setText("College of Engineering Trivandrum\t\t\t\t\t\t\t\t\t\t Department of Computer Applications")
             self.sub.setAlignment(Qt.AlignCenter)
             self.roll_label.setText("Welcome\n"+user)
             self.stackedWidget.setCurrentIndex(3)
 
         elif(passw and self.password_edit.text()==passw):
+            sd=stud_profile(user)
+            self.q2_3.show()
             self.menu.show()
             self.Sub1.show()
-            self.q1.show()
-            self.q2.show()
-            self.submit.show()
-            self.sem.show()
-            self.sub.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-            self.roll_label.setText("Roll NO:")
-            self.stackedWidget.setCurrentIndex(0)
-            self.roll.setText(user[-2:])
-            self.displayqns()
+            self.q1.hide()
+            self.q2.hide()
+            self.submit.hide()
+            self.roll.hide()
+            self.roll_label.hide()
+            self.sem.hide()
+            self.name.setText(sd[1]+" : "+sd[0])
+            self.stackedWidget.setCurrentIndex(4)
+            
         else:
             self.incp.show()
             self.username_edit.setText("")
             self.password_edit.setText("")
 
+    def show_home(self):
+        self.q2_3.show()
+        self.menu.show()
+        self.Sub1.show()
+        self.q1.hide()
+        self.q2.hide()
+        self.submit.hide()
+        self.roll_label.hide()
+        self.roll.hide()
+        self.sem.hide()
+        self.stackedWidget.setCurrentIndex(4)
+            
+
+
+    def lab_Exam(self):
+        user=self.username_edit.text()
+        self.menu.show()
+        self.Sub1.show()
+        self.q1.show()
+        self.q2.show()
+        self.submit.show()
+        self.sem.show()
+        self.roll.show()
+        self.sub_2.show()
+        self.sub_3.show()
+        self.q2_3.hide()
+        self.roll_label.show()
+        self.sub.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.roll_label.setText("Roll NO:")
+        self.stackedWidget.setCurrentIndex(0)
+        self.roll.setText(user[-2:])
+        self.displayqns()
 
     def showq1(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -1121,20 +1522,19 @@ class labs(object):
         self.stackedWidget.setCurrentIndex(1)
 
     def displayqns(self):
-        sub = "MCA20101"
         rollno=self.roll.text()
         if int(rollno) % 2 == 0:
-            l=qnss(sub,1)
+            l=qnss(1)
         else:
-            l=qnss(sub,0)
+            l=qnss(0)
         self.sub.setText(l[0])
         self.sem.setText("Semester:"+str(l[1]))
         self.plainTextEdit_2.setPlainText(l[2])
         self.plainTextEdit.setPlainText(l[3])
         self.q2_title_2.setText(l[4])
         self.q2_title.setText(l[5])
-        self.comboBox_4.addItems(langs(sub))
-        self.comboBox.addItems(langs(sub))
+        self.comboBox_4.addItems(langs(l[6]))
+        self.comboBox.addItems(langs(l[6]))
         
 
 
@@ -1142,9 +1542,12 @@ class labs(object):
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MCA LAB"))
+        self.sub_2.setText(_translate("MainWindow", "College of Engineering, Trivandrum"))
+        self.sub_3.setText(_translate("MainWindow", "Department of Computer Applications"))
         self.roll_label.setText(_translate("MainWindow", "Roll No:"))
         self.q1.setText(_translate("MainWindow", "Question 1"))
         self.q2.setText(_translate("MainWindow", "Question 2"))
+        self.q2_3.setText(_translate("MainWindow", u"Home"))
         self.submit.setText(_translate("MainWindow", "Submit"))
         self.logout.setText(_translate("MainWindow", "Logout"))
         self.label_3.setText(_translate("MainWindow", "YOUR ANSWER:"))
@@ -1164,6 +1567,43 @@ class labs(object):
         self.newqns.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tr_page), _translate("MainWindow", u"Questions"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.subj), _translate("MainWindow", u"Subjects"))
+        self.buttons[0].setText(_translate("MainWindow", u"Profile"))
+        self.buttons[1].setText(_translate("MainWindow", u"Attendance"))
+        self.buttons[2].setText(_translate("MainWindow", u"Result"))
+        self.buttons[3].setText(_translate("MainWindow", u"Notes"))
+        self.buttons[4].setText(_translate("MainWindow", u"Exam Schedule"))
+        self.buttons[5].setText(_translate("MainWindow", u"Time Table"))
+        self.buttons[6].setText(_translate("MainWindow", u"Academic Analysis"))
+        self.buttons[7].setText(_translate("MainWindow", u"Subjects"))
+        self.buttons[8].setText(_translate("MainWindow", u"Assignments"))
+        self.buttons[9].setText(_translate("MainWindow", u"LAB EXAM"))
+        self.buttons[10].setText(_translate("MainWindow", u"Question Bank"))
+        self.buttons[11].setText(_translate("MainWindow", u"Study Materials"))
+        self.buttons[12].setText(_translate("MainWindow", u"Viedo Lectures"))
+        self.buttons[13].setText(_translate("MainWindow", u"Semester Registration"))
+        self.buttons[14].setText(_translate("MainWindow", u"Tutorials"))
+        self.buttons[15].setText(_translate("MainWindow", u"Survey"))
+        self.name_3.setText(_translate("MainWindow", u"VYSHNAV M"))
+        self.name_2.setText(_translate("MainWindow", u"Currently Unavilable!!!! Page under Development"))
+        for i, button in enumerate(self.buttons):
+            button.setStyleSheet(f"""
+                QPushButton#{button.objectName()} {{
+                   border: 2px solid transparent; 
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+color: white;
+border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #a9a9a9, stop: 0.3 #d3d3d3, stop: 1 #ffffff );
+                }}
+                QPushButton#{button.objectName()}:hover {{
+                    background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #a9a9a9, stop: 0.3 #d3d3d3, stop: 1 #ffffff);
+color: whit;
+border: 2px solid transparent; 
+border-color: black; 
+                }}
+            """)
 
 def main():
     import sys

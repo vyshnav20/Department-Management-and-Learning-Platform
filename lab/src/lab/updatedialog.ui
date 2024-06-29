@@ -13,6 +13,10 @@
   <property name="windowTitle">
    <string>UPDATE</string>
   </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icons/mainicon.png</normaloff>:/icons/mainicon.png</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true">#LOGOUT {
     border-radius: 15px;
@@ -60,7 +64,10 @@ QLabel {color: white;}</string>
          </font>
         </property>
         <property name="text">
-         <string>Are you sure to update Question!!!</string>
+         <string>Are you sure to Update!!!</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
         </property>
        </widget>
       </item>
@@ -79,7 +86,9 @@ QLabel {color: white;}</string>
    </item>
   </layout>
  </widget>
- <resources/>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
  <connections>
   <connection>
    <sender>buttonBox</sender>

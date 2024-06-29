@@ -1,0 +1,421 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>Editsub</class>
+ <widget class="QDialog" name="Editsub">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>500</width>
+    <height>500</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>New Question</string>
+  </property>
+  <property name="windowIcon">
+   <iconset resource="icon.qrc">
+    <normaloff>:/icons/mainicon.png</normaloff>:/icons/mainicon.png</iconset>
+  </property>
+  <property name="whatsThis">
+   <string>Add a question for a particular Subject</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">#Editsub { background-color: #333333;}
+
+QPushButton {
+border: 2px solid transparent; 
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+color: white;
+border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);
+}
+QPushButton:hover {
+background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);
+color: black;
+border: 2px solid transparent; 
+border-color: black; 
+}
+
+
+
+QLabel {color: white;}
+
+#Box{ background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);
+ border-radius: 15px;
+    color: #FFFFFF;
+    border: 1px solid #555555;
+    padding: 20px;}
+
+QLineEdit,QPlainTextEdit,QComboBox,QDateEdit{
+    background-color: #333333; /* Dark background */
+    color: #CCCCCC; /* Light gray text */
+    border: 1px solid #555555;
+    border-radius: 10px;
+    padding: 5px;
+}
+
+QComboBox QAbstractItemView {
+    background-color: #333333; /* Dark background */
+    color: #FFFFFF; /* White text */
+    border: 1px solid #29a19c;
+    selection-background-color: #29a19c;
+    selection-color: #1e1e1e;
+}
+
+QCalendarWidget {
+    background-color: #333333; /* Dark background */
+    color: #CCCCCC; /* Light gray text */
+    border: 1px solid #555555;
+    border-radius: 10px;
+    padding: 5px;
+    font-family: 'Dungeon'; 
+    font-size: 14px; 
+}
+
+/* Navigation buttons */
+QCalendarWidget QToolButton {
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black background */
+    color: white;
+    border: none;
+    height: 25px;
+    font-size: 14px;
+    font-weight: bold;
+    border-radius: 5px;
+    border: 1px solid transparent;
+    border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);
+}
+
+QCalendarWidget QToolButton:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71); /* Gradient background */
+    color: black;
+    border: 1px solid transparent;
+    border-color: black;
+}
+
+/* Month and year navigation buttons */
+QCalendarWidget QWidget#qt_calendar_navigationbar {
+    background-color: #333333; /* Match the main background */
+    border: none;
+}
+
+/* Day of the week header */
+QCalendarWidget QTableView QHeaderView::section {
+    background-color: #555555;
+    color: #CCCCCC;
+    border: 1px solid #555555;
+   font-family: 'Dungeon'; 
+    font-size: 14px; 
+}
+
+/* Selected date */
+QCalendarWidget QAbstractItemView:enabled {
+    font-size: 12px; /* Font size of the dates */
+    color: #CCCCCC; /* Text color of the dates */
+    selection-background-color: #29a19c; /* Selected date background */
+    selection-color: #1e1e1e; /* Selected date text color */
+   font-family: 'Dungeon'; 
+    font-size: 14px; 
+}
+
+/* General dates */
+QCalendarWidget QTableView {
+    background-color: #333333;
+    border: 1px solid #555555;
+    alternate-background-color: #3b3b3b;
+     font-family: 'Dungeon'; 
+    font-size: 14px;  
+}
+
+/* The month view navigation buttons (left, right, month, year) */
+QCalendarWidget QToolButton::menu-indicator {
+    image: none;
+}
+
+QCalendarWidget QToolButton::down-arrow {
+    image: none;
+}
+
+/* Year and month selector */
+QCalendarWidget QSpinBox {
+    background-color: #333333; /* Match the main background */
+    color: #CCCCCC; /* Light gray text */
+    border: 1px solid #555555;
+    font-family: 'Dungeon'; 
+    font-size: 14px;  
+}
+
+QCalendarWidget QSpinBox::up-button, QCalendarWidget QSpinBox::down-button {
+    background-color: #333333;
+    subcontrol-origin: border;
+}
+
+QCalendarWidget QSpinBox::up-button:hover, QCalendarWidget QSpinBox::down-button:hover {
+    background-color: #29a19c;
+}
+
+/* Menu for month selection */
+QCalendarWidget QMenu {
+    background-color: #333333; /* Dark background */
+    color: #CCCCCC; /* Light gray text */
+    border: 1px solid #555555;
+    font-family: 'Dungeon'; 
+    font-size: 14px; 
+}</string>
+  </property>
+  <layout class="QVBoxLayout" name="verticalLayout_2">
+   <item>
+    <widget class="QWidget" name="widget_2" native="true">
+     <property name="minimumSize">
+      <size>
+       <width>0</width>
+       <height>65</height>
+      </size>
+     </property>
+     <property name="maximumSize">
+      <size>
+       <width>16777215</width>
+       <height>75</height>
+      </size>
+     </property>
+     <layout class="QHBoxLayout" name="horizontalLayout">
+      <item>
+       <widget class="QLabel" name="label_5">
+        <property name="minimumSize">
+         <size>
+          <width>0</width>
+          <height>0</height>
+         </size>
+        </property>
+        <property name="font">
+         <font>
+          <family>Dungeon</family>
+          <pointsize>21</pointsize>
+          <weight>75</weight>
+          <bold>true</bold>
+         </font>
+        </property>
+        <property name="text">
+         <string>Question</string>
+        </property>
+        <property name="alignment">
+         <set>Qt::AlignCenter</set>
+        </property>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+   <item>
+    <widget class="QWidget" name="Box" native="true">
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QWidget" name="widget" native="true">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>200</height>
+         </size>
+        </property>
+        <layout class="QFormLayout" name="formLayout">
+         <property name="horizontalSpacing">
+          <number>6</number>
+         </property>
+         <property name="verticalSpacing">
+          <number>26</number>
+         </property>
+         <item row="0" column="0">
+          <widget class="QLabel" name="label_2">
+           <property name="minimumSize">
+            <size>
+             <width>132</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Orbitron</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Semester</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="0" column="1">
+          <widget class="QLineEdit" name="lineEdit_2">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Normal</enum>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="0">
+          <widget class="QLabel" name="label_6">
+           <property name="minimumSize">
+            <size>
+             <width>132</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Orbitron</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Subject</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="1" column="1">
+          <widget class="QLineEdit" name="lineEdit_3">
+           <property name="minimumSize">
+            <size>
+             <width>0</width>
+             <height>30</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="echoMode">
+            <enum>QLineEdit::Normal</enum>
+           </property>
+           <property name="readOnly">
+            <bool>true</bool>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="0">
+          <widget class="QLabel" name="label_3">
+           <property name="minimumSize">
+            <size>
+             <width>132</width>
+             <height>0</height>
+            </size>
+           </property>
+           <property name="font">
+            <font>
+             <family>Orbitron</family>
+             <pointsize>16</pointsize>
+            </font>
+           </property>
+           <property name="text">
+            <string>Question</string>
+           </property>
+           <property name="alignment">
+            <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>
+           </property>
+          </widget>
+         </item>
+         <item row="2" column="1">
+          <widget class="QDateEdit" name="dateEdit">
+           <property name="font">
+            <font>
+             <family>Digital-7 Mono</family>
+             <pointsize>17</pointsize>
+            </font>
+           </property>
+           <property name="minimumDate">
+            <date>
+             <year>2024</year>
+             <month>6</month>
+             <day>19</day>
+            </date>
+           </property>
+           <property name="currentSection">
+            <enum>QDateTimeEdit::MonthSection</enum>
+           </property>
+           <property name="calendarPopup">
+            <bool>true</bool>
+           </property>
+           <property name="date">
+            <date>
+             <year>2024</year>
+             <month>6</month>
+             <day>19</day>
+            </date>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+      <item>
+       <widget class="QWidget" name="widget_3" native="true">
+        <property name="maximumSize">
+         <size>
+          <width>16777215</width>
+          <height>100</height>
+         </size>
+        </property>
+        <layout class="QHBoxLayout" name="horizontalLayout_2">
+         <item>
+          <widget class="QPushButton" name="Update">
+           <property name="maximumSize">
+            <size>
+             <width>117</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="text">
+            <string>Update</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QDialogButtonBox" name="buttonBox">
+           <property name="maximumSize">
+            <size>
+             <width>150</width>
+             <height>16777215</height>
+            </size>
+           </property>
+           <property name="orientation">
+            <enum>Qt::Horizontal</enum>
+           </property>
+           <property name="standardButtons">
+            <set>QDialogButtonBox::Cancel</set>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+      </item>
+     </layout>
+    </widget>
+   </item>
+  </layout>
+ </widget>
+ <resources>
+  <include location="icon.qrc"/>
+ </resources>
+ <connections/>
+</ui>
