@@ -1,7 +1,9 @@
+from lab.app import main
 from PyQt5 import QtCore, QtGui, QtWidgets,uic
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+from rounded_image_widget import RoundedImageWidget
 import icon_rc
 
 from fns import *
@@ -263,7 +265,7 @@ class labs(object):
 "border-color: black;\n"
 " }\n"
 "\n"
-"#stud_home\n"
+"#stud_home,#stud_profile\n"
 "{\n"
 "border-radius: 15px;\n"
 "background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop:"
@@ -385,6 +387,11 @@ class labs(object):
         self.q2.setFont(font4)
 
         self.verticalLayout_2.addWidget(self.q2)
+        self.q2_3 = QPushButton(self.menu)
+        self.q2_3.setObjectName(u"q2_3")
+        self.q2_3.setFont(font4)
+
+        self.verticalLayout_2.addWidget(self.q2_3)
 
         self.verticalSpacer = QSpacerItem(20, 40, QSizePolicy.Minimum, QSizePolicy.Expanding)
 
@@ -980,101 +987,18 @@ class labs(object):
         self.gridLayout.setObjectName(u"gridLayout")
         self.gridLayout.setHorizontalSpacing(35)
         self.gridLayout.setVerticalSpacing(70)
-        self.b1 = QPushButton(self.widget_16)
-        self.b1.setObjectName(u"b1")
-        self.b1.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b1, 0, 0, 1, 1)
-
-        self.b2 = QPushButton(self.widget_16)
-        self.b2.setObjectName(u"b2")
-        self.b2.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b2, 0, 1, 1, 1)
-
-        self.b3 = QPushButton(self.widget_16)
-        self.b3.setObjectName(u"b3")
-        self.b3.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b3, 0, 2, 1, 1)
-
-        self.b4 = QPushButton(self.widget_16)
-        self.b4.setObjectName(u"b4")
-        self.b4.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b4, 0, 3, 1, 1)
-
-        self.b5 = QPushButton(self.widget_16)
-        self.b5.setObjectName(u"b5")
-        self.b5.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b5, 1, 0, 1, 1)
-
-        self.b6 = QPushButton(self.widget_16)
-        self.b6.setObjectName(u"b6")
-        self.b6.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b6, 1, 1, 1, 1)
-
-        self.b7 = QPushButton(self.widget_16)
-        self.b7.setObjectName(u"b7")
-        self.b7.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b7, 1, 2, 1, 1)
-
-        self.b8 = QPushButton(self.widget_16)
-        self.b8.setObjectName(u"b8")
-        self.b8.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b8, 1, 3, 1, 1)
-
-        self.b9 = QPushButton(self.widget_16)
-        self.b9.setObjectName(u"b9")
-        self.b9.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b9, 2, 0, 1, 1)
-
-        self.b10 = QPushButton(self.widget_16)
-        self.b10.setObjectName(u"b10")
-        self.b10.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b10, 2, 1, 1, 1)
-
-        self.b11 = QPushButton(self.widget_16)
-        self.b11.setObjectName(u"b11")
-        self.b11.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b11, 2, 2, 1, 1)
-
-        self.b12 = QPushButton(self.widget_16)
-        self.b12.setObjectName(u"b12")
-        self.b12.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b12, 2, 3, 1, 1)
-
-        self.b13 = QPushButton(self.widget_16)
-        self.b13.setObjectName(u"b13")
-        self.b13.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b13, 3, 0, 1, 1)
-
-        self.b14 = QPushButton(self.widget_16)
-        self.b14.setObjectName(u"b14")
-        self.b14.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b14, 3, 1, 1, 1)
-
-        self.b15 = QPushButton(self.widget_16)
-        self.b15.setObjectName(u"b15")
-        self.b15.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b15, 3, 2, 1, 1)
-
-        self.b16 = QPushButton(self.widget_16)
-        self.b16.setObjectName(u"b16")
-        self.b16.setMinimumSize(QSize(0, 100))
-
-        self.gridLayout.addWidget(self.b16, 3, 3, 1, 1)
+        self.buttons = []
+        icon_paths = [f":/icons/icons/{i + 1}.png" for i in range(16)]
+        for i in range(4):
+            for j in range(4):
+                button = QPushButton(self.centralwidget)
+                button.setObjectName(f"b{4*i + j + 1}")
+                button.setMinimumSize(QSize(0, 100))
+                pixmap = QPixmap(icon_paths[4 * i + j])
+                button.setIcon(QIcon(pixmap))
+                button.setIconSize(QSize(64, 64))
+                self.gridLayout.addWidget(button, i, j, 1, 1)
+                self.buttons.append(button)
 
 
         self.verticalLayout_16.addWidget(self.widget_16, 0, Qt.AlignTop)
@@ -1083,6 +1007,18 @@ class labs(object):
         self.verticalLayout_19.addWidget(self.qn_3)
 
         self.stackedWidget.addWidget(self.stud_home)
+        self.stud_profile = QWidget()
+        self.stud_profile.setObjectName(u"stud_profile")
+        self.stud_profile.setStyleSheet(u"")
+        self.img = RoundedImageWidget(self.stud_profile)
+        self.img.setObjectName(u"img")
+        self.img.setGeometry(QRect(20, 20, 241, 191))
+        self.name_3 = QLabel(self.stud_profile)
+        self.name_3.setObjectName(u"name_3")
+        self.name_3.setGeometry(QRect(20, 210, 241, 57))
+        self.name_3.setFont(font6)
+        self.name_3.setAlignment(Qt.AlignCenter)
+        self.stackedWidget.addWidget(self.stud_profile)
         self.unavilable = QWidget()
         self.unavilable.setObjectName(u"unavilable")
         self.verticalLayout_18 = QVBoxLayout(self.unavilable)
@@ -1131,7 +1067,24 @@ class labs(object):
         self.logout.clicked.connect(self.logouts)
         self.fp.clicked.connect(self.forgotpasswd)
         self.submit.clicked.connect(self.compile)
-        
+        self.q2_3.clicked.connect(self.show_home)
+        self.buttons[9].clicked.connect(self.lab_Exam)
+        self.buttons[0].clicked.connect(self.prf)
+        self.buttons[1].clicked.connect(self.un)
+        self.buttons[2].clicked.connect(self.un)
+        self.buttons[3].clicked.connect(self.un)
+        self.buttons[4].clicked.connect(self.un)
+        self.buttons[5].clicked.connect(self.un)
+        self.buttons[6].clicked.connect(self.un)
+        self.buttons[7].clicked.connect(self.un)
+        self.buttons[8].clicked.connect(self.un)
+        self.buttons[10].clicked.connect(self.un)
+        self.buttons[11].clicked.connect(self.un)
+        self.buttons[12].clicked.connect(self.un)
+        self.buttons[13].clicked.connect(self.un)
+        self.buttons[14].clicked.connect(self.un)
+        self.buttons[15].clicked.connect(self.un)
+        self.img.setImage("F:/QT/lab/src/lab/icons/vy.jpg")
         
         
 
@@ -1139,18 +1092,42 @@ class labs(object):
         self.stackedWidget.setCurrentIndex(2)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
+    
+    def prf(self):
+        self.stackedWidget.setCurrentIndex(5)
+    def un(self):
+        self.stackedWidget.setCurrentIndex(6)
 
     def compile(self):
         self.subtest=submit_test()
-        code=self.plainTextEdit_4.toPlainText()
-        self.subtest.inp.setText("4")
-        exp=24
-        self.subtest.exp_op.setText(str(24))
-        r=run_code(code)    
-        self.subtest.op.setPlainText(str(r[0]))
-        if(r[1]==0):
+        q=0
+        rollno=self.roll.text()
+        if int(rollno) % 2 == 0:
+            l=qnss(1)
+            q+=2
+        else:
+            l=qnss(0)
+        sub_id=l[-1]
+        if (self.stackedWidget.currentIndex()==0):
+            q+=1
+            code=self.plainTextEdit_4.toPlainText()
+            r=run_code(code,[q,sub_id])    
+        else:
+            q+=2   
+            code=self.plainTextEdit_3.toPlainText()
+            r=run_code(code,[q,sub_id])    
+        self.subtest.inp.setText(r[-1][0])
+        self.subtest.exp_op.setText(r[-1][1])
+        self.subtest.op.setPlainText(str(r[0][0]))
+        if(r[0][1]==0 or r[-1][1] !=str(r[0][0])):
             pixmap = QPixmap(":/icons/rej.png")
             self.subtest.label.setPixmap(pixmap)
+        self.subtest.inp_2.setText(r[-1][2])
+        self.subtest.exp_op_2.setText(r[-1][3])
+        self.subtest.op_2.setPlainText(str(r[1][0]))
+        if(r[1][1]==0 or r[-1][3] !=str(r[1][0])):
+            pixmap = QPixmap(":/icons/rej.png")
+            self.subtest.label_10.setPixmap(pixmap)
         self.subtest.exec_()
             
 
@@ -1480,31 +1457,63 @@ class labs(object):
             self.sem.hide()
             self.sub_2.hide()
             self.sub_3.hide()
+            self.q2_3.hide()
             self.sub.setText("College of Engineering Trivandrum\t\t\t\t\t\t\t\t\t\t Department of Computer Applications")
             self.sub.setAlignment(Qt.AlignCenter)
             self.roll_label.setText("Welcome\n"+user)
             self.stackedWidget.setCurrentIndex(3)
 
         elif(passw and self.password_edit.text()==passw):
+            sd=stud_profile(user)
+            self.q2_3.show()
             self.menu.show()
             self.Sub1.show()
-            self.q1.show()
-            self.q2.show()
-            self.submit.show()
-            self.sem.show()
-            self.roll.show()
-            self.sub_2.show()
-            self.sub_3.show()
-            self.sub.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-            self.roll_label.setText("Roll NO:")
-            self.stackedWidget.setCurrentIndex(0)
-            self.roll.setText(user[-2:])
-            self.displayqns()
+            self.q1.hide()
+            self.q2.hide()
+            self.submit.hide()
+            self.roll.hide()
+            self.roll_label.hide()
+            self.sem.hide()
+            self.name.setText(sd[1]+" : "+sd[0])
+            self.stackedWidget.setCurrentIndex(4)
+            
         else:
             self.incp.show()
             self.username_edit.setText("")
             self.password_edit.setText("")
 
+    def show_home(self):
+        self.q2_3.show()
+        self.menu.show()
+        self.Sub1.show()
+        self.q1.hide()
+        self.q2.hide()
+        self.submit.hide()
+        self.roll_label.hide()
+        self.roll.hide()
+        self.sem.hide()
+        self.stackedWidget.setCurrentIndex(4)
+            
+
+
+    def lab_Exam(self):
+        user=self.username_edit.text()
+        self.menu.show()
+        self.Sub1.show()
+        self.q1.show()
+        self.q2.show()
+        self.submit.show()
+        self.sem.show()
+        self.roll.show()
+        self.sub_2.show()
+        self.sub_3.show()
+        self.q2_3.hide()
+        self.roll_label.show()
+        self.sub.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+        self.roll_label.setText("Roll NO:")
+        self.stackedWidget.setCurrentIndex(0)
+        self.roll.setText(user[-2:])
+        self.displayqns()
 
     def showq1(self):
         self.stackedWidget.setCurrentIndex(0)
@@ -1531,7 +1540,7 @@ class labs(object):
 
         
     def retranslateUi(self, MainWindow):
-        _translate = QtCore._translate
+        _translate = QtCore.QCoreApplication.translate
         MainWindow.setWindowTitle(_translate("MainWindow", "MCA LAB"))
         self.sub_2.setText(_translate("MainWindow", "College of Engineering, Trivandrum"))
         self.sub_3.setText(_translate("MainWindow", "Department of Computer Applications"))
@@ -1558,24 +1567,43 @@ class labs(object):
         self.newqns.setText("")
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tr_page), _translate("MainWindow", u"Questions"))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.subj), _translate("MainWindow", u"Subjects"))
-        self.name.setText(_translate("MainWindow", u"VYSHNAV M.  S2 MCA"))
-        self.b1.setText(_translate("MainWindow", u"Profile"))
-        self.b2.setText(_translate("MainWindow", u"Attendance"))
-        self.b3.setText(_translate("MainWindow", u"Result"))
-        self.b4.setText(_translate("MainWindow", u"Notes"))
-        self.b5.setText(_translate("MainWindow", u"Exam Schedule"))
-        self.b6.setText(_translate("MainWindow", u"Time Table"))
-        self.b7.setText(_translate("MainWindow", u"Academic Analysis"))
-        self.b8.setText(_translate("MainWindow", u"Subjects"))
-        self.b9.setText(_translate("MainWindow", u"Assignments"))
-        self.b10.setText(_translate("MainWindow", u"Placements"))
-        self.b11.setText(_translate("MainWindow", u"Question Bank"))
-        self.b12.setText(_translate("MainWindow", u"Study Materials"))
-        self.b13.setText(_translate("MainWindow", u"Viedo Lectures"))
-        self.b14.setText(_translate("MainWindow", u"Semester Registration"))
-        self.b15.setText(_translate("MainWindow", u"Tutorials"))
-        self.b16.setText(_translate("MainWindow", u"Survey"))
+        self.buttons[0].setText(_translate("MainWindow", u"Profile"))
+        self.buttons[1].setText(_translate("MainWindow", u"Attendance"))
+        self.buttons[2].setText(_translate("MainWindow", u"Result"))
+        self.buttons[3].setText(_translate("MainWindow", u"Notes"))
+        self.buttons[4].setText(_translate("MainWindow", u"Exam Schedule"))
+        self.buttons[5].setText(_translate("MainWindow", u"Time Table"))
+        self.buttons[6].setText(_translate("MainWindow", u"Academic Analysis"))
+        self.buttons[7].setText(_translate("MainWindow", u"Subjects"))
+        self.buttons[8].setText(_translate("MainWindow", u"Assignments"))
+        self.buttons[9].setText(_translate("MainWindow", u"LAB EXAM"))
+        self.buttons[10].setText(_translate("MainWindow", u"Question Bank"))
+        self.buttons[11].setText(_translate("MainWindow", u"Study Materials"))
+        self.buttons[12].setText(_translate("MainWindow", u"Viedo Lectures"))
+        self.buttons[13].setText(_translate("MainWindow", u"Semester Registration"))
+        self.buttons[14].setText(_translate("MainWindow", u"Tutorials"))
+        self.buttons[15].setText(_translate("MainWindow", u"Survey"))
+        self.name_3.setText(_translate("MainWindow", u"VYSHNAV M"))
         self.name_2.setText(_translate("MainWindow", u"Currently Unavilable!!!! Page under Development"))
+        for i, button in enumerate(self.buttons):
+            button.setStyleSheet(f"""
+                QPushButton#{button.objectName()} {{
+                   border: 2px solid transparent; 
+border-radius: 10px;
+background-color: rgba(0, 0, 0, 0.5);
+padding: 10px 20px;
+font-size: 16px;
+font-weight: bold;
+color: white;
+border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #a9a9a9, stop: 0.3 #d3d3d3, stop: 1 #ffffff );
+                }}
+                QPushButton#{button.objectName()}:hover {{
+                    background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #a9a9a9, stop: 0.3 #d3d3d3, stop: 1 #ffffff);
+color: whit;
+border: 2px solid transparent; 
+border-color: black; 
+                }}
+            """)
 
 def main():
     import sys

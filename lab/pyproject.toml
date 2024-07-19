@@ -20,6 +20,7 @@ sources = [
     "src/lab",
     "src/lab/icon_rc.py",
     "src/lab/rounded_image_widget.py",
+    "src/lab/cssfn.py",
     "src/lab/fns.py",
     "src/lab/wapp.py",
     "src/lab/newqns.ui",

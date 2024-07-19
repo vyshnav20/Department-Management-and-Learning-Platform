@@ -1,5 +1,7 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/dark.png</file>
+    <file>icons/light.png</file>
     <file>icons/vy.jpg</file>
     <file>accept.png</file>
     <file>add.png</file>

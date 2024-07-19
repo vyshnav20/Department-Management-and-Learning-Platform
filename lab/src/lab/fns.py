@@ -170,12 +170,16 @@ def updt_qn(q):
     mydb.commit()
 
 # list exam dates
-def admin_sub():
+def admin_sub(n,id):
     l=[]
     mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
     mycursor = mydb.cursor()
-    sql = "SELECT sem,sub_name,date FROM subjects join exam on exam.sub_id=subjects.sub_id order by date"
-    mycursor.execute(sql)
+    if (n==0):
+        sql = "SELECT sem,sub_name,date FROM subjects join exam on exam.sub_id=subjects.sub_id order by date"
+        mycursor.execute(sql)
+    else:    
+        sql = "SELECT sem,sub_name,date FROM subjects join exam on exam.sub_id=subjects.sub_id where sem in (select sem from student where ktuid= %s) order by date"
+        mycursor.execute(sql,(id,))
     result = mycursor.fetchall()
     for i in result:
         #for j in i:
@@ -322,10 +326,22 @@ def stud_profile(id):
     l=[]
     mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
     mycursor = mydb.cursor()
-    sql = "select * from student where ktuid= %s "
+    sql = "select name, phno, gender, email,dob from student where ktuid= %s "
     mycursor.execute(sql, (id,))
     result = mycursor.fetchall()
     for i in result:
         for j in i:
             l.append(j)
+    return l
+
+
+def stud_sub(id):
+    l=[]
+    mydb = mysql.connector.connect(host = "localhost", user = "root",passwd = "Vyshnav@2002",database='labsys')
+    mycursor = mydb.cursor()
+    sql = "select sub_name, tr.name from subjects join faculty tr on subjects.tr_id=tr.tr_id where sem in (select sem from student where ktuid= %s)"
+    mycursor.execute(sql, (id,))
+    result = mycursor.fetchall()
+    for i in result:
+        l.append(i)
     return l
