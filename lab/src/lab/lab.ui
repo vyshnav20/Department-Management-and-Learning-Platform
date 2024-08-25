@@ -437,7 +437,7 @@ QLineEdit:focus {
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>7</number>
+             <number>6</number>
             </property>
             <widget class="QWidget" name="q1_page">
              <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -788,9 +788,6 @@ QLineEdit:focus {
               <string notr="true"/>
              </property>
              <layout class="QVBoxLayout" name="verticalLayout_6">
-              <property name="spacing">
-               <number>6</number>
-              </property>
               <item>
                <widget class="QFrame" name="container">
                 <property name="frameShape">
@@ -1122,15 +1119,15 @@ QLineEdit:focus {
                                <rect>
                                 <x>0</x>
                                 <y>0</y>
-                                <width>333</width>
-                                <height>643</height>
+                                <width>1594</width>
+                                <height>662</height>
                                </rect>
                               </property>
                               <property name="styleSheet">
                                <string notr="true"/>
                               </property>
                               <layout class="QHBoxLayout" name="horizontalLayout_8">
-                               <item>
+                               <item alignment="Qt::AlignTop">
                                 <widget class="QFrame" name="Box_2">
                                  <property name="sizePolicy">
                                   <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
@@ -1635,386 +1632,405 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="widget_9" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>1000</width>
-                  <height>0</height>
-                 </size>
+               <widget class="QScrollArea" name="scrollArea_2">
+                <property name="widgetResizable">
+                 <bool>true</bool>
                 </property>
-                <layout class="QHBoxLayout" name="horizontalLayout_9">
-                 <property name="topMargin">
-                  <number>50</number>
+                <widget class="QWidget" name="scrollAreaWidgetContents">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>1672</width>
+                   <height>800</height>
+                  </rect>
                  </property>
-                 <item alignment="Qt::AlignTop">
-                  <widget class="QWidget" name="widget_10" native="true">
-                   <property name="maximumSize">
-                    <size>
-                     <width>550</width>
-                     <height>16777215</height>
-                    </size>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_26">
-                    <item alignment="Qt::AlignHCenter">
-                     <widget class="QWidget" name="widget_4" native="true">
-                      <property name="minimumSize">
-                       <size>
-                        <width>300</width>
-                        <height>0</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>300</width>
-                        <height>300</height>
-                       </size>
-                      </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_25">
-                       <item alignment="Qt::AlignHCenter">
-                        <widget class="RoundedImageWidget" name="img" native="true">
-                         <property name="minimumSize">
-                          <size>
-                           <width>175</width>
-                           <height>175</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>175</width>
-                           <height>200</height>
-                          </size>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="name_3">
-                         <property name="font">
-                          <font>
-                           <family>Orbitron</family>
-                           <pointsize>14</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>VYSHNAV M</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QWidget" name="widget_17" native="true">
-                      <layout class="QFormLayout" name="formLayout_5">
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="ktuid">
-                         <property name="minimumSize">
-                          <size>
-                           <width>190</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>150</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <family>Orbitron</family>
-                           <pointsize>18</pointsize>
-                           <kerning>true</kerning>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>KTU-ID</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <widget class="QLineEdit" name="KTUID">
-                         <property name="font">
-                          <font>
-                           <family>Agency FB</family>
-                           <pointsize>18</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="echoMode">
-                          <enum>QLineEdit::Normal</enum>
-                         </property>
-                         <property name="readOnly">
-                          <bool>true</bool>
-                         </property>
-                         <property name="placeholderText">
-                          <string notr="true"/>
-                         </property>
-                         <property name="clearButtonEnabled">
-                          <bool>false</bool>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QWidget" name="widget_12" native="true">
-                      <layout class="QFormLayout" name="formLayout_3">
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="phno">
-                         <property name="minimumSize">
-                          <size>
-                           <width>190</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>150</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <family>Orbitron</family>
-                           <pointsize>16</pointsize>
-                           <kerning>true</kerning>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>Phone Number</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <widget class="QLineEdit" name="PHNO">
-                         <property name="font">
-                          <font>
-                           <family>Agency FB</family>
-                           <pointsize>18</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="echoMode">
-                          <enum>QLineEdit::Normal</enum>
-                         </property>
-                         <property name="readOnly">
-                          <bool>true</bool>
-                         </property>
-                         <property name="placeholderText">
-                          <string notr="true"/>
-                         </property>
-                         <property name="clearButtonEnabled">
-                          <bool>false</bool>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QWidget" name="widget_15" native="true">
-                      <layout class="QFormLayout" name="formLayout_4">
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="gender">
-                         <property name="minimumSize">
-                          <size>
-                           <width>190</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>150</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <family>Orbitron</family>
-                           <pointsize>18</pointsize>
-                           <kerning>true</kerning>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>Gender</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <widget class="QLineEdit" name="GENDER">
-                         <property name="font">
-                          <font>
-                           <family>Agency FB</family>
-                           <pointsize>18</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="echoMode">
-                          <enum>QLineEdit::Normal</enum>
-                         </property>
-                         <property name="readOnly">
-                          <bool>true</bool>
-                         </property>
-                         <property name="placeholderText">
-                          <string notr="true"/>
-                         </property>
-                         <property name="clearButtonEnabled">
-                          <bool>false</bool>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QWidget" name="widget_11" native="true">
-                      <layout class="QFormLayout" name="formLayout_2">
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="email">
-                         <property name="minimumSize">
-                          <size>
-                           <width>190</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>150</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <family>Orbitron</family>
-                           <pointsize>18</pointsize>
-                           <kerning>true</kerning>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>E-mail</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <widget class="QLineEdit" name="EMAIL">
-                         <property name="font">
-                          <font>
-                           <family>Agency FB</family>
-                           <pointsize>18</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="echoMode">
-                          <enum>QLineEdit::Normal</enum>
-                         </property>
-                         <property name="readOnly">
-                          <bool>true</bool>
-                         </property>
-                         <property name="placeholderText">
-                          <string notr="true"/>
-                         </property>
-                         <property name="clearButtonEnabled">
-                          <bool>false</bool>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                    <item>
-                     <widget class="QWidget" name="widget_18" native="true">
-                      <layout class="QFormLayout" name="formLayout_6">
-                       <item row="0" column="0">
-                        <widget class="QLabel" name="dob">
-                         <property name="minimumSize">
-                          <size>
-                           <width>190</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>150</width>
-                           <height>16777215</height>
-                          </size>
-                         </property>
-                         <property name="font">
-                          <font>
-                           <family>Orbitron</family>
-                           <pointsize>18</pointsize>
-                           <kerning>true</kerning>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>Date Of Birth</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item row="0" column="1">
-                        <widget class="QLineEdit" name="DOB">
-                         <property name="font">
-                          <font>
-                           <family>Agency FB</family>
-                           <pointsize>18</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string/>
-                         </property>
-                         <property name="echoMode">
-                          <enum>QLineEdit::Normal</enum>
-                         </property>
-                         <property name="readOnly">
-                          <bool>true</bool>
-                         </property>
-                         <property name="placeholderText">
-                          <string notr="true"/>
-                         </property>
-                         <property name="clearButtonEnabled">
-                          <bool>false</bool>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
+                 <layout class="QHBoxLayout" name="horizontalLayout_10">
+                  <item>
+                   <widget class="QWidget" name="widget_9" native="true">
+                    <property name="minimumSize">
+                     <size>
+                      <width>1000</width>
+                      <height>0</height>
+                     </size>
+                    </property>
+                    <layout class="QHBoxLayout" name="horizontalLayout_9">
+                     <property name="topMargin">
+                      <number>50</number>
+                     </property>
+                     <item alignment="Qt::AlignTop">
+                      <widget class="QWidget" name="widget_10" native="true">
+                       <property name="maximumSize">
+                        <size>
+                         <width>550</width>
+                         <height>16777215</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_26">
+                        <item alignment="Qt::AlignHCenter">
+                         <widget class="QWidget" name="widget_4" native="true">
+                          <property name="minimumSize">
+                           <size>
+                            <width>300</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>300</width>
+                            <height>300</height>
+                           </size>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_25">
+                           <item alignment="Qt::AlignHCenter">
+                            <widget class="RoundedImageWidget" name="img" native="true">
+                             <property name="minimumSize">
+                              <size>
+                               <width>175</width>
+                               <height>175</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>175</width>
+                               <height>200</height>
+                              </size>
+                             </property>
+                            </widget>
+                           </item>
+                           <item>
+                            <widget class="QLabel" name="name_3">
+                             <property name="font">
+                              <font>
+                               <family>Orbitron</family>
+                               <pointsize>14</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>VYSHNAV M</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="widget_17" native="true">
+                          <layout class="QFormLayout" name="formLayout_5">
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="ktuid">
+                             <property name="minimumSize">
+                              <size>
+                               <width>190</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Orbitron</family>
+                               <pointsize>18</pointsize>
+                               <kerning>true</kerning>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>KTU-ID</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="1">
+                            <widget class="QLineEdit" name="KTUID">
+                             <property name="font">
+                              <font>
+                               <family>Agency FB</family>
+                               <pointsize>18</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="echoMode">
+                              <enum>QLineEdit::Normal</enum>
+                             </property>
+                             <property name="readOnly">
+                              <bool>true</bool>
+                             </property>
+                             <property name="placeholderText">
+                              <string notr="true"/>
+                             </property>
+                             <property name="clearButtonEnabled">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="widget_12" native="true">
+                          <layout class="QFormLayout" name="formLayout_3">
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="phno">
+                             <property name="minimumSize">
+                              <size>
+                               <width>190</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Orbitron</family>
+                               <pointsize>16</pointsize>
+                               <kerning>true</kerning>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Phone Number</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="1">
+                            <widget class="QLineEdit" name="PHNO">
+                             <property name="font">
+                              <font>
+                               <family>Agency FB</family>
+                               <pointsize>18</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="echoMode">
+                              <enum>QLineEdit::Normal</enum>
+                             </property>
+                             <property name="readOnly">
+                              <bool>true</bool>
+                             </property>
+                             <property name="placeholderText">
+                              <string notr="true"/>
+                             </property>
+                             <property name="clearButtonEnabled">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="widget_15" native="true">
+                          <layout class="QFormLayout" name="formLayout_4">
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="gender">
+                             <property name="minimumSize">
+                              <size>
+                               <width>190</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Orbitron</family>
+                               <pointsize>18</pointsize>
+                               <kerning>true</kerning>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Gender</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="1">
+                            <widget class="QLineEdit" name="GENDER">
+                             <property name="font">
+                              <font>
+                               <family>Agency FB</family>
+                               <pointsize>18</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="echoMode">
+                              <enum>QLineEdit::Normal</enum>
+                             </property>
+                             <property name="readOnly">
+                              <bool>true</bool>
+                             </property>
+                             <property name="placeholderText">
+                              <string notr="true"/>
+                             </property>
+                             <property name="clearButtonEnabled">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="widget_11" native="true">
+                          <layout class="QFormLayout" name="formLayout_2">
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="email">
+                             <property name="minimumSize">
+                              <size>
+                               <width>190</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Orbitron</family>
+                               <pointsize>18</pointsize>
+                               <kerning>true</kerning>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>E-mail</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="1">
+                            <widget class="QLineEdit" name="EMAIL">
+                             <property name="font">
+                              <font>
+                               <family>Agency FB</family>
+                               <pointsize>18</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="echoMode">
+                              <enum>QLineEdit::Normal</enum>
+                             </property>
+                             <property name="readOnly">
+                              <bool>true</bool>
+                             </property>
+                             <property name="placeholderText">
+                              <string notr="true"/>
+                             </property>
+                             <property name="clearButtonEnabled">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QWidget" name="widget_18" native="true">
+                          <layout class="QFormLayout" name="formLayout_6">
+                           <item row="0" column="0">
+                            <widget class="QLabel" name="dob">
+                             <property name="minimumSize">
+                              <size>
+                               <width>190</width>
+                               <height>0</height>
+                              </size>
+                             </property>
+                             <property name="maximumSize">
+                              <size>
+                               <width>150</width>
+                               <height>16777215</height>
+                              </size>
+                             </property>
+                             <property name="font">
+                              <font>
+                               <family>Orbitron</family>
+                               <pointsize>18</pointsize>
+                               <kerning>true</kerning>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Date Of Birth</string>
+                             </property>
+                             <property name="alignment">
+                              <set>Qt::AlignCenter</set>
+                             </property>
+                            </widget>
+                           </item>
+                           <item row="0" column="1">
+                            <widget class="QLineEdit" name="DOB">
+                             <property name="font">
+                              <font>
+                               <family>Agency FB</family>
+                               <pointsize>18</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string/>
+                             </property>
+                             <property name="echoMode">
+                              <enum>QLineEdit::Normal</enum>
+                             </property>
+                             <property name="readOnly">
+                              <bool>true</bool>
+                             </property>
+                             <property name="placeholderText">
+                              <string notr="true"/>
+                             </property>
+                             <property name="clearButtonEnabled">
+                              <bool>false</bool>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
             </widget>
             <widget class="QWidget" name="stu_subjects">
-             <layout class="QVBoxLayout" name="verticalLayout_31">
+             <layout class="QVBoxLayout" name="verticalLayout_32">
               <item>
                <widget class="QWidget" name="stitle4" native="true">
                 <property name="minimumSize">
@@ -2050,91 +2066,98 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="widget_19" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>800</height>
-                 </size>
+               <widget class="QScrollArea" name="scrollArea_4">
+                <property name="widgetResizable">
+                 <bool>true</bool>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_32">
-                 <item alignment="Qt::AlignTop">
-                  <widget class="QFrame" name="Box_5">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QVBoxLayout" name="verticalLayout_29">
-                    <item alignment="Qt::AlignTop">
-                     <widget class="QWidget" name="sub_list_2" native="true">
-                      <property name="maximumSize">
-                       <size>
-                        <width>16777215</width>
-                        <height>75</height>
-                       </size>
-                      </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_30">
-                       <item>
-                        <widget class="QWidget" name="Sub1_5" native="true">
-                         <property name="sizePolicy">
-                          <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                           <horstretch>0</horstretch>
-                           <verstretch>0</verstretch>
-                          </sizepolicy>
-                         </property>
-                         <property name="minimumSize">
-                          <size>
-                           <width>0</width>
-                           <height>0</height>
-                          </size>
-                         </property>
-                         <property name="maximumSize">
-                          <size>
-                           <width>16777215</width>
-                           <height>85</height>
-                          </size>
-                         </property>
-                         <property name="styleSheet">
-                          <string notr="true"/>
-                         </property>
-                         <layout class="QHBoxLayout" name="horizontalLayout_27">
-                          <item>
-                           <widget class="QLabel" name="subject_2">
-                            <property name="font">
-                             <font>
-                              <family>Agency FB</family>
-                              <pointsize>25</pointsize>
-                             </font>
-                            </property>
-                            <property name="text">
-                             <string>Subject</string>
-                            </property>
-                           </widget>
-                          </item>
-                         </layout>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
+                <widget class="QWidget" name="scrollAreaWidgetContents_8">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>1672</width>
+                   <height>800</height>
+                  </rect>
+                 </property>
+                 <layout class="QVBoxLayout" name="verticalLayout_31">
+                  <item>
+                   <widget class="QFrame" name="Box_5">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
+                    </property>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QVBoxLayout" name="verticalLayout_29">
+                     <item alignment="Qt::AlignTop">
+                      <widget class="QWidget" name="sub_list_2" native="true">
+                       <property name="maximumSize">
+                        <size>
+                         <width>16777215</width>
+                         <height>75</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_30">
+                        <item>
+                         <widget class="QWidget" name="Sub1_5" native="true">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="minimumSize">
+                           <size>
+                            <width>0</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="maximumSize">
+                           <size>
+                            <width>16777215</width>
+                            <height>85</height>
+                           </size>
+                          </property>
+                          <property name="styleSheet">
+                           <string notr="true"/>
+                          </property>
+                          <layout class="QHBoxLayout" name="horizontalLayout_27">
+                           <item>
+                            <widget class="QLabel" name="subject_2">
+                             <property name="font">
+                              <font>
+                               <family>Agency FB</family>
+                               <pointsize>25</pointsize>
+                              </font>
+                             </property>
+                             <property name="text">
+                              <string>Subject</string>
+                             </property>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>
             </widget>
             <widget class="QWidget" name="exam_schedule">
-             <layout class="QVBoxLayout" name="verticalLayout_36">
+             <layout class="QVBoxLayout" name="verticalLayout_33">
               <item>
                <widget class="QWidget" name="stitle5" native="true">
                 <property name="minimumSize">
@@ -2170,86 +2193,93 @@ QLineEdit:focus {
                </widget>
               </item>
               <item>
-               <widget class="QWidget" name="widget_20" native="true">
-                <property name="minimumSize">
-                 <size>
-                  <width>0</width>
-                  <height>800</height>
-                 </size>
+               <widget class="QScrollArea" name="scrollArea_3">
+                <property name="widgetResizable">
+                 <bool>true</bool>
                 </property>
-                <layout class="QVBoxLayout" name="verticalLayout_33">
-                 <item alignment="Qt::AlignHCenter|Qt::AlignVCenter">
-                  <widget class="QFrame" name="Box_6">
-                   <property name="sizePolicy">
-                    <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
-                     <horstretch>0</horstretch>
-                     <verstretch>0</verstretch>
-                    </sizepolicy>
-                   </property>
-                   <property name="frameShape">
-                    <enum>QFrame::StyledPanel</enum>
-                   </property>
-                   <property name="frameShadow">
-                    <enum>QFrame::Raised</enum>
-                   </property>
-                   <layout class="QGridLayout" name="gridLayout_2">
-                    <property name="spacing">
-                     <number>30</number>
+                <widget class="QWidget" name="scrollAreaWidgetContents_7">
+                 <property name="geometry">
+                  <rect>
+                   <x>0</x>
+                   <y>0</y>
+                   <width>1672</width>
+                   <height>800</height>
+                  </rect>
+                 </property>
+                 <layout class="QHBoxLayout" name="horizontalLayout_11">
+                  <item>
+                   <widget class="QFrame" name="Box_6">
+                    <property name="sizePolicy">
+                     <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                      <horstretch>0</horstretch>
+                      <verstretch>0</verstretch>
+                     </sizepolicy>
                     </property>
-                    <item row="0" column="0" alignment="Qt::AlignTop">
-                     <widget class="QWidget" name="sub_list_3" native="true">
-                      <property name="minimumSize">
-                       <size>
-                        <width>500</width>
-                        <height>200</height>
-                       </size>
-                      </property>
-                      <property name="maximumSize">
-                       <size>
-                        <width>500</width>
-                        <height>200</height>
-                       </size>
-                      </property>
-                      <layout class="QVBoxLayout" name="verticalLayout_34">
-                       <item>
-                        <widget class="QLabel" name="exm_subject">
-                         <property name="font">
-                          <font>
-                           <family>Agency FB</family>
-                           <pointsize>25</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>Database Management</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                       <item>
-                        <widget class="QLabel" name="exm_date">
-                         <property name="font">
-                          <font>
-                           <family>Agency FB</family>
-                           <pointsize>25</pointsize>
-                          </font>
-                         </property>
-                         <property name="text">
-                          <string>Database Management</string>
-                         </property>
-                         <property name="alignment">
-                          <set>Qt::AlignCenter</set>
-                         </property>
-                        </widget>
-                       </item>
-                      </layout>
-                     </widget>
-                    </item>
-                   </layout>
-                  </widget>
-                 </item>
-                </layout>
+                    <property name="frameShape">
+                     <enum>QFrame::StyledPanel</enum>
+                    </property>
+                    <property name="frameShadow">
+                     <enum>QFrame::Raised</enum>
+                    </property>
+                    <layout class="QGridLayout" name="gridLayout_2">
+                     <property name="spacing">
+                      <number>30</number>
+                     </property>
+                     <item row="0" column="0" alignment="Qt::AlignTop">
+                      <widget class="QWidget" name="sub_list_3" native="true">
+                       <property name="minimumSize">
+                        <size>
+                         <width>500</width>
+                         <height>200</height>
+                        </size>
+                       </property>
+                       <property name="maximumSize">
+                        <size>
+                         <width>500</width>
+                         <height>200</height>
+                        </size>
+                       </property>
+                       <layout class="QVBoxLayout" name="verticalLayout_34">
+                        <item>
+                         <widget class="QLabel" name="exm_subject">
+                          <property name="font">
+                           <font>
+                            <family>Agency FB</family>
+                            <pointsize>25</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Database Management</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                        <item>
+                         <widget class="QLabel" name="exm_date">
+                          <property name="font">
+                           <font>
+                            <family>Agency FB</family>
+                            <pointsize>25</pointsize>
+                           </font>
+                          </property>
+                          <property name="text">
+                           <string>Database Management</string>
+                          </property>
+                          <property name="alignment">
+                           <set>Qt::AlignCenter</set>
+                          </property>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                  </item>
+                 </layout>
+                </widget>
                </widget>
               </item>
              </layout>

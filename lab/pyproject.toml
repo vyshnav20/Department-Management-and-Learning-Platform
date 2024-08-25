@@ -16,11 +16,15 @@ formal_name = "lab"
 description = "lab app"
 long_description = """More details about the app should go here.
 """
+
+
 sources = [
     "src/lab",
     "src/lab/icon_rc.py",
     "src/lab/rounded_image_widget.py",
+    "src/lab/mca-dmlp-firebase-adminsdk-5sboz-7539f33330.json",
     "src/lab/cssfn.py",
+    "src/lab/fn.py",
     "src/lab/fns.py",
     "src/lab/wapp.py",
     "src/lab/newqns.ui",
@@ -32,9 +36,25 @@ sources = [
     "C:/Users/HP/anaconda3/Lib/site-packages/selenium",
     "C:/Users/HP/anaconda3/Lib/site-packages/urllib3",
     "C:/Users/HP/anaconda3/Lib/site-packages/certifi",
+    "C:/Users/HP/anaconda3/Lib/site-packages/firebase_admin",
+    "C:/Users/HP/anaconda3/Lib/site-packages/google",
+    "C:/Users/HP/anaconda3/Lib/site-packages/requests",
+    "C:/Users/HP/anaconda3/Lib/site-packages/idna",
+    "C:/Users/HP/anaconda3/Lib/site-packages/cryptography",
+    "C:/Users/HP/anaconda3/Lib/site-packages/pyasn1",
+    "C:/Users/HP/anaconda3/Lib/site-packages/pyasn1_modules",
+    "C:/Users/HP/anaconda3/Lib/site-packages/rsa",
+    "C:/Users/HP/anaconda3/Lib/site-packages/cachetools",
     "C:/Users/HP/anaconda3/Lib/os.py",
     "C:/Users/HP/anaconda3/Lib/random.py"
 ]
+
+[tool.briefcase.app.lab.requires]
+firebase-admin = "*"
+google-auth = "*"
+google-auth-oauthlib = "*"
+google-auth-httplib2 = "*"
+google-api-python-client = "*"
 test_sources = [
     "tests",
 ]

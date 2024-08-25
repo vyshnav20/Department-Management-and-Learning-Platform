@@ -3,11 +3,12 @@ from PyQt5 import QtCore, QtGui, QtWidgets,uic
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
 from PyQt5.QtGui import *
+import sys
 from rounded_image_widget import RoundedImageWidget
 import icon_rc
 
 from cssfn import *
-from fns import *
+from fn import *
 import os
 import random
 
@@ -19,11 +20,14 @@ class forgotpass(QtWidgets.QDialog):
 
 
 class submit_test(QtWidgets.QDialog):
-    def __init__(self):
+    def __init__(self,r):
         super().__init__()
         ui_path = os.path.abspath("F:/QT/lab/src/lab/sub_test.ui")
         uic.loadUi(ui_path,self)
-        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
+        self.dynamic_widgets = {}
+        for i in range(len(r)-1):
+            self.add_row(i)
+        self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')        
 
         # Check if the button box is found
         if self.buttonBox is None:
@@ -32,6 +36,62 @@ class submit_test(QtWidgets.QDialog):
             # Connect the button box signals to the appropriate slots
             self.buttonBox.accepted.connect(self.accept)
             self.buttonBox.rejected.connect(self.reject)
+
+    def add_row(self, row_number):
+        # Create and configure widgets for the row
+        op = QtWidgets.QPlainTextEdit(self.scrollAreaWidgetContents)
+        op.setMinimumSize(QtCore.QSize(550, 50))
+        op.setMaximumSize(QtCore.QSize(16777215, 100))
+        font = QtGui.QFont()
+        font.setFamily("Agency FB")
+        font.setPointSize(20)
+        op.setFont(font)
+        op.setReadOnly(True)
+        op.setObjectName(f"o{row_number+1}")
+
+        inp = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        inp.setMinimumSize(QtCore.QSize(0, 50))
+        inp.setMaximumSize(QtCore.QSize(300, 16777215))
+        font = QtGui.QFont()
+        inp.setFont(font)
+        inp.setAlignment(QtCore.Qt.AlignCenter)
+        inp.setObjectName(f"i{row_number+1}")
+        inp.setReadOnly(True)
+
+        inp_2 = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        inp_2.setMinimumSize(QtCore.QSize(0, 50))
+        inp_2.setMaximumSize(QtCore.QSize(300, 16777215))
+        inp_2.setFont(font)
+        inp_2.setAlignment(QtCore.Qt.AlignCenter)
+        inp_2.setText(str(row_number+1))
+        inp_2.setObjectName(f"i2_{row_number+1}")
+        inp_2.setReadOnly(True)
+
+        label = QtWidgets.QLabel(self.scrollAreaWidgetContents)
+        label.setMaximumSize(QtCore.QSize(25, 25))
+        label.setPixmap(QtGui.QPixmap(":/icons/accept.png"))
+        label.setObjectName(f"l{row_number+1}") 
+        label.setScaledContents(True)
+
+        exp_op = QtWidgets.QLineEdit(self.scrollAreaWidgetContents)
+        exp_op.setMinimumSize(QtCore.QSize(0, 50))
+        exp_op.setMaximumSize(QtCore.QSize(300, 16777215))
+        exp_op.setFont(font)
+        exp_op.setAlignment(QtCore.Qt.AlignCenter)
+        exp_op.setObjectName(f"eo{row_number+1}")
+        exp_op.setReadOnly(True)
+
+        self.dynamic_widgets[f"i{row_number + 1}"] = inp
+        self.dynamic_widgets[f"eo{row_number + 1}"] = exp_op
+        self.dynamic_widgets[f"o{row_number + 1}"] = op
+        self.dynamic_widgets[f"l{row_number + 1}"] = label
+
+        # Add widgets to the grid layout in the specified row
+        self.gridLayout.addWidget(inp_2, row_number, 0)
+        self.gridLayout.addWidget(inp, row_number, 1)
+        self.gridLayout.addWidget(exp_op, row_number, 2)
+        self.gridLayout.addWidget(op, row_number, 3)
+        self.gridLayout.addWidget(label, row_number, 4)
 
 class edit_sub(QtWidgets.QDialog):
     def __init__(self):
@@ -54,6 +114,7 @@ class addexam(QtWidgets.QDialog):
         super().__init__()
         ui_path = os.path.abspath("F:/QT/lab/src/lab/newsub.ui")
         uic.loadUi(ui_path,self)
+        self.dateEdit.setDate(QDate.currentDate())
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
         # Check if the button box is found
@@ -61,6 +122,8 @@ class addexam(QtWidgets.QDialog):
             print("Error: ButtonBox not found. Please check the object name in the UI file.")
         else:
             # Connect the button box signals to the appropriate slots
+            
+
             self.buttonBox.accepted.connect(self.accept)
             self.buttonBox.rejected.connect(self.reject)
 
@@ -90,8 +153,20 @@ class viewqns(QtWidgets.QDialog):
             q.append(self.lineEdit_3.text())
             q.append(self.plainTextEdit.toPlainText())
             q.append(self.lineEdit.text())
-            updt_qn(q)
+            l=[]
+            for i in range(1,11):
+                l1=[]
+                ip="i"+str(i)
+                op="o"+str(i)
+                ips=getattr(self, ip).text()
+                ops=getattr(self, op).text()
+                if(ips!="" and ops!=""):
+                    l1.append(ips)
+                    l1.append(ops)
+                    l.append(l1)
+            updt_qn(q,l)
             self.close()
+
 
 class newqns(QtWidgets.QDialog):
     def __init__(self):
@@ -114,7 +189,19 @@ class newqns(QtWidgets.QDialog):
         q.append(self.comboBox_3.currentText())
         q.append(self.plainTextEdit.toPlainText())
         q.append(self.lineEdit.text())
-        add_qn(q)
+        l=[]
+        for i in range(1,11):
+            l1=[]
+            ip="i"+str(i)
+            op="o"+str(i)
+            ips=getattr(self, ip).text()
+            ops=getattr(self, op).text()
+            if(ips!="" and ops!=""):
+                l1.append(ips)
+                l1.append(ops)
+                l.append(l1)
+
+        add_qn(q,l)
         self.close()
 
 class updtdialogbox(QtWidgets.QDialog):
@@ -395,8 +482,22 @@ border-color: black;
         border: 1px solid #555555;
     }
     """
+        css_light="""
+        #sub_list_2{
+    border-radius: 15px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #f0f0f0, stop: 1 #e0e0e0
+    );
+    color: #000000;
+    border: 1px solid #aaaaaa;}
+    """
+        
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_exmschedule(css, sizePolicy)
+        if(self.styleSheet()==getLightTheme()):
+            self.generate_exmschedule(css_light, sizePolicy)
+        else:
+            self.generate_exmschedule(css, sizePolicy)
         self.stackedWidget.setCurrentIndex(7)
 
 
@@ -459,8 +560,23 @@ border-color: black;
         border: 1px solid #555555;
     }
     """
+        
+        css_light="""
+        #sub_list_2{
+    border-radius: 15px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #f0f0f0, stop: 1 #e0e0e0
+    );
+    color: #000000;
+    border: 1px solid #aaaaaa;}
+    """
+
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_stud_sub_lists(css, sizePolicy)
+        if(self.styleSheet()==getLightTheme()):
+            self.generate_stud_sub_lists(css_light, sizePolicy)
+        else:
+            self.generate_stud_sub_lists(css, sizePolicy)
         self.stackedWidget.setCurrentIndex(6)
 
 
@@ -478,7 +594,6 @@ border-color: black;
         self.stackedWidget.setCurrentIndex(8)
 
     def compile(self):
-        self.subtest=submit_test()
         q=0
         rollno=self.roll.text()
         if int(rollno) % 2 == 0:
@@ -495,18 +610,22 @@ border-color: black;
             q+=2   
             code=self.plainTextEdit_3.toPlainText()
             r=run_code(code,[q,sub_id])    
-        self.subtest.inp.setText(r[-1][0])
-        self.subtest.exp_op.setText(r[-1][1])
-        self.subtest.op.setPlainText(str(r[0][0]))
-        if(r[0][1]==0 or r[-1][1] !=str(r[0][0])):
-            pixmap = QPixmap(":/icons/rej.png")
-            self.subtest.label.setPixmap(pixmap)
-        self.subtest.inp_2.setText(r[-1][2])
-        self.subtest.exp_op_2.setText(r[-1][3])
-        self.subtest.op_2.setPlainText(str(r[1][0]))
-        if(r[1][1]==0 or r[-1][3] !=str(r[1][0])):
-            pixmap = QPixmap(":/icons/rej.png")
-            self.subtest.label_10.setPixmap(pixmap)
+        self.subtest=submit_test(r)
+        x=0
+        y=1
+        for i in range(0,len(r)-1):
+            ip="i"+str(i+1)
+            eo="eo"+str(i+1)
+            op="o"+str(i+1)
+            la="l"+str(i+1)
+            self.subtest.dynamic_widgets[ip].setText(str(r[-1][x]))
+            self.subtest.dynamic_widgets[eo].setText(str(r[-1][y]))
+            self.subtest.dynamic_widgets[op].setPlainText(str(r[i][0]))
+            if(r[i][1]==0 or str(r[-1][y]) !=str(r[i][0])):
+                pixmap = QPixmap(":/icons/rej.png")
+                self.subtest.dynamic_widgets[la].setPixmap(pixmap)
+            x+=2
+            y+=2
         self.subtest.exec_()
             
 
@@ -624,6 +743,19 @@ border-color: black;
     }
     """
         return css
+        
+    def subcss_light(self):
+        css = """
+        #sub_list{
+    border-radius: 15px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #f0f0f0, stop: 1 #e0e0e0
+    );
+    color: #000000;
+    border: 1px solid #aaaaaa;}
+    """
+        return css
 
     def elcss(self):
         css = """
@@ -636,6 +768,19 @@ border-color: black;
         color: #FFFFFF;
         border: 1px solid #555555;
     }
+    """
+        return css
+
+    def elcss_light(self):
+        css = """
+        #qn_list{
+    border-radius: 15px;
+    background-color: qlineargradient(
+        x1: 0, y1: 0, x2: 1, y2: 1,
+        stop: 0 #f0f0f0, stop: 1 #e0e0e0
+    );
+    color: #000000;
+    border: 1px solid #aaaaaa;}
     """
         return css
 
@@ -716,15 +861,20 @@ border-color: black;
         if self.popup.exec_() == QtWidgets.QDialog.Accepted:
             delete_sub(val)            
             sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-            self.generate_qn_lists(self.elcss(), sizePolicy)
-            self.generate_sub_lists(self.subcss(), sizePolicy)
+            if(self.styleSheet()==getLightTheme()):
+                self.generate_qn_lists(self.elcss_light(), sizePolicy)
+                self.generate_sub_lists(self.subcss_light(), sizePolicy)
+            else:
+                self.generate_qn_lists(self.elcss(), sizePolicy)
+                self.generate_sub_lists(self.subcss(), sizePolicy)
 
     def handle_edit(self, val):
         l=editsubj(val)
         self.editsubje=edit_sub()
         self.editsubje.lineEdit_2.setText(str(l[0]))
         self.editsubje.lineEdit_3.setText(l[1])
-        date = QDate(l[2].year, l[2].month, l[2].day)
+        year, month, day = map(int, l[2].split('-'))
+        date = QDate(year, month,day)
         self.editsubje.dateEdit.setDate(date)
         self.editsubje.Update.clicked.connect(self.update_sub)
         self.editsubje.exec_()
@@ -737,7 +887,10 @@ border-color: black;
         q.append(date)
         update_exm(q)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_sub_lists(self.subcss(), sizePolicy)
+        if(self.styleSheet()==getLightTheme()):
+            self.generate_sub_lists(self.subcss_light(), sizePolicy)
+        else:
+            self.generate_sub_lists(self.subcss(), sizePolicy)
         self.editsubje.close()
 
     def create_qn_list(self, index, css, sizePolicy,val):
@@ -793,7 +946,7 @@ border-color: black;
         pushButton.setText("View")
         
         horizontalLayout_8.addWidget(pushButton)
-        pushButton.clicked.connect(lambda _, idx=index: self.handle_view(idx, [val[3],val[0]]))
+        pushButton.clicked.connect(lambda _, idx=index: self.handle_view(idx, [val[3],val[0],val[2]]))
 
         verticalLayout_7.addWidget(Sub1_2)
         return qn_list
@@ -819,7 +972,10 @@ border-color: black;
             delete_qn(val)
             
             sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-            self.generate_qn_lists(self.elcss(), sizePolicy)
+            if(self.styleSheet()==getLightTheme()):
+                self.generate_qn_lists(self.elcss_light(), sizePolicy)
+            else:
+                self.generate_qn_lists(self.elcss(), sizePolicy)
 
     def handle_view(self, index, val):
         l=viewq(val)
@@ -828,10 +984,21 @@ border-color: black;
         self.viewques.lineEdit_3.setText(l[1])
         self.viewques.plainTextEdit.setPlainText(l[2])
         self.viewques.lineEdit.setText(l[3])
-        self.viewques.Up.clicked.connect(self.viewques.update)
+        k=1
+        for i in l[4:]:
+            ip="i"+str(k)
+            op="o"+str(k)
+            getattr(self.viewques, ip).setText(i[0])
+            getattr(self.viewques, op).setText(i[1])
+            k+=1
+
+        self.viewques.Update.clicked.connect(self.viewques.update)
         self.viewques.exec_()
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_qn_lists(self.elcss(), sizePolicy)
+        if(self.styleSheet()==getLightTheme()):
+            self.generate_qn_lists(self.elcss_light(), sizePolicy)
+        else:
+            self.generate_qn_lists(self.elcss(), sizePolicy)
 
     def addqns(self):
         self.newques=newqns()
@@ -843,7 +1010,10 @@ border-color: black;
         self.newques.Addqns.clicked.connect(self.newques.newq)
         self.newques.exec_()
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_qn_lists(self.elcss(), sizePolicy)
+        if(self.styleSheet()==getLightTheme()):
+            self.generate_qn_lists(self.elcss_light(), sizePolicy)
+        else:
+            self.generate_qn_lists(self.elcss(), sizePolicy)
        
     def update_q_id(self):
         val= self.newques.comboBox_3.currentText()
@@ -872,7 +1042,10 @@ border-color: black;
         date =dates.toString('yyyy-MM-dd')
         in_ex(sub,date)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
-        self.generate_sub_lists(self.subcss(), sizePolicy)
+        if(self.styleSheet()==getLightTheme()):
+            self.generate_sub_lists(self.subcss_light(), sizePolicy)
+        else:
+            self.generate_sub_lists(self.subcss(), sizePolicy)
         self.nexm.close()
 
 
