@@ -7,9 +7,10 @@ license.file = "LICENSE"
 author = "Vyshnav"
 author_email = "vyshnavmohan20@gmail.com"
 requires=[
-    "pyqt5",
-    "mysql-connector-python",  # Add this line
+    "requests",
+    "PyQt5"
 ]
+icon = "src/lab/icons/mainicon"
 
 [tool.briefcase.app.lab]
 formal_name = "lab"
@@ -32,8 +33,6 @@ sources = [
     "src/lab/updatedialog.ui",
     "src/lab/viewqn.ui",
     "src/lab/dialogbox.ui",
-    "C:/Users/HP/anaconda3/Lib/site-packages/mysql",
-    "C:/Users/HP/anaconda3/Lib/site-packages/selenium",
     "C:/Users/HP/anaconda3/Lib/site-packages/urllib3",
     "C:/Users/HP/anaconda3/Lib/site-packages/certifi",
     "C:/Users/HP/anaconda3/Lib/site-packages/firebase_admin",
@@ -55,7 +54,5 @@ google-auth = "*"
 google-auth-oauthlib = "*"
 google-auth-httplib2 = "*"
 google-api-python-client = "*"
-test_sources = [
-    "tests",
-]
-gui_framework = "qt"  # Corrected typo here
+
+

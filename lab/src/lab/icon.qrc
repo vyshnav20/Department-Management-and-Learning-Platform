@@ -1,8 +1,18 @@
 <RCC>
   <qresource prefix="icons">
+    <file>icons/a1.png</file>
+    <file>icons/a2.png</file>
+    <file>icons/a3.png</file>
+    <file>icons/a4.png</file>
+    <file>icons/a5.png</file>
+    <file>icons/a6.png</file>
+    <file>icons/a7.png</file>
+    <file>icons/a8.png</file>
+    <file>icons/a9.png</file>
+    <file>icons/Student/TVE23MCA2029.jpg</file>
+    <file>icons/Student/TVE23MCA2060.jpg</file>
     <file>icons/dark.png</file>
     <file>icons/light.png</file>
-    <file>icons/vy.jpg</file>
     <file>accept.png</file>
     <file>add.png</file>
     <file>del.png</file>

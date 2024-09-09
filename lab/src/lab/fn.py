@@ -2,7 +2,9 @@ import firebase_admin
 from firebase_admin import credentials,db
 from datetime import datetime
 import traceback 
-import mysql.connector  
+import smtplib
+from email.mime.text import MIMEText
+from email.mime.multipart import MIMEMultipart
 def dbs():
     if not firebase_admin._apps:
         cred=credentials.Certificate('F:\QT\lab\src\lab\mca-dmlp-firebase-adminsdk-5sboz-7539f33330.json')
@@ -21,11 +23,14 @@ def qn(qid,sub):
 def qnss(roll):
     ref=dbs()
     l=[]
+    sub=""
     d= datetime.now().strftime("%Y-%m-%d")
     r=ref.child("Exam").get()
     for i,j in r.items():
         if(j['Date']==d):
             sub=i
+    if(sub==""):
+        return 0
     s=ref.child("Subjects").get()
     for i,j in s.items():
         if i==sub:
@@ -378,3 +383,63 @@ def stud_sub(id):
         l.append(l2)
     return l
 
+def faculty_details():
+    ref=dbs()
+    tr=ref.child("Faculty").get()
+    l=[]
+    for i,j in tr.items():
+        l1=[]
+        l1.append(i)
+        l1.append(j['Name'])
+        l1.append(j['Phno'])
+        l1.append(j['Email'])
+        l.append(l1)
+    return l
+
+def add_fac(l):
+    ref=dbs()
+    tr=ref.child("Faculty")
+    tr.update({
+        l[0]:{"Name":l[1],"Phno":int(l[2]),"Email":l[3]}
+    })
+
+
+def mailotp(otp,id):
+    sender_email = "vyshnavmohan20@gmail.com"
+    password = "dszi evmt npul xpga"
+    ref=dbs()
+    stud=ref.child("Student").get()
+    for i,j in stud.items():
+        if(i==id):
+            name=j['Name']
+            receiver_email=j['Email']
+    subject = "Your OTP for Password Reset"
+    body = body = f"""\
+<html>
+  <body>
+    <h3>Dear {name},</h3>
+    <p>Please use the following One-Time Password (OTP) to reset your account password:</p>
+    <h3>Your OTP: {otp}</h3>
+    <p>If you did not request a password reset, please ignore this email or contact our support team.</p>
+    <br>
+    <h3>Best regards,<br>Department of Computer Applications,<br>College of Engineering, Trivandrum</h3>
+  </body>
+</html>
+"""
+    message = MIMEMultipart()
+    message["From"] = sender_email
+    message["To"] = receiver_email
+    message["Subject"] = subject
+    message.attach(MIMEText(body, "html"))
+    try:
+        server = smtplib.SMTP("smtp.gmail.com", 587)
+        server.starttls()
+        server.login(sender_email, password)
+        text = message.as_string()
+        server.sendmail(sender_email, receiver_email, text)
+        
+    except Exception as e:
+        print(f"Error: {e}")
+        
+    finally:
+        server.quit()

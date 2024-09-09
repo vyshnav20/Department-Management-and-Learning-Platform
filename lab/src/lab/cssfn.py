@@ -1,7 +1,7 @@
 def getDarkTheme():
     return """
     #centralwidget {background-color: #333333;}
-#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#name_widget_3,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5{
+#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#name_widget_3,#name_widget_4,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5,#widget_7{
 border-radius: 15px;
 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #292929, stop: 1 #1a1a1a);
 color: #FFFFFF;
@@ -91,7 +91,7 @@ border: 2px solid transparent;
 border-color: black;
  }
 
-#stud_home,#stud_profile,#widget_19,#Box,#widget_20
+#stud_home,#stud_profile,#widget_19,#Box,#widget_20,#admin_home,#faculty,#student_tt
 {
 border-radius: 15px;
 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);
@@ -114,13 +114,64 @@ QLineEdit {
 QLineEdit:focus {
     background-color: #1C1C1C; /* Light Grey */
 }
+QTableView {
+    background-color: #333333; 
+    color: #CCCCCC;
+    border: 1px solid #555555; 
+    border-radius: 15px;
+    gridline-color: #666666; 
+    padding: 10px;
+}
+
+QHeaderView::section {
+    border: 2px solid transparent; 
+    border-radius: 10px;
+    background-color: rgb(0, 0, 0);
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: white;
+    border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);
+}
+QHeaderView::section:hover {
+    background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);
+    color: black;
+    border: 2px solid transparent; 
+    border-color: black; 
+}
+QHeaderView::section:selected {
+    background-color:qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #2980b9, stop: 0.3 #3498db, stop: 1 #2ecc71);
+    color: black;
+    border: 2px solid transparent; 
+    border-color: black;
+}
+
+QTableView::item:selected {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #485563, stop: 1 #2e3f50);
+    color: #FFFFFF;
+}
+
+QTableView::item {
+    background-color: #3A3A3A;
+}
+
+QTableView::item:alternate {
+    background-color: #2e2e2e; 
+}
+QTableView::item:focus {
+    outline: none;
+}
+QTableCornerButton::section {
+    background-color: #292929;
+    border: 1px solid #555555;
+}
 
 """
 
 def getLightTheme():
     return """
     #centralwidget {background-color:  rgb(234, 234, 234);}
-#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#name_widget_3,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5{
+#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#name_widget_3,#name_widget_4,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5,#widget_7{
 border-radius: 15px;
 background-color: qlineargradient(
     x1: 0, y1: 0, x2: 1, y2: 1,
@@ -213,7 +264,7 @@ border: 2px solid transparent;
 border-color: white;
 }
 
-#stud_home,#stud_profile,#widget_19,#Box,#widget_20
+#stud_home,#stud_profile,#widget_19,#Box,#widget_20,#admin_home,#faculty,#student_tt
 {
 border-radius: 15px;
 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #e1e5ea, stop: 0.3 #ccd1d9, stop: 1 #b8c2cc);
@@ -235,6 +286,60 @@ padding: 10px;
 
 QLineEdit:focus {
 background-color: rgba(0, 0, 0,0.25);
+}
+QTableView {
+    background-color: #f0f0f0; 
+    color: #333333; 
+    border: 1px solid #cccccc; 
+    border-radius: 15px;
+    gridline-color: #dddddd; 
+    padding: 10px;
+}
+
+QHeaderView::section {
+    border: 2px solid transparent; 
+    border-radius: 10px;
+    background-color: #ffffff; 
+    padding: 10px 20px;
+    font-size: 16px;
+    font-weight: bold;
+    color: #333333; 
+    border-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #3498db, stop: 0.3 #2ecc71, stop: 1 #29a19c); 
+}
+
+QHeaderView::section:hover {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #3498db, stop: 0.3 #2ecc71, stop: 1 #29a19c); 
+    color: #ffffff; 
+    border: 2px solid transparent; 
+    border-color: #ffffff; 
+}
+
+QHeaderView::section:selected {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #3498db, stop: 0.3 #2ecc71, stop: 1 #29a19c); 
+    color: #ffffff; 
+    border: 2px solid transparent; 
+    border-color: #ffffff; 
+}
+
+QTableView::item:selected {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #d0e9f7, stop: 1 #c3d9f1); 
+    color: #000000; 
+}
+
+QTableView::item {
+    background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #e1e5ea, stop: 0.3 #ccd1d9, stop: 1 #b8c2cc); 
+}
+
+QTableView::item:alternate {
+    background-color: #f9f9f9; 
+
+QTableView::item:focus {
+    outline: none;
+}
+
+QTableCornerButton::section {
+    background-color: #f0f0f0; 
+    border: 1px solid #cccccc; 
 }
 
 """

@@ -17,7 +17,7 @@
    </sizepolicy>
   </property>
   <property name="windowTitle">
-   <string>New Question</string>
+   <string>Forgot Password</string>
   </property>
   <property name="windowIcon">
    <iconset resource="icon.qrc">
@@ -276,7 +276,7 @@ QComboBox QAbstractItemView {
              </font>
             </property>
             <property name="text">
-             <string>Otp sent to registerd phone number</string>
+             <string>Otp sent to registerd Email</string>
             </property>
             <property name="alignment">
              <set>Qt::AlignCenter</set>
