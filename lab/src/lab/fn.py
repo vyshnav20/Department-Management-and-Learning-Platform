@@ -1,13 +1,32 @@
 import firebase_admin
-from firebase_admin import credentials,db
+from firebase_admin import credentials,db,auth
 from datetime import datetime
 import traceback 
 import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+
+import requests
+
+cred = credentials.Certificate('F:/QT/lab/src/lab/mca-dmlp-firebase-adminsdk-5sboz-4940fbe5b6.json')
+firebase_admin.initialize_app(cred, {
+    'databaseURL': 'https://mca-dmlp-default-rtdb.asia-southeast1.firebasedatabase.app/'
+})
+
+def sign_up(email, password):
+    try:
+        # No need to reinitialize Firebase Admin here
+        user = auth.create_user(email=email, password=password)
+        print(f"Successfully created new user: {user.uid}")
+    except Exception as e:
+        print(f"Error creating user: {e}")
+
+# Example usage
+
+
 def dbs():
     if not firebase_admin._apps:
-        cred=credentials.Certificate('F:\QT\lab\src\lab\mca-dmlp-firebase-adminsdk-5sboz-7539f33330.json')
+        cred=credentials.Certificate('F:\QT\lab\src\lab\mca-dmlp-firebase-adminsdk-5sboz-4940fbe5b6.json')
         firebase_admin.initialize_app(cred,{'databaseURL':'https://mca-dmlp-default-rtdb.asia-southeast1.firebasedatabase.app/'})
     
     return db.reference('/')
@@ -20,10 +39,11 @@ def qn(qid,sub):
         l.append(i)
     return l
 
-def qnss(roll):
+def qnss(roll,id):
     ref=dbs()
     l=[]
     sub=""
+    stud_sem=ref.child(f"Student/{id}/Semester").get()
     d= datetime.now().strftime("%Y-%m-%d")
     r=ref.child("Exam").get()
     for i,j in r.items():
@@ -34,6 +54,8 @@ def qnss(roll):
     s=ref.child("Subjects").get()
     for i,j in s.items():
         if i==sub:
+            if(j['Sem']!=stud_sem):
+                return 0   
             l.append(j['Sub_Name'])
             l.append(j['Sem'])
     if(roll==0):
@@ -357,6 +379,7 @@ def stud_profile(id):
             l.append(j['Gender'])
             l.append(j['Email'])
             l.append(j['DOB'])
+            l.append(j['Semester'])
     return l
 
 
@@ -443,3 +466,11 @@ def mailotp(otp,id):
         
     finally:
         server.quit()
+
+def update_tt(timetable_data,semester):
+    ref=dbs()
+    ref.child("Timetable").update({f"Semester {semester}": timetable_data[f"Semester {semester}"]})
+
+def load_tt(semester):
+    ref=dbs()
+    return ref.child("Timetable").child(f"Semester {semester}").get()

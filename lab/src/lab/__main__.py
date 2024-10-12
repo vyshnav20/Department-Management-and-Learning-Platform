@@ -1,6 +1,6 @@
 from lab.app import main
 from PyQt5 import QtCore, QtGui, QtWidgets,uic
-from PyQt5.QtWidgets import QApplication, QTableView,QStyledItemDelegate,QHeaderView
+from PyQt5.QtWidgets import QApplication, QTableView,QStyledItemDelegate,QHeaderView,QMenu
 from PyQt5.QtGui import QStandardItemModel, QStandardItem
 from PyQt5.QtCore import *
 from PyQt5.QtWidgets import *
@@ -379,11 +379,11 @@ class MainUi(QtWidgets.QMainWindow):
         self.stackedWidget.setCurrentIndex(2)
         self.buttons[9].clicked.connect(self.lab_Exam)
         self.buttons[0].clicked.connect(self.prf)
-        self.buttons[1].clicked.connect(self.attd)
+        self.buttons[1].clicked.connect(self.un)
         self.buttons[2].clicked.connect(self.un)
         self.buttons[3].clicked.connect(self.un)
         self.buttons[4].clicked.connect(self.exmschedule)
-        self.buttons[5].clicked.connect(self.un)
+        self.buttons[5].clicked.connect(self.tt)
         self.buttons[6].clicked.connect(self.un)
         self.buttons[7].clicked.connect(self.studsub)
         self.buttons[8].clicked.connect(self.un)
@@ -654,23 +654,125 @@ border-color: black;
 
 
     
-    def attd(self):
+    def tt(self):
+        l=stud_profile(self.user)
         self.stackedWidget.setCurrentIndex(11)
         self.model = QStandardItemModel(5,6)
+        days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
         self.model.setHorizontalHeaderLabels(['1', '2', '3', '4','5','6'])
-        self.model.setVerticalHeaderLabels(['Monday', 'Tuesday', 'Wednesday', 'Thursday','Friday'])
+        self.model.setVerticalHeaderLabels(days_of_week)
         self.tableView.setModel(self.model)
-        for row in range(5):
-            for col in range(6):
-                item = QStandardItem(f"Item {row+1},{col+1}")
-                self.model.setItem(row, col, item)
+        sem_tt=load_tt(l[5])
+        if sem_tt is not None:
+            for row, day in enumerate(days_of_week):
+                font = QtGui.QFont()
+                font.setFamily("Agency FB")
+                font.setPointSize(20)
+                if day in sem_tt:
+                    row_data = sem_tt[day]
+                    col = 0
+                    while col < self.model.columnCount():
+                        period_key = f"Period {col + 1}"
+                        found = False
+                        for period_range, details in row_data.items():
+                            if '-' in period_range:
+                                period_range_cleaned = period_range.replace("Period ", "")
+                                start_period, end_period = map(int, period_range_cleaned.split('-'))
+                                if col + 1 == start_period:
+                                    item = QStandardItem(details['subject'])
+                                    item.setFont(font)
+                                    self.model.setItem(row, col, item)
+                                    self.tableView.setSpan(row, col, 1, details['span'])
+                                    col += details['span']  
+                                    found = True
+                                    break
+
+                        if not found and period_key in row_data:
+                            item = QStandardItem(row_data[period_key])
+                            item.setFont(font)
+                            self.model.setItem(row, col, item)
+                            col += 1
+                        elif not found:
+                            col += 1
+                        
         delegate = CenterAlignDelegate(self.tableView)
-        delegate = AutoResizeDelegate(self.tableView, self)
         self.tableView.setItemDelegate(delegate)
         self.tableView.horizontalHeader().setMinimumSectionSize(6) 
         self.tableView.verticalHeader().setMinimumSectionSize(5)
         self.tableView.resizeColumnsToContents()
         self.tableView.resizeRowsToContents()
+        self.tableView.setSizeAdjustPolicy(QTableView.AdjustToContents) 
+        self.resize_table_columns() 
+        self.tableView.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.tableView.customContextMenuRequested.connect(self.show_context_menu)
+
+    def show_context_menu(self, pos):
+        menu = QMenu(self)
+        selected_indexes = self.tableView.selectedIndexes()
+        if selected_indexes:
+            merge_action = QAction("Merge/Un-Merge Cells", self)
+            merge_action.triggered.connect(self.merge_selected_cells)
+            menu.addAction(merge_action)
+            menu.exec_(self.tableView.viewport().mapToGlobal(pos))
+        save_action = QAction("Save to Database", self)
+        save_action.triggered.connect(self.save_to_db)
+        menu.addAction(save_action)
+        menu.exec_(self.tableView.viewport().mapToGlobal(pos))
+
+    def save_to_db(self):
+        l=stud_profile(self.user)
+        days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+        timetable_data = {}
+        timetable_data[f"Semester {l[5]}"] = {}
+        for row in range(self.model.rowCount()):
+            day = days_of_week[row]
+            row_data = {}
+            col = 0
+            while col < self.model.columnCount():
+                item = self.model.item(row, col)
+                if item:
+                    span = self.tableView.columnSpan(row, col)
+                    if span > 1:
+                        period_range = f"Period {col + 1}-{col + span}"
+                        row_data[period_range] = {
+                            "subject": item.text(),
+                            "span": span
+                        }
+                        col += span
+                    else:
+                        period_number = f"Period {col + 1}"
+                        row_data[period_number] = item.text()
+                        col += 1
+                else:
+                    col += 1
+            timetable_data[f"Semester {l[5]}"][day] = row_data
+        update_tt(timetable_data,l[5])
+
+
+    def resize_table_columns(self):
+        total_width = self.tableView.width() 
+        column_count = self.model.columnCount() 
+        if column_count > 0:
+            column_width = total_width // (column_count+1)
+
+            for col in range(column_count):
+                self.tableView.setColumnWidth(col, column_width)
+            
+
+    def merge_selected_cells(self):
+        selected_indexes = self.tableView.selectedIndexes()
+        row = selected_indexes[0].row()
+        if all(index.row() == row for index in selected_indexes):
+            col_start = min(index.column() for index in selected_indexes)  
+            col_end = max(index.column() for index in selected_indexes)    
+            col_span = col_end - col_start + 1  
+            self.tableView.setSpan(row, col_start, 1, col_span)
+            for col in range(col_start + 1, col_start + col_span):
+                self.model.setItem(row, col, None)  
+            self.resize_table_columns()
+        else:
+            print("Cells are not from the same row. Merging aborted.")
+
 
     def fc(self):
         l=faculty_details()
@@ -1364,9 +1466,9 @@ border-color: black;
     def displayqns(self):
         rollno=self.roll.text()
         if int(rollno) % 2 == 0:
-            l=qnss(1)
+            l=qnss(1,self.user)
         else:
-            l=qnss(0)
+            l=qnss(0,self.user)
         if l!=0:
             self.stackedWidget.setCurrentIndex(0)
             self.sub.setText(l[0])

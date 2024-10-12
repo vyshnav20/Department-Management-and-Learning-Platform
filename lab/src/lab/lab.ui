@@ -151,7 +151,8 @@ QTableView {
     gridline-color: #666666; 
     padding: 10px;
 }
-
+QHeaderView{
+background-color: #292929;}
 QHeaderView::section {
     border: 2px solid transparent; 
     border-radius: 10px;
@@ -1191,8 +1192,8 @@ QTableCornerButton::section {
                                <rect>
                                 <x>0</x>
                                 <y>0</y>
-                                <width>1633</width>
-                                <height>671</height>
+                                <width>333</width>
+                                <height>113</height>
                                </rect>
                               </property>
                               <property name="styleSheet">
@@ -1735,8 +1736,8 @@ QTableCornerButton::section {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>1711</width>
-                   <height>809</height>
+                   <width>1018</width>
+                   <height>688</height>
                   </rect>
                  </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_10">
@@ -2296,8 +2297,8 @@ QTableCornerButton::section {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>1711</width>
-                   <height>809</height>
+                   <width>538</width>
+                   <height>238</height>
                   </rect>
                  </property>
                  <layout class="QHBoxLayout" name="horizontalLayout_11">
@@ -2390,8 +2391,8 @@ QTableCornerButton::section {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>1711</width>
-                   <height>788</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_6">
@@ -2526,7 +2527,7 @@ QTableCornerButton::section {
                   <widget class="QTableView" name="tableView">
                    <property name="minimumSize">
                     <size>
-                     <width>1000</width>
+                     <width>1650</width>
                      <height>0</height>
                     </size>
                    </property>

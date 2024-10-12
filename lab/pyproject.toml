@@ -23,7 +23,7 @@ sources = [
     "src/lab",
     "src/lab/icon_rc.py",
     "src/lab/rounded_image_widget.py",
-    "src/lab/mca-dmlp-firebase-adminsdk-5sboz-7539f33330.json",
+    "src/lab/mca-dmlp-firebase-adminsdk-5sboz-4940fbe5b6.json",
     "src/lab/cssfn.py",
     "src/lab/fn.py",
     "src/lab/fns.py",

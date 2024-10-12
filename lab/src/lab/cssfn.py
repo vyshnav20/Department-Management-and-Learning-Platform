@@ -121,7 +121,11 @@ QTableView {
     border-radius: 15px;
     gridline-color: #666666; 
     padding: 10px;
+    font-family: "Agency FB"; 
+    font-size: 20px; 
 }
+QHeaderView{
+background-color: #292929;}
 
 QHeaderView::section {
     border: 2px solid transparent; 
@@ -153,11 +157,10 @@ QTableView::item:selected {
 
 QTableView::item {
     background-color: #3A3A3A;
+    font-family: "Agency FB";  
+    font-size: 20px; 
 }
 
-QTableView::item:alternate {
-    background-color: #2e2e2e; 
-}
 QTableView::item:focus {
     outline: none;
 }
@@ -294,6 +297,8 @@ QTableView {
     border-radius: 15px;
     gridline-color: #dddddd; 
     padding: 10px;
+    font-family: "Agency FB";  
+    font-size: 20px; 
 }
 
 QHeaderView::section {
@@ -328,6 +333,8 @@ QTableView::item:selected {
 
 QTableView::item {
     background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #e1e5ea, stop: 0.3 #ccd1d9, stop: 1 #b8c2cc); 
+    font-family: "Agency FB";  
+    font-size: 20px; 
 }
 
 QTableView::item:alternate {
