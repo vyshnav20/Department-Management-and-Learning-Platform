@@ -66,7 +66,7 @@ class submit_test(QtWidgets.QDialog):
         for i in range(len(r)-1):
             self.add_row(i)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')        
-
+        self.Exit.clicked.connect(self.accept)
         # Check if the button box is found
         if self.buttonBox is None:
             print("Error: ButtonBox not found. Please check the object name in the UI file.")
@@ -399,7 +399,7 @@ class MainUi(QtWidgets.QMainWindow):
         self.admin_buttons[2].clicked.connect(self.un)
         self.admin_buttons[3].clicked.connect(self.fc)
         self.admin_buttons[4].clicked.connect(self.adminexmschedule)
-        self.admin_buttons[5].clicked.connect(self.un)
+        self.admin_buttons[5].clicked.connect(self.admintimetable)
         self.admin_buttons[6].clicked.connect(self.un)
         self.admin_buttons[7].clicked.connect(self.un)
         self.admin_buttons[8].clicked.connect(self.un)
@@ -543,6 +543,9 @@ class MainUi(QtWidgets.QMainWindow):
         self.gender.setText(_translate("MainWindow", "Gender"))
         self.email.setText(_translate("MainWindow", "E-mail"))
         self.name_2.setText(_translate("MainWindow", u"Currently Unavilable!!!! Page under Development"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.sem1), _translate("MainWindow", "Sem 1"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.sem2), _translate("MainWindow", "Sem 2"))
+        self.tabWidget_2.setTabText(self.tabWidget_2.indexOf(self.sem3), _translate("MainWindow", "Sem 3"))
         for i, button in enumerate(self.buttons):
             button.setStyleSheet(f"""
                 QPushButton#{button.objectName()} {{
@@ -612,6 +615,58 @@ border-color: black;
         else:
             self.generate_exmschedule(css, sizePolicy)
         self.stackedWidget.setCurrentIndex(8)
+
+
+    def admintimetable(self):
+        self.stackedWidget.setCurrentIndex(12)
+        self.model = QStandardItemModel(5,6)
+        days_of_week = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+        self.model.setHorizontalHeaderLabels(['1', '2', '3', '4','5','6'])
+        self.model.setVerticalHeaderLabels(days_of_week)
+        self.tableView_5.setModel(self.model)
+        sem_tt=load_tt(1)
+        if sem_tt is not None:
+            for row, day in enumerate(days_of_week):
+                font = QtGui.QFont()
+                font.setFamily("Agency FB")
+                font.setPointSize(20)
+                if day in sem_tt:
+                    row_data = sem_tt[day]
+                    col = 0
+                    while col < self.model.columnCount():
+                        period_key = f"Period {col + 1}"
+                        found = False
+                        for period_range, details in row_data.items():
+                            if '-' in period_range:
+                                period_range_cleaned = period_range.replace("Period ", "")
+                                start_period, end_period = map(int, period_range_cleaned.split('-'))
+                                if col + 1 == start_period:
+                                    item = QStandardItem(details['subject'])
+                                    item.setFont(font)
+                                    self.model.setItem(row, col, item)
+                                    self.tableView_5.setSpan(row, col, 1, details['span'])
+                                    col += details['span']  
+                                    found = True
+                                    break
+
+                        if not found and period_key in row_data:
+                            item = QStandardItem(row_data[period_key])
+                            item.setFont(font)
+                            self.model.setItem(row, col, item)
+                            col += 1
+                        elif not found:
+                            col += 1
+                        
+        delegate = CenterAlignDelegate(self.tableView_5)
+        self.tableView_5.setItemDelegate(delegate)
+        self.tableView_5.horizontalHeader().setMinimumSectionSize(6) 
+        self.tableView_5.verticalHeader().setMinimumSectionSize(5)
+        self.tableView_5.resizeColumnsToContents()
+        self.tableView_5.resizeRowsToContents()
+        self.tableView_5.setSizeAdjustPolicy(QTableView.AdjustToContents) 
+        self.resize_table_columns() 
+        self.tableView_5.setContextMenuPolicy(Qt.CustomContextMenu)
+        self.tableView_5.customContextMenuRequested.connect(self.show_context_menu)
 
     def addtr(self,i,j,l):
         widget_7 = QtWidgets.QWidget(self.scrollAreaWidgetContents_2)
@@ -904,19 +959,19 @@ border-color: black;
         q=0
         rollno=self.roll.text()
         if int(rollno) % 2 == 0:
-            l=qnss(1)
+            l=qnss(1,self.user)
             q+=2
         else:
-            l=qnss(0)
+            l=qnss(0,self.user)
         sub_id=l[-1]
         if (self.stackedWidget.currentIndex()==0):
             q+=1
             code=self.plainTextEdit_4.toPlainText()
-            r=run_code(code,[q,sub_id])    
+            r=run_python(code,[q,sub_id])    
         else:
             q+=2   
             code=self.plainTextEdit_3.toPlainText()
-            r=run_code(code,[q,sub_id])    
+            r=run_python(code,[q,sub_id])    
         self.subtest=submit_test(r)
         x=0
         y=1
@@ -933,8 +988,25 @@ border-color: black;
                 self.subtest.dynamic_widgets[la].setPixmap(pixmap)
             x+=2
             y+=2
-        self.subtest.exec_()
-            
+        
+        if self.subtest.exec_() == QtWidgets.QDialog.Accepted:
+            if (self.stackedWidget.currentIndex()==0):
+                print(l)
+                stud_lab_submit(self.user,l[-1],l[4])
+                self.q1.hide()  
+                if self.submitted2==0:
+                    self.stackedWidget.setCurrentIndex(1)
+                self.submitted1=1
+
+            elif (self.stackedWidget.currentIndex()==1):
+                self.q2.hide()
+                stud_lab_submit(self.user,l[-1],l[5])
+                if self.submitted1==0:
+                    self.stackedWidget.setCurrentIndex(0)
+                self.submitted2=1
+            if self.submitted1==1 and self.submitted2==1:
+                self.stackedWidget.setCurrentIndex(4)
+                self.submit.hide()
 
 
 
@@ -1439,37 +1511,31 @@ border-color: black;
 
 
     def lab_Exam(self):
+        self.submitted1=0
+        self.submitted2=0
         user=self.username_edit.text()
-        self.menu.show()
-        self.Sub1.show()
-        self.q1.show()
-        self.q2.show()
-        self.submit.show()
-        self.sem.show()
-        self.roll.show()
-        self.sub_2.show()
-        self.sub_3.show()
-        self.q2_4.hide()
-        self.q2_3.hide()
-        self.roll_label.show()
-        self.sub.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
-        self.roll_label.setText("Roll NO:")        
-        self.roll.setText(user[-2:])
-        self.displayqns()
-
-    def showq1(self):
-        self.stackedWidget.setCurrentIndex(0)
-
-    def showq2(self):
-        self.stackedWidget.setCurrentIndex(1)
-
-    def displayqns(self):
         rollno=self.roll.text()
         if int(rollno) % 2 == 0:
             l=qnss(1,self.user)
         else:
             l=qnss(0,self.user)
+        attednded=attended_lab(self.user,l[-1])
         if l!=0:
+            self.menu.show()
+            self.Sub1.show()
+            self.q1.show()
+            self.q2.show()
+            self.submit.show()
+            self.sem.show()
+            self.roll.show()
+            self.sub_2.show()
+            self.sub_3.show()
+            self.q2_4.hide()
+            self.q2_3.hide()
+            self.roll_label.show()
+            self.sub.setAlignment(Qt.AlignRight|Qt.AlignTrailing|Qt.AlignVCenter)
+            self.roll_label.setText("Roll NO:")        
+            self.roll.setText(user[-2:])
             self.stackedWidget.setCurrentIndex(0)
             self.sub.setText(l[0])
             self.sem.setText("Semester:"+str(l[1]))
@@ -1482,6 +1548,14 @@ border-color: black;
         else:
             self.qnsno=noqnss()
             self.qnsno.exec_()
+        
+
+    def showq1(self):
+        self.stackedWidget.setCurrentIndex(0)
+
+    def showq2(self):
+        self.stackedWidget.setCurrentIndex(1)
+
 
 
 def main():

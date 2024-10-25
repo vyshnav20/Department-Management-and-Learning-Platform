@@ -6,6 +6,7 @@ import smtplib
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
 
+
 import requests
 
 cred = credentials.Certificate('F:/QT/lab/src/lab/mca-dmlp-firebase-adminsdk-5sboz-4940fbe5b6.json')
@@ -23,6 +24,7 @@ def sign_up(email, password):
 
 # Example usage
 
+# sign_up("vyshnavmohan20@gmail.com","lhhtutot")
 
 def dbs():
     if not firebase_admin._apps:
@@ -322,17 +324,39 @@ def update_exm(q):
                 id=j
     ref.child("Exam").child(id).update({"Date":q[1]})
 
-def run_embedded_python_code(code, args):
-    local_context = {"args": args}
-    
+import traceback
+
+def run_code(code, func_name, *args):
+    context = {} 
     try:
-        exec(code, {}, local_context)
+        exec(code, context)
+        if func_name in context and callable(context[func_name]):
+            result = context[func_name](*args)
+            return {"result": result}
+        else:
+            return {"error": f"Function '{func_name}' is not defined or is not callable."}
+    
+    except RecursionError:
+        return {"error": "RecursionError: Maximum recursion depth exceeded"}
     except Exception:
         tb = traceback.format_exc().strip().split('\n')
         error_msg = '\n'.join(tb[4:]) if len(tb) > 4 else '\n'.join(tb)
-        return {'error': error_msg}
+        return {"error": error_msg}
+    
+def run_python(code,q):
+    l = testcase(q)
+    r=[]
+    for i in range(0, len(l), 2):
+        result = run_code(code, 'fn', int(l[i]))
+        if 'error' in result:
+            r.append([result['error'], 0])
+        else:
+            r.append([result.get('result', 'Key not found in context'), 1])
 
-    return local_context
+    r.append(l)
+    return r
+
+
 
 def testcase(q):
     ref=dbs()
@@ -350,23 +374,8 @@ def testcase(q):
                                 l.append(w['Output'])
     return l
 
-def run_code(code,q):
-    l=testcase(q)
-    r=[]
-    code=code+"""\nresult = fn(args['num'])"""
-    for i in range(0,len(l),2):
-        arguments = {"num": int(l[i])}
-        result = run_embedded_python_code(code, arguments)
 
-        if 'error' in result:
-            r.append([result['error'],0])
-        else:
-            try:
-                r.append([result.get('result', 'Key not found in context'),1])
-            except KeyError:
-                r.append(["Key 'result' not found in context.",1])
-    r.append(l)
-    return r
+
 
 def stud_profile(id):
     ref=dbs()
@@ -474,3 +483,37 @@ def update_tt(timetable_data,semester):
 def load_tt(semester):
     ref=dbs()
     return ref.child("Timetable").child(f"Semester {semester}").get()
+
+
+def stud_lab_submit(user,sub_id,q_titles):
+    qid=""
+    ref=dbs()
+    qn=ref.child(f"Questions/{sub_id}").get()
+    for i,j in qn.items():
+        for x,y in j.items():
+            if(y['Qn_Title']==q_titles):
+                qid=x
+    lab=ref.child(f"Lab_submit/{user}/{sub_id}").update({qid:"1"})
+
+def attended_lab(user,sub_id):
+    l=[0,0]
+    ref=dbs()
+    att=ref.child(f"Lab_submit/{user}/{sub_id}").get()
+    key=list(att.keys())
+    key.sort()
+    if("01" not in key and "03" not in key):
+        l[0]=0
+    if("02" not in key and "04" not in key):
+        l[1]=0
+    for i in key:
+        index=int(i)
+        index=index-1
+        if(index>=2):
+            index-=2
+        l[index]=int(att[i])
+    return l
+        
+
+
+attended_lab("TVE23MCA2060","20MCA241")
+

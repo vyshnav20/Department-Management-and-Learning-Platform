@@ -204,7 +204,7 @@ QTableCornerButton::section {
    <enum>QTabWidget::Rounded</enum>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <layout class="QVBoxLayout" name="verticalLayout_7">
+   <layout class="QVBoxLayout" name="verticalLayout_47">
     <item>
      <widget class="QWidget" name="Sub1" native="true">
       <property name="sizePolicy">
@@ -510,7 +510,7 @@ QTableCornerButton::section {
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>11</number>
+             <number>12</number>
             </property>
             <widget class="QWidget" name="q1_page">
              <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1139,7 +1139,7 @@ QTableCornerButton::section {
                     <enum>QTabWidget::Rounded</enum>
                    </property>
                    <property name="currentIndex">
-                    <number>1</number>
+                    <number>0</number>
                    </property>
                    <property name="iconSize">
                     <size>
@@ -1193,7 +1193,7 @@ QTableCornerButton::section {
                                 <x>0</x>
                                 <y>0</y>
                                 <width>333</width>
-                                <height>113</height>
+                                <height>643</height>
                                </rect>
                               </property>
                               <property name="styleSheet">
@@ -2391,8 +2391,8 @@ QTableCornerButton::section {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>98</width>
-                   <height>28</height>
+                   <width>63</width>
+                   <height>18</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_6">
@@ -2555,6 +2555,188 @@ QTableCornerButton::section {
                    <attribute name="horizontalHeaderDefaultSectionSize">
                     <number>0</number>
                    </attribute>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="admin_tt">
+             <layout class="QVBoxLayout" name="verticalLayout_40">
+              <item>
+               <widget class="QWidget" name="widget_19" native="true">
+                <layout class="QHBoxLayout" name="horizontalLayout_36">
+                 <item>
+                  <widget class="QTabWidget" name="tabWidget_2">
+                   <property name="font">
+                    <font>
+                     <family>Dungeon</family>
+                     <pointsize>15</pointsize>
+                    </font>
+                   </property>
+                   <property name="tabPosition">
+                    <enum>QTabWidget::North</enum>
+                   </property>
+                   <property name="tabShape">
+                    <enum>QTabWidget::Rounded</enum>
+                   </property>
+                   <property name="currentIndex">
+                    <number>0</number>
+                   </property>
+                   <property name="iconSize">
+                    <size>
+                     <width>16</width>
+                     <height>16</height>
+                    </size>
+                   </property>
+                   <property name="tabsClosable">
+                    <bool>false</bool>
+                   </property>
+                   <property name="movable">
+                    <bool>true</bool>
+                   </property>
+                   <widget class="QWidget" name="sem1">
+                    <attribute name="title">
+                     <string>Sem 1</string>
+                    </attribute>
+                    <layout class="QVBoxLayout" name="verticalLayout_7">
+                     <item>
+                      <widget class="QWidget" name="widget_21" native="true">
+                       <layout class="QVBoxLayout" name="verticalLayout_44">
+                        <item alignment="Qt::AlignHCenter">
+                         <widget class="QTableView" name="tableView_5">
+                          <property name="minimumSize">
+                           <size>
+                            <width>1650</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="verticalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="horizontalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="editTriggers">
+                           <set>QAbstractItemView::DoubleClicked</set>
+                          </property>
+                          <property name="alternatingRowColors">
+                           <bool>true</bool>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                          <property name="cornerButtonEnabled">
+                           <bool>false</bool>
+                          </property>
+                          <attribute name="horizontalHeaderMinimumSectionSize">
+                           <number>0</number>
+                          </attribute>
+                          <attribute name="horizontalHeaderDefaultSectionSize">
+                           <number>0</number>
+                          </attribute>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="sem2">
+                    <attribute name="title">
+                     <string>Sem 2</string>
+                    </attribute>
+                    <layout class="QVBoxLayout" name="verticalLayout_48">
+                     <item>
+                      <widget class="QWidget" name="widget_22" native="true">
+                       <layout class="QVBoxLayout" name="verticalLayout_45">
+                        <item alignment="Qt::AlignHCenter">
+                         <widget class="QTableView" name="tableView_6">
+                          <property name="minimumSize">
+                           <size>
+                            <width>1650</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="verticalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="horizontalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="editTriggers">
+                           <set>QAbstractItemView::DoubleClicked</set>
+                          </property>
+                          <property name="alternatingRowColors">
+                           <bool>true</bool>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                          <property name="cornerButtonEnabled">
+                           <bool>false</bool>
+                          </property>
+                          <attribute name="horizontalHeaderMinimumSectionSize">
+                           <number>0</number>
+                          </attribute>
+                          <attribute name="horizontalHeaderDefaultSectionSize">
+                           <number>0</number>
+                          </attribute>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
+                   <widget class="QWidget" name="sem3">
+                    <attribute name="title">
+                     <string>Sem 3</string>
+                    </attribute>
+                    <layout class="QVBoxLayout" name="verticalLayout_49">
+                     <item>
+                      <widget class="QWidget" name="widget_23" native="true">
+                       <layout class="QVBoxLayout" name="verticalLayout_46">
+                        <item alignment="Qt::AlignHCenter">
+                         <widget class="QTableView" name="tableView_7">
+                          <property name="minimumSize">
+                           <size>
+                            <width>1650</width>
+                            <height>0</height>
+                           </size>
+                          </property>
+                          <property name="verticalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="horizontalScrollBarPolicy">
+                           <enum>Qt::ScrollBarAlwaysOff</enum>
+                          </property>
+                          <property name="editTriggers">
+                           <set>QAbstractItemView::DoubleClicked</set>
+                          </property>
+                          <property name="alternatingRowColors">
+                           <bool>true</bool>
+                          </property>
+                          <property name="wordWrap">
+                           <bool>true</bool>
+                          </property>
+                          <property name="cornerButtonEnabled">
+                           <bool>false</bool>
+                          </property>
+                          <attribute name="horizontalHeaderMinimumSectionSize">
+                           <number>0</number>
+                          </attribute>
+                          <attribute name="horizontalHeaderDefaultSectionSize">
+                           <number>0</number>
+                          </attribute>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </item>
+                    </layout>
+                   </widget>
                   </widget>
                  </item>
                 </layout>
