@@ -47,9 +47,10 @@ def qnss(roll,id):
     sub=""
     stud_sem=ref.child(f"Student/{id}/Semester").get()
     d= datetime.now().strftime("%Y-%m-%d")
+    time_period = "FN" if datetime.now().hour < 12 else "AN"
     r=ref.child("Exam").get()
     for i,j in r.items():
-        if(j['Date']==d):
+        if(j['Date']==d and j['FNAN']==time_period):
             sub=i
     if(sub==""):
         return 0
@@ -76,7 +77,7 @@ def qnss(roll,id):
 def langs(sub):
     ref=dbs()
     l=ref.child("Prog_Lang").child("20MCA201").get()
-    return l
+    return list(l)
 
 def login_user(username):
     ref=dbs()
@@ -260,16 +261,25 @@ def subname(sem):
     return l
 
 
-def in_ex(sub1,date):
+def in_ex(sub1,date,t):
     ref=dbs()
     sub=ref.child("Subjects").get()
     for i,j in sub.items():
         if(j['Sub_Name']==sub1):
             id=i
     exm=ref.child("Exam")
-    exm.update({
-        id:{"Date":date}
-    })
+    exist_exm=exm.get()
+    e=0
+    if(exist_exm!=None):
+        for exm_id, exm_data in exist_exm.items():
+            if exm_data.get("Date") == date and exm_data.get("FNAN") == t:
+                print("An exam already exists with the same date and time.")
+                e=1
+                break
+    if e==0:
+        exm.update({
+            id:{"Date":date,"FNAN":t}
+        })
 
 def delete_sub(q):
     ref=dbs()
@@ -282,6 +292,7 @@ def delete_sub(q):
                 if x==i:
                     ref.child("Exam").child(x).delete()
                     ref.child("Questions").child(x).delete()
+                    ref.child("Test_Case").child(x).delete()
 
 def wa_msg(otp,id):
     l=[]
@@ -314,6 +325,7 @@ def editsubj(q):
     for i,j in exm.items():
         if(i==id):
             l.append(j['Date'])
+            l.append(j["FNAN"])
     return l
 
 def update_exm(q):
@@ -322,7 +334,7 @@ def update_exm(q):
     for j,i in sub.items():
             if(i['Sub_Name']==q[0]):
                 id=j
-    ref.child("Exam").child(id).update({"Date":q[1]})
+    ref.child("Exam").child(id).update({"Date":q[1],"FNAN":q[2]})
 
 import traceback
 
@@ -438,7 +450,7 @@ def add_fac(l):
 
 def mailotp(otp,id):
     sender_email = "vyshnavmohan20@gmail.com"
-    password = "dszi evmt npul xpga"
+    password = "pxfv oasi awrn ikmz"
     ref=dbs()
     stud=ref.child("Student").get()
     for i,j in stud.items():
@@ -499,6 +511,8 @@ def attended_lab(user,sub_id):
     l=[0,0]
     ref=dbs()
     att=ref.child(f"Lab_submit/{user}/{sub_id}").get()
+    if att==None:
+        return l
     key=list(att.keys())
     key.sort()
     if("01" not in key and "03" not in key):
@@ -513,7 +527,44 @@ def attended_lab(user,sub_id):
         l[index]=int(att[i])
     return l
         
+def res_view():
+    l1=[]
+    ref=dbs()
+    xm=ref.child("Exam").get()
+    qns=ref.child("Subjects").get()
+    if(xm==None):
+        return l1
+    for x,y in xm.items():
+        for i,j in qns.items():
+            l=[]
+            if i==x:
+                l.append(j['Sem'])
+                l.append(j['Sub_Name'])
+                l.append(y['Date'])
+                l1.append(l)
+    return l1
 
 
-attended_lab("TVE23MCA2060","20MCA241")
-
+def res_stud_admin(subname):
+    l1=[]
+    ref=dbs()
+    xm=ref.child("Lab_submit").get()
+    st=ref.child("Student").get()
+    sub=ref.child("Subjects").get()
+    subid=""
+    for i,j in sub.items():
+        if j['Sub_Name']==subname:
+            subid=i
+    if(xm==None):
+        return l1
+    for i,j in xm.items():
+        l=[]
+        for x in j.keys():
+            if x==subid:
+                l.append(i[-2:])
+                for o,p in st.items():
+                    if o==i:
+                        l.append(p['Name'])
+                l1.append(l)
+    return(l1)
+     

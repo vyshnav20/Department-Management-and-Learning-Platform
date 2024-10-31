@@ -1,7 +1,7 @@
 def getDarkTheme():
     return """
     #centralwidget {background-color: #333333;}
-#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#name_widget_3,#name_widget_4,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5,#widget_7{
+#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#new_5,#name_widget_3,#name_widget_4,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5,#widget_7{
 border-radius: 15px;
 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #292929, stop: 1 #1a1a1a);
 color: #FFFFFF;
@@ -12,7 +12,7 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #444444, st
 color: #CCCCCC;
 border: 1px solid #555555;
 }
-#container_4
+#container_4,#container_5,#container_6
 {
 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #29323c, stop: 0.3 #485563, stop: 1 #2e3f50);
 border-radius: 15px;
@@ -174,7 +174,7 @@ QTableCornerButton::section {
 def getLightTheme():
     return """
     #centralwidget {background-color:  rgb(234, 234, 234);}
-#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#name_widget_3,#name_widget_4,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5,#widget_7{
+#Sub1, #menu, #q1_header, #q2_header,#new_2,#new_3,#container_3,#new_4,#new_5,#name_widget_3,#name_widget_4,#name_widget,#widget_4,#widget_11,#widget_12,#widget_15,#widget_17,#widget_18,#stitle4,#stitle5,#widget_7{
 border-radius: 15px;
 background-color: qlineargradient(
     x1: 0, y1: 0, x2: 1, y2: 1,
@@ -188,7 +188,7 @@ background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1,stop: 0 #cccccc, st
 color: #333333;
 border: 1px solid #aaaaaa;
 }
-#container_4
+#container_4,#container_5,#container_6
 {
 background-color: qlineargradient(x1: 0, y1: 0, x2: 1, y2: 1, stop: 0 #e1e5ea, stop: 0.3 #ccd1d9, stop: 1 #b8c2cc);
 border-radius: 15px;

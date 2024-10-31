@@ -1,51 +1,31 @@
-import smtplib
-from email.mime.text import MIMEText
-from email.mime.multipart import MIMEMultipart
+from PyQt5.QtWidgets import QApplication, QMainWindow, QVBoxLayout, QWidget
+from PyQt5.QtWebEngineWidgets import QWebEngineView
+from PyQt5.QtCore import QUrl   
+import sys
 
-def mailotp(otp,id):
-    sender_email = "vyshnavmohan20@gmail.com"
-    password = "dszi evmt npul xpga"
-    ref=dbs()
-    stud=ref.child("Student").get()
-    for i,j in stud.items():
-        if(i==id):
-            name=j['Name']
-            receiver_email=j['Email']
-    subject = "Your OTP for Password Reset"
-    body = body = f"""\
-<html>
-  <body>
-    <h3>Dear {name},</h3>
-    <p>Please use the following One-Time Password (OTP) to reset your account password:</p>
-    <h3>Your OTP: {otp}</h3>
-    <p>If you did not request a password reset, please ignore this email or contact our support team.</p>
-    <br>
-    <h3>Best regards,<br>Department of Computer Applications,<br>College of Engineering, Trivandrum</h3>
-  </body>
-</html>
-"""
-    message = MIMEMultipart()
-    message["From"] = sender_email
-    message["To"] = receiver_email
-    message["Subject"] = subject
-    message.attach(MIMEText(body, "html"))
-    try:
-        server = smtplib.SMTP("smtp.gmail.com", 587)
-        server.starttls()
-        server.login(sender_email, password)
-        text = message.as_string()
-        server.sendmail(sender_email, receiver_email, text)
-        
-    except Exception as e:
-        print(f"Error: {e}")
-        
-    finally:
-        server.quit()
+class MainWindow(QMainWindow):
+    def __init__(self):
+        super().__init__()
 
+        # Set up the main widget and layout
+        self.central_widget = QWidget()
+        self.setCentralWidget(self.central_widget)
+        self.layout = QVBoxLayout()
+        self.central_widget.setLayout(self.layout)
 
-def update_pass(u,p):
-    ref=dbs()
-    stud=ref.child("Student")
-    stud.update({
-    u:{"Password":p}
-})
+        # Create a QWebEngineView and add it to the layout
+        self.browser = QWebEngineView()
+        self.layout.addWidget(self.browser)
+
+        # Load a webpage
+        self.browser.setUrl(QUrl("https://ktumca.github.io/materials"))
+
+        # Set window title and dimensions
+        self.setWindowTitle("Web Browser in PyQt")
+        self.resize(800, 600)
+
+# Set up the application
+app = QApplication(sys.argv)
+window = MainWindow()
+window.show()
+sys.exit(app.exec_())
