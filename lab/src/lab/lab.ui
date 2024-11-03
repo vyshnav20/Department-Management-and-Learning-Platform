@@ -510,7 +510,7 @@ QTableCornerButton::section {
           <item>
            <widget class="QStackedWidget" name="stackedWidget">
             <property name="currentIndex">
-             <number>14</number>
+             <number>2</number>
             </property>
             <widget class="QWidget" name="q1_page">
              <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -1192,8 +1192,8 @@ QTableCornerButton::section {
                                <rect>
                                 <x>0</x>
                                 <y>0</y>
-                                <width>1633</width>
-                                <height>671</height>
+                                <width>333</width>
+                                <height>113</height>
                                </rect>
                               </property>
                               <property name="styleSheet">
@@ -1414,8 +1414,8 @@ QTableCornerButton::section {
                                <rect>
                                 <x>0</x>
                                 <y>0</y>
-                                <width>1635</width>
-                                <height>780</height>
+                                <width>321</width>
+                                <height>113</height>
                                </rect>
                               </property>
                               <layout class="QHBoxLayout" name="horizontalLayout_12">
@@ -2395,8 +2395,8 @@ QTableCornerButton::section {
                   <rect>
                    <x>0</x>
                    <y>0</y>
-                   <width>63</width>
-                   <height>18</height>
+                   <width>98</width>
+                   <height>28</height>
                   </rect>
                  </property>
                  <layout class="QGridLayout" name="gridLayout_6">
@@ -2779,8 +2779,8 @@ QTableCornerButton::section {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1675</width>
-                         <height>831</height>
+                         <width>271</width>
+                         <height>95</height>
                         </rect>
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_23">
@@ -3037,8 +3037,8 @@ QTableCornerButton::section {
                         <rect>
                          <x>0</x>
                          <y>0</y>
-                         <width>1675</width>
-                         <height>787</height>
+                         <width>150</width>
+                         <height>113</height>
                         </rect>
                        </property>
                        <layout class="QHBoxLayout" name="horizontalLayout_31">
@@ -3092,6 +3092,126 @@ QTableCornerButton::section {
                                 <layout class="QHBoxLayout" name="horizontalLayout_34">
                                  <item>
                                   <widget class="QLabel" name="subject_4">
+                                   <property name="font">
+                                    <font>
+                                     <family>Agency FB</family>
+                                     <pointsize>25</pointsize>
+                                    </font>
+                                   </property>
+                                   <property name="text">
+                                    <string>Subject</string>
+                                   </property>
+                                  </widget>
+                                 </item>
+                                </layout>
+                               </widget>
+                              </item>
+                             </layout>
+                            </widget>
+                           </item>
+                          </layout>
+                         </widget>
+                        </item>
+                       </layout>
+                      </widget>
+                     </widget>
+                    </item>
+                   </layout>
+                  </widget>
+                 </item>
+                </layout>
+               </widget>
+              </item>
+             </layout>
+            </widget>
+            <widget class="QWidget" name="strud_marks">
+             <layout class="QVBoxLayout" name="verticalLayout_63">
+              <item>
+               <widget class="QWidget" name="container_7" native="true">
+                <layout class="QVBoxLayout" name="verticalLayout_59">
+                 <property name="topMargin">
+                  <number>9</number>
+                 </property>
+                 <item>
+                  <widget class="QWidget" name="widget_27" native="true">
+                   <property name="minimumSize">
+                    <size>
+                     <width>0</width>
+                     <height>800</height>
+                    </size>
+                   </property>
+                   <layout class="QVBoxLayout" name="verticalLayout_60">
+                    <item>
+                     <widget class="QScrollArea" name="scrollArea_9">
+                      <property name="widgetResizable">
+                       <bool>true</bool>
+                      </property>
+                      <widget class="QWidget" name="scrollAreaWidgetContents_6">
+                       <property name="geometry">
+                        <rect>
+                         <x>0</x>
+                         <y>0</y>
+                         <width>150</width>
+                         <height>104</height>
+                        </rect>
+                       </property>
+                       <layout class="QHBoxLayout" name="horizontalLayout_33">
+                        <property name="topMargin">
+                         <number>0</number>
+                        </property>
+                        <item alignment="Qt::AlignTop">
+                         <widget class="QFrame" name="Box_9">
+                          <property name="sizePolicy">
+                           <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                            <horstretch>0</horstretch>
+                            <verstretch>0</verstretch>
+                           </sizepolicy>
+                          </property>
+                          <property name="frameShape">
+                           <enum>QFrame::StyledPanel</enum>
+                          </property>
+                          <property name="frameShadow">
+                           <enum>QFrame::Raised</enum>
+                          </property>
+                          <layout class="QVBoxLayout" name="verticalLayout_61">
+                           <property name="topMargin">
+                            <number>9</number>
+                           </property>
+                           <item alignment="Qt::AlignTop">
+                            <widget class="QWidget" name="sub_list_6" native="true">
+                             <property name="maximumSize">
+                              <size>
+                               <width>16777215</width>
+                               <height>75</height>
+                              </size>
+                             </property>
+                             <layout class="QVBoxLayout" name="verticalLayout_62">
+                              <item>
+                               <widget class="QWidget" name="Sub1_8" native="true">
+                                <property name="sizePolicy">
+                                 <sizepolicy hsizetype="Preferred" vsizetype="Preferred">
+                                  <horstretch>0</horstretch>
+                                  <verstretch>0</verstretch>
+                                 </sizepolicy>
+                                </property>
+                                <property name="minimumSize">
+                                 <size>
+                                  <width>0</width>
+                                  <height>0</height>
+                                 </size>
+                                </property>
+                                <property name="maximumSize">
+                                 <size>
+                                  <width>16777215</width>
+                                  <height>85</height>
+                                 </size>
+                                </property>
+                                <property name="styleSheet">
+                                 <string notr="true"/>
+                                </property>
+                                <layout class="QHBoxLayout" name="horizontalLayout_35">
+                                 <item>
+                                  <widget class="QLabel" name="subject_5">
                                    <property name="font">
                                     <font>
                                      <family>Agency FB</family>

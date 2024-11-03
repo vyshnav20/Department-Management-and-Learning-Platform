@@ -1,0 +1,13 @@
+#include <stdio.h>
+int fn(n)
+{
+ int  r = n*2;
+return r;
+}
+int main() 
+{
+    int num;
+    scanf("%d", &num); 
+    printf("%d", fn(num)); 
+    return 0;
+}

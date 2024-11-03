@@ -381,7 +381,7 @@ class MainUi(QtWidgets.QMainWindow):
         self.buttons[9].clicked.connect(self.lab_Exam)
         self.buttons[0].clicked.connect(self.prf)
         self.buttons[1].clicked.connect(self.un)
-        self.buttons[2].clicked.connect(self.un)
+        self.buttons[2].clicked.connect(self.result)
         self.buttons[3].clicked.connect(self.un)
         self.buttons[4].clicked.connect(self.exmschedule)
         self.buttons[5].clicked.connect(self.tt)
@@ -482,6 +482,12 @@ class MainUi(QtWidgets.QMainWindow):
 
         for i in reversed(range(self.verticalLayout_53.count())):
             item = self.verticalLayout_53.itemAt(i)
+            if item and item.widget():
+                widget = item.widget()
+                widget.setStyleSheet(css.replace("#sub_list_2", "#sub_list_{}".format(i)))
+
+        for i in reversed(range(self.verticalLayout_61.count())):
+            item = self.verticalLayout_61.itemAt(i)
             if item and item.widget():
                 widget = item.widget()
                 widget.setStyleSheet(css.replace("#sub_list_2", "#sub_list_{}".format(i)))
@@ -977,17 +983,29 @@ border-color: black;
         else:
             l=qnss(0,self.user)
         sub_id=l[-1]
+        langid=0
+        lang=langs(sub_id)
+        if "C" in lang:
+            langid=1
         if (self.stackedWidget.currentIndex()==0):
             q+=1
             code=self.plainTextEdit_4.toPlainText()
-            r=run_python(code,[q,sub_id])    
+            if langid==0:
+                r=run_python(code,[q,sub_id])    
+            else:
+                r=run_c_code(code,[q,sub_id])    
         else:
             q+=2   
             code=self.plainTextEdit_3.toPlainText()
-            r=run_python(code,[q,sub_id])    
+            if langid==0:
+                r=run_python(code,[q,sub_id])    
+            else:
+                r=run_c_code(code,[q,sub_id])     
         self.subtest=submit_test(r)
         x=0
         y=1
+        self.no_testcase=len(r)-1
+        self.wrong_ans=0
         for i in range(0,len(r)-1):
             ip="i"+str(i+1)
             eo="eo"+str(i+1)
@@ -999,12 +1017,14 @@ border-color: black;
             if(r[i][1]==0 or str(r[-1][y]) !=str(r[i][0])):
                 pixmap = QPixmap(":/icons/rej.png")
                 self.subtest.dynamic_widgets[la].setPixmap(pixmap)
+                self.wrong_ans+=1
             x+=2
             y+=2
         
         if self.subtest.exec_() == QtWidgets.QDialog.Accepted:
             if (self.stackedWidget.currentIndex()==0):
-                stud_lab_submit(self.user,l[-1],l[4])
+                mark=(self.no_testcase-self.wrong_ans)/self.no_testcase
+                stud_lab_submit(self.user,l[-1],l[4],mark)
                 self.q1.hide()  
                 if self.submitted2==0:
                     self.stackedWidget.setCurrentIndex(1)
@@ -1012,7 +1032,8 @@ border-color: black;
 
             elif (self.stackedWidget.currentIndex()==1):
                 self.q2.hide()
-                stud_lab_submit(self.user,l[-1],l[5])
+                mark=(self.no_testcase-self.wrong_ans)/self.no_testcase
+                stud_lab_submit(self.user,l[-1],l[5],mark)
                 if self.submitted1==0:
                     self.stackedWidget.setCurrentIndex(0)
                 self.submitted2=1
@@ -1284,13 +1305,17 @@ border-color: black;
         date =dates.toString('yyyy-MM-dd')
         q.append(date)
         q.append(t)
-        update_exm(q)
+        r=update_exm(q)
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         if(self.styleSheet()==getLightTheme()):
             self.generate_sub_lists(self.subcss_light(), sizePolicy)
         else:
             self.generate_sub_lists(self.subcss(), sizePolicy)
         self.editsubje.close()
+        if r==1:
+            self.qnsno=noqnss()
+            self.qnsno.label.setText("Exam already exists in this time\n Select a different date or time!!!")
+            self.qnsno.exec_()
 
     def create_qn_list(self, index, css, sizePolicy,val):
         s="Sem "+str(val[1])+" - "+val[2]+" - "+val[0]+"- ( "+str(val[3])+" )"
@@ -1441,17 +1466,28 @@ border-color: black;
         dates=self.nexm.dateEdit.date()
         date =dates.toString('yyyy-MM-dd')
         time=self.nexm.comboBox_4.currentText()
-        in_ex(sub,date,time) 
+        r=in_ex(sub,date,time) 
         sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
         if(self.styleSheet()==getLightTheme()):
             self.generate_sub_lists(self.subcss_light(), sizePolicy)
         else:
             self.generate_sub_lists(self.subcss(), sizePolicy)
         self.nexm.close()
+        if r==1:
+            self.qnsno=noqnss()
+            self.qnsno.label.setText("Exam already exists in this time\n Select a different date or time!!!")
+            self.qnsno.exec_()
 
 
-    def logouts(self):
+    def logouts(self):            
         self.popup=dialogbox()
+        if self.stackedWidget.currentIndex()==0 or self.stackedWidget.currentIndex()==1:
+            if self.q1.isVisible() or self.q2.isVisible():
+                self.popup.label.setText("You have not submitted both the question!!!!\n Are you sure to logout")
+            else:
+                self.popup.label.setText("Are you sure to LOGOUT!!!")
+        else:
+            self.popup.label.setText("Are you sure to LOGOUT!!!")
         if self.popup.exec_() == QtWidgets.QDialog.Accepted:
             self.menu.hide()
             self.Sub1.hide()
@@ -1575,6 +1611,8 @@ border-color: black;
                 self.plainTextEdit.setPlainText(l[3])
                 self.q2_title_2.setText(l[4])
                 self.q2_title.setText(l[5])
+                self.comboBox_4.clear()
+                self.comboBox.clear()
                 self.comboBox_4.addItems(langs(l[6]))
                 self.comboBox.addItems(langs(l[6]))
         else:
@@ -1665,7 +1703,10 @@ border-color: black;
             self.generate_stu_marks_admin(self.subcss(), sizePolicy,n)
 
     def create_stu_marks_admin(self, index, css, sizePolicy,val):
-        s="Roll No: "+val[0]+"  "+val[1]
+        roll_no = f"Roll No: {val[0]}"
+        name = val[1]
+        percentage = f"{val[2]:.2f}%"
+        s= f"{roll_no.ljust(15)}  {name.ljust(30)}  {percentage.rjust(10)}"
         sub_list = QWidget(self.Box_7)
         sub_list.setObjectName(u"sub_list_{}".format(index))
         sub_list.setMaximumSize(QSize(16777215, 75))
@@ -1705,13 +1746,68 @@ border-color: black;
         self.sub_lists = []
         subs=res_stud_admin(subname[0])
         self.res_sub.setText(subname[0])
-        for i in range(len(subs)):
+        for i in range(len(subs)): 
             sub_list = self.create_stu_marks_admin(i, css, sizePolicy,subs[i])
             self.qn_lists.append(sub_list)
             self.verticalLayout_53.addWidget(sub_list, 0, Qt.AlignTop)
 
     def move_back(self):
         self.stackedWidget.setCurrentIndex(14)
+
+    def result(self):
+        self.stackedWidget.setCurrentIndex(16)
+        sizePolicy = QSizePolicy(QSizePolicy.Preferred, QSizePolicy.Preferred)
+        if(self.styleSheet()==getLightTheme()):
+            self.generate_stu_marks(self.subcss_light(), sizePolicy,self.user)
+        else:
+            self.generate_stu_marks(self.subcss(), sizePolicy,self.user)
+
+    def create_stu_marks(self, index, css, sizePolicy,val):
+        sub = f"Subject: {val[0]} "
+        percentage = f"{val[1]:.2f}%"
+        s= f"{sub.ljust(15)} {percentage.rjust(10)}"
+        sub_list = QWidget(self.Box_7)
+        sub_list.setObjectName(u"sub_list_{}".format(index))
+        sub_list.setMaximumSize(QSize(16777215, 75))
+        sub_list.setStyleSheet(css.replace("#sub_list", "#sub_list_{}".format(index)))
+        verticalLayout_7 = QVBoxLayout(sub_list)
+        verticalLayout_7.setObjectName(u"verticalLayout_7_{}".format(index))
+
+        Sub1_2 = QWidget(sub_list)
+        Sub1_2.setObjectName(u"Sub1_2_{}".format(index))
+        sizePolicy.setHeightForWidth(Sub1_2.sizePolicy().hasHeightForWidth())
+        Sub1_2.setSizePolicy(sizePolicy)
+        Sub1_2.setMinimumSize(QSize(0, 0))
+        Sub1_2.setMaximumSize(QSize(16777215, 85))
+        horizontalLayout_8 = QHBoxLayout(Sub1_2)
+        horizontalLayout_8.setObjectName(u"horizontalLayout_8_{}".format(index))
+        
+        Question = QLabel(Sub1_2)
+        Question.setObjectName(u"Question_{}".format(index))
+        font16 = QFont()
+        font16.setFamily(u"Agency FB")
+        font16.setPointSize(25)
+        Question.setFont(font16)
+        Question.setText(s)
+        
+        horizontalLayout_8.addWidget(Question)
+    
+
+        verticalLayout_7.addWidget(Sub1_2)
+        return sub_list
+
+    def generate_stu_marks(self, css, sizePolicy,ktuid):
+        for i in reversed(range(self.verticalLayout_61.count())):
+            widget_to_remove = self.verticalLayout_61.itemAt(i).widget()
+            if widget_to_remove is not None:
+                widget_to_remove.setParent(None)
+
+        self.sub_lists = []
+        studmarks=marks_stud(ktuid)
+        for i in range(len(studmarks)):
+            sub_list = self.create_stu_marks(i, css, sizePolicy,studmarks[i])
+            self.qn_lists.append(sub_list)
+            self.verticalLayout_61.addWidget(sub_list, 0, Qt.AlignTop)
 
 def main():
     app = QtWidgets.QApplication(sys.argv)

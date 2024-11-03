@@ -3,16 +3,18 @@ from firebase_admin import credentials,db,auth
 from datetime import datetime
 import traceback 
 import smtplib
+import os
 from email.mime.text import MIMEText
 from email.mime.multipart import MIMEMultipart
+import json
 
 
 import requests
 
-cred = credentials.Certificate('F:/QT/lab/src/lab/mca-dmlp-firebase-adminsdk-5sboz-4940fbe5b6.json')
-firebase_admin.initialize_app(cred, {
-    'databaseURL': 'https://mca-dmlp-default-rtdb.asia-southeast1.firebasedatabase.app/'
-})
+# cred = credentials.Certificate('mca-dmlp-firebase-adminsdk-5sboz-4940fbe5b6.json')
+# firebase_admin.initialize_app(cred, {
+#     'databaseURL': 'https://mca-dmlp-default-rtdb.asia-southeast1.firebasedatabase.app/'
+# })
 
 def sign_up(email, password):
     try:
@@ -28,7 +30,12 @@ def sign_up(email, password):
 
 def dbs():
     if not firebase_admin._apps:
-        cred=credentials.Certificate('F:\QT\lab\src\lab\mca-dmlp-firebase-adminsdk-5sboz-4940fbe5b6.json')
+        base_dir = os.path.dirname(__file__)  # Get the directory of the current file
+        json_path = os.path.join(base_dir, "firebase.json")  # Construct relative path to firebase.json
+        
+        with open(json_path, "r") as f:
+            service_account_info = json.load(f)
+            cred = credentials.Certificate(service_account_info)
         firebase_admin.initialize_app(cred,{'databaseURL':'https://mca-dmlp-default-rtdb.asia-southeast1.firebasedatabase.app/'})
     
     return db.reference('/')
@@ -75,9 +82,14 @@ def qnss(roll,id):
     return(l)
 
 def langs(sub):
+    l1=[]
     ref=dbs()
-    l=ref.child("Prog_Lang").child("20MCA201").get()
-    return list(l)
+    l=ref.child("Prog_Lang").child(sub).get()
+    if l==None:
+        l1.append("Python")
+    else:
+        l1.append(l)
+    return l1
 
 def login_user(username):
     ref=dbs()
@@ -273,13 +285,13 @@ def in_ex(sub1,date,t):
     if(exist_exm!=None):
         for exm_id, exm_data in exist_exm.items():
             if exm_data.get("Date") == date and exm_data.get("FNAN") == t:
-                print("An exam already exists with the same date and time.")
                 e=1
-                break
+                return 1
     if e==0:
         exm.update({
             id:{"Date":date,"FNAN":t}
         })
+    return 0
 
 def delete_sub(q):
     ref=dbs()
@@ -334,9 +346,23 @@ def update_exm(q):
     for j,i in sub.items():
             if(i['Sub_Name']==q[0]):
                 id=j
-    ref.child("Exam").child(id).update({"Date":q[1],"FNAN":q[2]})
+    exm=ref.child("Exam")
+    exist_exm=exm.get()
+    e=0
+    if(exist_exm!=None):
+        for exm_id, exm_data in exist_exm.items():
+            if exm_data.get("Date") == q[1] and exm_data.get("FNAN") == q[2]:
+                e=1
+                return 1
+    if e==0:
+        exm.update({
+            id:{"Date":q[1],"FNAN":q[2]}
+        })
+    return 0
 
 import traceback
+import subprocess
+import tempfile
 
 def run_code(code, func_name, *args):
     context = {} 
@@ -355,11 +381,18 @@ def run_code(code, func_name, *args):
         error_msg = '\n'.join(tb[4:]) if len(tb) > 4 else '\n'.join(tb)
         return {"error": error_msg}
     
-def run_python(code,q):
+def run_python(code, q):
     l = testcase(q)
-    r=[]
+    r = []
     for i in range(0, len(l), 2):
-        result = run_code(code, 'fn', int(l[i]))
+        arg = l[i]
+        if arg.replace('.', '', 1).isdigit():  
+            if '.' in arg:
+                arg = float(arg) 
+            else:
+                arg = int(arg)
+        
+        result = run_code(code, 'fn', arg)
         if 'error' in result:
             r.append([result['error'], 0])
         else:
@@ -369,14 +402,68 @@ def run_python(code,q):
     return r
 
 
+def compile_and_run_c_code(c_code, func_name, *args):
+    try:
+        with tempfile.NamedTemporaryFile(suffix=".c", delete=False) as c_file:
+            c_file.write(c_code.encode())
+            c_file_path = c_file.name
+        executable_path = c_file_path[:-2] 
+        compile_process = subprocess.run(
+            ["gcc", c_file_path, "-o", executable_path],
+            capture_output=True,
+            text=True
+        )
+        
+        if compile_process.returncode != 0:
+            return {"error": f"Compilation failed:\n{compile_process.stderr}"}
+        input_data = "\n".join(map(str, args)) + "\n"
+        
+        run_process = subprocess.run(
+            [executable_path],
+            input=input_data,
+            capture_output=True,
+            text=True
+        )
+        
+        if run_process.returncode != 0:
+            return {"error": f"Execution failed:\n{run_process.stderr}"}
+        
+        return {"result": run_process.stdout.strip()}
+    
+    except Exception as e:
+        tb = traceback.format_exc().strip().split('\n')
+        error_msg = '\n'.join(tb[4:]) if len(tb) > 4 else '\n'.join(tb)
+        return {"error": error_msg}
+
+def run_c_code(c_code, q):
+    l = testcase(q)
+    r = []
+    for i in range(0, len(l), 2):
+        arg = l[i]
+        if arg.replace('.', '', 1).isdigit():
+            if '.' in arg:
+                arg = float(arg)
+            else:
+                arg = int(arg)
+        
+        result = compile_and_run_c_code(c_code, 'main', arg)
+        if 'error' in result:
+            r.append([result['error'], 0])
+        else:
+            r.append([result.get('result', 'Key not found in context'), 1])
+
+    r.append(l)
+    return r
+
 
 def testcase(q):
     ref=dbs()
     tc=ref.child("Test_Case").get()
     l=[]
     s="0"+str(q[0])
+    sub_id=q[1]
     for i,j in tc.items():
-        if i==q[1]:
+        if i==sub_id:
             for k in j.values():
                 for x,y in k.items():
                     if x==s:
@@ -497,15 +584,17 @@ def load_tt(semester):
     return ref.child("Timetable").child(f"Semester {semester}").get()
 
 
-def stud_lab_submit(user,sub_id,q_titles):
+def stud_lab_submit(user,sub_id,q_titles,mark):
     qid=""
     ref=dbs()
     qn=ref.child(f"Questions/{sub_id}").get()
+    
     for i,j in qn.items():
         for x,y in j.items():
             if(y['Qn_Title']==q_titles):
                 qid=x
-    lab=ref.child(f"Lab_submit/{user}/{sub_id}").update({qid:"1"})
+    m="mark"+qid
+    lab=ref.child(f"Lab_submit/{user}/{sub_id}").update({qid:"1",m:mark})
 
 def attended_lab(user,sub_id):
     l=[0,0]
@@ -520,13 +609,15 @@ def attended_lab(user,sub_id):
     if("02" not in key and "04" not in key):
         l[1]=0
     for i in key:
-        index=int(i)
-        index=index-1
-        if(index>=2):
-            index-=2
-        l[index]=int(att[i])
+        if i.startswith("m")==False:
+            index=int(i)
+            index=index-1
+            if(index>=2):
+                index-=2
+            l[index]=int(att[i])
     return l
-        
+
+
 def res_view():
     l1=[]
     ref=dbs()
@@ -559,12 +650,55 @@ def res_stud_admin(subname):
         return l1
     for i,j in xm.items():
         l=[]
-        for x in j.keys():
+        total_marks=0
+        average_mark=0
+        count=0
+        for x,y in j.items():
             if x==subid:
                 l.append(i[-2:])
                 for o,p in st.items():
                     if o==i:
                         l.append(p['Name'])
+                for key, value in y.items():
+                    if key.startswith("mark"):
+                        total_marks += float(value)
+                        count+=1
+                
+                if count > 0:
+                    average_mark = total_marks / count
+                else:
+                    average_mark = 0
+                l.append(round(average_mark * 100, 2))
                 l1.append(l)
     return(l1)
      
+
+
+def marks_stud(id):
+    l1=[]
+    ref=dbs()
+    xm=ref.child(f"Lab_submit/{id}").get()
+    if(xm==None):
+        return l1
+    sub=ref.child("Subjects").get()
+    for i,j in xm.items():
+        total_marks=0
+        average_mark=0
+        count=0
+        l=[]
+        for x,y in sub.items():
+            if i==x:
+                l.append(y['Sub_Name'])
+        for key, value in j.items():
+                if key.startswith("mark"):
+                    total_marks += float(value)
+                    count+=1
+            
+        if count > 0:
+            average_mark = total_marks / count
+        else:
+            average_mark = 0
+        l.append(round(average_mark * 100, 2))
+        l1.append(l)
+    return l1
+    
