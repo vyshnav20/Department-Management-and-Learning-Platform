@@ -199,7 +199,7 @@ QCalendarWidget QMenu {
          </font>
         </property>
         <property name="text">
-         <string>Question</string>
+         <string>Edit Exam</string>
         </property>
         <property name="alignment">
          <set>Qt::AlignCenter</set>
@@ -331,7 +331,7 @@ QCalendarWidget QMenu {
             </font>
            </property>
            <property name="text">
-            <string>Question</string>
+            <string>Date</string>
            </property>
            <property name="alignment">
             <set>Qt::AlignRight|Qt::AlignTrailing|Qt::AlignVCenter</set>

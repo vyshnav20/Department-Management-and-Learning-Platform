@@ -8,7 +8,7 @@ from PyQt5.QtGui import *
 import sys
 from rounded_image_widget import RoundedImageWidget
 import icon_rc
-
+import importlib.resources
 from cssfn import *
 from fn import *
 import os
@@ -38,7 +38,11 @@ class CenterAlignDelegate(QStyledItemDelegate):
 class newfac(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/new_faculty.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "new_faculty.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -53,14 +57,22 @@ class newfac(QtWidgets.QDialog):
 class forgotpass(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/fp.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "fp.ui")
         uic.loadUi(ui_path,self)
 
 
 class submit_test(QtWidgets.QDialog):
     def __init__(self,r):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/sub_test.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "sub_test.ui")
         uic.loadUi(ui_path,self)
         self.dynamic_widgets = {}
         for i in range(len(r)-1):
@@ -134,7 +146,11 @@ class submit_test(QtWidgets.QDialog):
 class edit_sub(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/editsub.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "editsub.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -150,7 +166,11 @@ class edit_sub(QtWidgets.QDialog):
 class addexam(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/newsub.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "newsub.ui")
         uic.loadUi(ui_path,self)
         self.dateEdit.setDate(QDate.currentDate())
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
@@ -170,7 +190,11 @@ class addexam(QtWidgets.QDialog):
 class viewqns(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/viewqn.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "viewqn.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -209,7 +233,11 @@ class viewqns(QtWidgets.QDialog):
 class newqns(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/newqns.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "newqns.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -245,7 +273,11 @@ class newqns(QtWidgets.QDialog):
 class updtdialogbox(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/updatedialog.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "updatedialog.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -260,7 +292,11 @@ class updtdialogbox(QtWidgets.QDialog):
 class deldialogbox(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/deldialog.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "deldialog.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -275,7 +311,11 @@ class deldialogbox(QtWidgets.QDialog):
 class noqnss(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/noqns.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "noqns.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -290,7 +330,11 @@ class noqnss(QtWidgets.QDialog):
 class dialogbox(QtWidgets.QDialog):
     def __init__(self):
         super().__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/dialogbox.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "dialogbox.ui")
         uic.loadUi(ui_path,self)
         self.buttonBox = self.findChild(QtWidgets.QDialogButtonBox, 'buttonBox')
 
@@ -306,7 +350,11 @@ class dialogbox(QtWidgets.QDialog):
 class MainUi(QtWidgets.QMainWindow):
     def __init__(self):
         super(MainUi, self).__init__()
-        ui_path = os.path.abspath("F:/QT/lab/src/lab/lab.ui")
+        if getattr(sys, 'frozen', False):
+            base_path = sys._MEIPASS
+        else:
+            base_path = os.path.dirname(os.path.abspath(__file__))
+        ui_path=os.path.join(base_path, "lab.ui")
         uic.loadUi(ui_path, self)
         css = """
     #qn_list {
@@ -400,12 +448,12 @@ class MainUi(QtWidgets.QMainWindow):
         self.admin_buttons[2].clicked.connect(self.admin_res)
         self.admin_buttons[3].clicked.connect(self.fc)
         self.admin_buttons[4].clicked.connect(self.adminexmschedule)
-        self.admin_buttons[5].clicked.connect(self.admintimetable)
+        self.admin_buttons[5].clicked.connect(self.un)
         self.admin_buttons[6].clicked.connect(self.un)
         self.admin_buttons[7].clicked.connect(self.un)
         self.admin_buttons[8].clicked.connect(self.un)
 
-        self.img.setImage("F:/QT/lab/src/lab/icons/vy.jpg")
+        # self.img.setImage("F:/QT/lab/src/lab/icons/vy.jpg")
         self.theme.clicked.connect(self.changeTheme)
         self.setStyleSheet(getDarkTheme())
         self.retranslateUi()
