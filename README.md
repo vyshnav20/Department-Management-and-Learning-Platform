@@ -7,7 +7,7 @@ A management system designed to streamline academic and administrative processes
 
 **Features:**  
 - Schedule and manage exams efficiently.
-- Students can attend exams and view results in real time.
+- Students can attend exams and view results in real-time.
 - Lab exam module for practical evaluations.
 
 **Technologies Used:**  
@@ -17,7 +17,7 @@ A management system designed to streamline academic and administrative processes
 
 
 **Screenshots:**
-1. **Login Screen**  ![Login](https://gist.github.com/user-attachments/assets/28080b12-458b-430c-a992-bf15378351db)<br><br>
+1. **Login Screen**  ![Login](./lab/images/Login.png)<br><br>
 2. **Admin Home Page** ![Admin_Home_Page](https://gist.github.com/user-attachments/assets/03801470-a347-48b5-bdbd-dc33898a535f)<br><br>
 3. **Schedule Exam** ![Schedule New Exam](https://gist.github.com/user-attachments/assets/e3861a2c-81b6-4fcb-b0ba-2e2247a6f26a)<br><br>
 4. **Edit Exam** ![Edit Exam](https://gist.github.com/user-attachments/assets/84e259cb-871f-4feb-924d-ebef0ef5c9a3)<br><br>
